@@ -1,0 +1,354 @@
+//backgrounds
+
+.croxo-background-transparent {
+	background-color: transparent;
+}
+
+.croxo-background-transparent--deep {
+	background-color: transparent;
+		* {
+			background-color: transparent;
+	}
+}
+
+.croxo-background-transparent--deep--imporant {
+	background-color: transparent !important;
+		* {
+			background-color: transparent !important;
+	}
+}
+
+//colors
+
+.croxo-color-text {
+	color: #212529;
+}
+
+.croxo-color-transparent {
+	color: transparent;
+}
+
+.croxo-color-transparent--deep {
+	color: transparent;
+	* {
+		color: transparent;
+	}
+}
+
+.croxo-color-transparent--deep--important {
+	color: transparent !important;
+	* {
+		color: transparent !important;
+	}
+}
+
+.croxo-color-text--deep {
+	color: #212529;
+
+	* {
+		color: #212529;
+	}
+}
+
+.theme-color {
+	color: var(--acid-color);
+	transition: all 350;
+}
+
+//cursor
+
+.c-pointer {
+	cursor: pointer;
+}
+
+//flex
+
+.flexone {
+	flex: 1;
+}
+
+.flextwo {
+	flex: 2;
+}
+
+.flexthree {
+	flex: 3;
+}
+
+.flexfour {
+	flex: 4;
+}
+
+.flexfive {
+	flex: 5;
+}
+
+.flexsix {
+	flex: 6;
+}
+
+.row-gap-20 {
+	row-gap: var(--wp--preset--spacing--20);
+}
+
+.row-gap-30 {
+	row-gap: var(--wp--preset--spacing--30);
+}
+
+.row-gap-40 {
+	row-gap: var(--wp--preset--spacing--40);
+}
+
+.row-gap-50 {
+	row-gap: var(--wp--preset--spacing--50);
+}
+
+.row-gap-60 {
+	row-gap: var(--wp--preset--spacing--60);
+}
+
+.row-gap-70 {
+	row-gap: var(--wp--preset--spacing--70);
+}
+
+.row-gap-80 {
+	row-gap: var(--wp--preset--spacing--80);
+}
+
+.row-gap-90 {
+	row-gap: var(--wp--preset--spacing--90);
+}
+
+.column-gap-20 {
+	column-gap: var(--wp--preset--spacing--20);
+}
+
+.column-gap-30 {
+	column-gap: var(--wp--preset--spacing--30);
+}
+
+.column-gap-40 {
+	column-gap: var(--wp--preset--spacing--40);
+}
+
+.column-gap-50 {
+	column-gap: var(--wp--preset--spacing--50);
+}
+
+.column-gap-60 {
+	column-gap: var(--wp--preset--spacing--60);
+}
+
+.column-gap-70 {
+	column-gap: var(--wp--preset--spacing--70);
+}
+
+.column-gap-80 {
+	column-gap: var(--wp--preset--spacing--80);
+}
+
+.column-gap-90 {
+	column-gap: var(--wp--preset--spacing--90);
+}
+
+//hovers
+
+.croxo-underline-hover {
+	position: relative;
+
+	&:hover {
+		&::after {
+			width: 100%;
+		}
+	}
+
+	&::after {
+		background: var(--acid-color);
+		bottom: 0;
+		content: ' ';
+		left: 0;
+		height: 1px;
+		margin-left: 2px;
+		position: absolute;
+		transition: all 350ms;
+		width: 0%;
+	}
+}
+
+.croxo-underline-hover--width-fit {
+	position: relative;
+	width: fit-content;
+
+	&:hover {
+		&::after {
+			width: 100%;
+		}
+	}
+
+	&::after {
+		background: var(--acid-color);
+		bottom: 0;
+		content: ' ';
+		left: 0;
+		height: 1px;
+		margin-left: 2px;
+		position: absolute;
+		transition: all 350ms;
+		width: 0%;
+	}
+}
+
+//img behaviours
+
+.img-cover {
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+//material icons
+
+.material-symbols-outlined {
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 700,
+		'GRAD' 200,
+		'opsz' 24
+}
+
+//pointer events
+.p-events-none {
+	pointer-events: none;
+}
+
+.p-events-none--deep {
+	pointer-events: none;
+
+	* {
+		pointer-events: none;
+	}
+}
+
+.p-events-all {
+	pointer-events: all;
+}
+
+.p-events-all--deep {
+	pointer-events: all;
+
+	* {
+		pointer-events: all;
+	}
+}
+
+//positioning
+
+.absolute-stretch {
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.fixed-stretch {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+.sticky-top {
+	position: sticky;
+	top: 24px;
+	z-index: 0;
+}
+
+//ratios
+
+.ratio-square {
+	aspect-ratio: 1 / 1;
+}
+
+//resets
+
+.reset-button {
+	border: none;
+	color: inherit;
+	padding: 0;
+
+	&:hover {
+		background: none;
+		background-color: none;
+		color: inherit;
+	}
+}
+
+.reset-link {
+	text-decoration: none;
+}
+
+//text formatting
+
+.croxo-font-text {
+	font-family: 'Terminal Grotesque';
+}
+
+.croxo-font-text--deep {
+	font-family: 'Terminal Grotesque';
+
+	* {
+		font-family: 'Terminal Grotesque';
+	}
+}
+
+.croxo-text-h1 {
+	font-size: $font-size-h1;
+}
+
+.croxo-text-h1-xl {
+	font-size: $font-size-h1-xl;
+}
+
+.croxo-text-h1-xxl {
+	font-size: $font-size-h1-xxl;
+}
+
+.croxo-text-label {
+	font-size: $font-size-label;
+}
+
+.croxo-icon-size-micro {
+	font-size: 15px;
+}
+
+//tilt
+
+.tilt-l-2 {
+	margin-left: -2px;
+}
+
+.tilt-r-2 {
+	margin-right: -2px;
+}
+
+.tilt-l-18--hover {
+	&:hover {
+		margin-left: -18px;
+	}
+}
+
+.tilt-r-18--hover {
+	margin-right: 0px;
+
+	&:hover {
+		margin-right: -18px;
+	}
+}
+
+//transition
+
+.transition-all-550 {
+	transition: all 550ms;
+}

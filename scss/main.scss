@@ -1,0 +1,70 @@
+/* 
+Theme Name: Hello Elementor Child
+Theme URI: https://github.com/elementor/hello-theme-child/
+Description: Hello Elementor Child is a child theme of Hello Elementor, created by Elementor team
+Author: Elementor Team
+Author URI: https://elementor.com/
+Template: hello-elementor
+Version: 2.0.0
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+/* Add your custom styles here */
+ 
+@import "../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../node_modules/bootstrap/scss/bootstrap-reboot";
+@import "../node_modules/bootstrap/scss/bootstrap-utilities";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/utilities/api";
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/accordion";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/buttons";
+
+@import './global/variables.scss'; 
+@import './global/globalStyles.scss'; 
+@import 'header';
+@import 'lists'; 
+@import './components/croxoGallery.scss'; 
+@import './menus/topNav.scss'; 
+@import './post_types/customPostType.scss'; 
+@import './shop/storeFront.scss'; 
+
+@font-face {
+    font-family: Lithops;
+    src: url('./fonts/Lithops-Regular.ttf') format('truetype'),
+    url('./fonts/Lithops-Regular.otf') format('otf'),
+    url('./fonts/Lithops-Regular.woff') format('woff'),
+    url('./fonts/Lithops-Regular.woff2') format('woff2');
+    font-weight: normal;
+};
+
+@font-face {
+    font-family: Pilowlava;
+    src: url('./fonts/Pilowlava-Regular.ttf') format('truetype'),
+    url('./fonts/Pilowlava-Regular.otf') format('otf'),
+    url('./fonts/Pilowlava-Regular.woff') format('woff'),
+    url('./fonts/Pilowlava-Regular.woff2') format('woff2');
+    font-weight: normal;
+};
+
+@font-face {
+    font-family: Terminal Grotesque;
+    src: url('./fonts/terminal-grotesque.ttf') format('truetype'),
+    url('./fonts/terminal-grotesque.otf') format('otf');
+    font-weight: normal;
+}; 
