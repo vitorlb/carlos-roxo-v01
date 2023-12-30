@@ -16,11 +16,7 @@ get_header();
 $is_elementor_theme_exist = function_exists( 'elementor_theme_do_location' );
 ?> 
 <?php
-if ( is_singular() ) { 
-	if ( ! $is_elementor_theme_exist || ! elementor_theme_do_location( 'single' ) ) {
-		get_template_part( 'template-parts/single' );
-	} 
-} elseif ( is_singular($post_types = 'ceramics') ) {
+if ( is_singular($post_types = 'ceramics') ) {
 	if ( ! $is_elementor_theme_exist || ! elementor_theme_do_location( 'ceramics' ) ) {
 		get_template_part( 'template-parts/ceramics' );
 	}
@@ -28,6 +24,10 @@ if ( is_singular() ) {
 	if ( ! $is_elementor_theme_exist || ! elementor_theme_do_location( 'ilustrations' ) ) {
 		get_template_part( 'template-parts/ilustrations' );
 	}
+} elseif ( is_singular() ) { 
+	if ( ! $is_elementor_theme_exist || ! elementor_theme_do_location( 'single' ) ) {
+		get_template_part( 'template-parts/single' );
+	} 
 } elseif (  is_home() ) {
 ?>	
 <div class="discos-grelha container px-0">

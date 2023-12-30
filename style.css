@@ -29355,6 +29355,14 @@ progress {
   transition: all 350;
 }
 
+.border-theme-color {
+  border: 2px solid var(--acid-color);
+}
+
+.border-theme-color--important {
+  border: 2px solid var(--acid-color) !important;
+}
+
 .c-pointer {
   cursor: pointer;
 }
@@ -29611,6 +29619,10 @@ progress {
   transition: all 550ms;
 }
 
+.transition-all-650 {
+  transition: all 650ms;
+}
+
 .site-header .site-title a {
   color: var(--acid-color);
   font-family: "Pilowlava";
@@ -29743,85 +29755,49 @@ progress {
   width: 100%;
 }
 
-header .site-navigation .menu-topnav-container {
-  flex: 1;
+.site-navigation .menu-topnav-container {
+  width: 100%;
 }
-header .site-navigation .menu-topnav-container .menu .menu-item {
-  height: fit-content;
-  display: block;
+.site-navigation .menu-topnav-container .menu {
+  justify-content: space-between;
+}
+.site-navigation .menu-topnav-container .menu .menu-item {
+  display: flex;
   flex: 1;
-  flex-shrink: 0;
-  padding-left: 18px;
-  padding-right: 18px;
+  justify-content: center;
+}
+.site-navigation .menu-topnav-container .menu .menu-item:first-child {
+  justify-content: flex-start;
+}
+.site-navigation .menu-topnav-container .menu .menu-item:last-child {
+  justify-content: flex-end;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about {
   position: relative;
 }
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about:hover .menu-item--about__text {
-  border-bottom: 2px solid var(--acid-color);
-  border-left: 2px solid var(--acid-color);
-  border-right: 2px solid var(--acid-color);
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__title {
+  align-self: stretch;
+  background-color: aliceblue;
+  color: var(--acid-color);
+  padding: 8px 15px;
+  z-index: 3;
 }
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about:hover .menu-item--about__text > *:first-child {
-  margin-top: 0;
-}
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text {
-  background-color: white;
-  border-bottom: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right: 2px solid transparent;
-  display: block;
-  left: 0;
-  padding-bottom: 18px;
-  padding-left: 12px;
-  padding-right: 12px;
-  position: absolute;
-  right: 0;
-  overflow: hidden;
-  transition: all 850ms;
-  top: 0;
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text {
+  border: 2px solid transparent;
+  border-top: 0px !important;
   z-index: 2;
 }
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text > *:first-child {
-  margin-top: var(--about-menu-height);
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text * {
+  text-align: left;
 }
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text p {
-  display: block;
-  padding-left: 3px;
-  padding-top: 42px;
-  transition: all 850ms;
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text p {
+  margin: 0;
 }
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text a {
-  color: #212529;
-  padding: 0;
-  text-decoration: none;
-}
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__title {
-  background-color: white;
-  display: flex;
-  margin-left: -3px;
-  position: relative;
-  z-index: 3;
-}
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__title::before {
-  align-self: stretch;
-  background-color: white;
-  content: " ";
-  display: block;
-  width: 3px;
-}
-header .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__title * {
-  z-index: 3;
-}
-header .site-navigation .menu-topnav-container .menu .menu-item > a,
-header .site-navigation .menu-topnav-container .menu .menu-item > span {
-  font-size: 18px;
+.site-navigation .menu-topnav-container .menu .menu-item a {
   color: var(--acid-color);
   text-decoration: none;
-  padding: 0;
 }
 
-/*
-
-*/
 @font-face {
   font-family: Lithops;
   src: url("./fonts/Lithops-Regular.ttf") format("truetype"), url("./fonts/Lithops-Regular.otf") format("otf"), url("./fonts/Lithops-Regular.woff") format("woff"), url("./fonts/Lithops-Regular.woff2") format("woff2");

@@ -69,10 +69,12 @@ $header_nav_menu = wp_nav_menu([
 					while ($custom_query->have_posts()) {
 						$custom_query->the_post();
 				?>
-						<li id="croxoAboutMenuItem" class="menu-item menu-item-object-page menu-item--about d-flex flex-column">
-							<span class="menu-item--about__title"><?php the_title(); ?></span>
-							<div class="menu-item--about__text croxo-color-transparent croxo-background-transparent--deep--imporant p-events-none--deep">
-								<?php the_content(); ?>
+						<li id="croxoAboutMenuItem" class="menu-item menu-item-object-page menu-item--about d-flex flex-column align-items-end position-relative">
+							<div class="menu-item--about__wrapper absolute-stretch d-flex flex-column">
+								<span class="menu-item--about__title align-self-stretch"><?php the_title(); ?></span>
+								<div class="menu-item--about__text croxo-color-transparent croxo-background-transparent--deep--imporant p-events-none--deep transition-all-650 p-3 pt-4">
+									<?php the_content(); ?>
+								</div>
 							</div>
 						</li>
 				<?php
