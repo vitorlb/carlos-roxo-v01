@@ -282,7 +282,7 @@ function grelha_discos()
 			$permalink = get_permalink();
 		?>
 			<li class="disco"> <?php
-								if (has_post_thumbnail()) {  ?>
+													if (has_post_thumbnail()) {  ?>
 					<div class="disco_thumb">
 						<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
 					</div>
@@ -293,10 +293,9 @@ function grelha_discos()
 					</div>
 				<?php } ?>
 				<div class="disco_title">
-					<p class="disco_title__paragraph p-2">
+					<p class="disco_title__paragraph p-2 pb-3">
 						<a href="<?= $permalink ?>">
 							<span style="font-size: 1.3rem"><?php the_title() ?><br></span>
-							<span class="disco-autor">by <?= $authorName   ?></span>
 						</a>
 					</p>
 				</div>
@@ -307,10 +306,73 @@ function grelha_discos()
 	</ul>
 <?php
 }
-/*
-Gallery metabox
-*/
 
+
+/**** events list function ****/
+function events_list($past_events)
+{
+	$args_past = array(
+		'post_type'      => 'post', 
+		'posts_per_page' => -1,
+		'meta_query'     => array(
+			array(
+				'key'     => '_custom_date',
+				'value'   => date('Y-m-d'), // Today's date
+				'compare' => '<', // Filter posts where the custom date is less than today
+				'type'    => 'DATE',
+			),
+		),
+	);
+	$args_future = array(
+		'post_type'      => 'post', 
+		'posts_per_page' => -1,
+		'meta_query'     => array(
+			array(
+				'key'     => '_custom_date',
+				'value'   => date('Y-m-d'), // Today's date
+				'compare' => '>=', // Filter posts where the custom date is today or greater
+				'type'    => 'DATE',
+			),
+		),
+	);
+?>
+	<div class="croxo--events-list--main-wrapper">
+		<?php
+		// Display posts from the past
+		if ($past_events == false) {
+			$query_past = new WP_Query($args_past);
+			if ($query_past->have_posts()) {
+				while ($query_past->have_posts()) {
+					$query_past->the_post();
+					// Display posts from the past here
+		?>
+					<h2><? echo get_the_title(); ?></h2>
+				<?php
+				}
+				wp_reset_postdata(); // Reset post data
+			} else {
+				echo 'No posts found in the past.';
+			}
+		} else {
+			$query_future = new WP_Query($args_future);
+			if ($query_future->have_posts()) {
+				while ($query_future->have_posts()) {
+					$query_future->the_post();
+					// Display posts from the past here
+				?>
+					<h2>it's thaa FUTURE!</h2>
+					<h1 class="theme-color"><?php echo get_the_title(); ?></h1>
+		<?php
+				}
+				wp_reset_postdata(); // Reset post data
+			} else {
+				echo 'No posts found in the future.';
+			}
+		}
+		?>
+	</div>
+<?php
+}
 
 /*
 AUTHOR META BOX
@@ -404,3 +466,47 @@ function enqueue_about_menu_item()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_about_menu_item');
+
+// Custom date metabox
+// Add meta box for date to a specific post type (replace 'your_post_type' with your actual post type)
+function add_custom_date_metabox()
+{
+	add_meta_box(
+		'custom-date-metabox', // Meta box ID
+		'Event date', // Title displayed on the meta box
+		'display_custom_date_metabox', // Callback function to display the metabox contents
+		'post', // Your specific post type
+		'side', // Context: 'normal', 'advanced', or 'side'
+		'default' // Priority: 'high', 'core', 'default', or 'low'
+	);
+}
+add_action('add_meta_boxes', 'add_custom_date_metabox');
+
+// Callback function to display the contents of the metabox
+function display_custom_date_metabox($post)
+{
+	// Retrieve previously saved date value
+	$custom_date = get_post_meta($post->ID, '_custom_date', true);
+
+	// Output HTML for the metabox
+?>
+	<label for="custom_date_field">Select Date:</label>
+	<input type="date" id="custom_date_field" name="custom_date_field" value="<?php echo esc_attr($custom_date); ?>" required>
+<?php
+}
+
+// Save the meta box data when the post is saved or updated
+function save_custom_date_metabox($post_id)
+{
+	if (array_key_exists('custom_date_field', $_POST)) {
+		// Check if the date field is empty
+		if (empty($_POST['custom_date_field'])) {
+			// If the date field is empty, prevent saving and display an error
+			wp_die('Please select a date for the custom field.');
+		} else {
+			// Sanitize and save the date data
+			update_post_meta($post_id, '_custom_date', sanitize_text_field($_POST['custom_date_field']));
+		}
+	}
+}
+add_action('save_post', 'save_custom_date_metabox');

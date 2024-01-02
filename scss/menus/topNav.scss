@@ -21,25 +21,53 @@
 				&.menu-item--about {
 					position: relative;
 
-					.menu-item--about__title {
-						align-self: stretch;
-						background-color: aliceblue;
-						color: var(--acid-color);
-						padding: 8px 15px;
-						z-index: 3;
-					}
+					.menu-item--about__wrapper {
+						overflow: hidden;
 
-					.menu-item--about__text { 
-						border: 2px solid transparent;
-						border-top: 0px !important;
-						z-index: 2;
+						&:hover {
+							bottom: var(--aboutMenuTextHeightNeg);
 
-						* {
-							text-align: left;
+							.menu-item--about__text {
+								margin-top: 0;
+							}
 						}
 
-						p {
-							margin: 0;
+						.menu-item--about__title {
+							align-self: stretch;
+							background-color: white;
+							color: var(--acid-color);
+							padding: 8px 15px;
+							text-align: right;
+							z-index: 3;
+						}
+
+						.menu-item--about__text {
+							background-color: white;
+							border: 2px solid transparent;
+							border-top: 0px !important;
+							margin-top: var(--aboutMenuTextHeightNeg);
+							z-index: 2;
+
+							* {
+								text-align: right;
+							}
+
+							a {
+								color: black;
+								padding-bottom: 3px;
+								padding-left: 3px;
+								padding-right: 0;
+								margin-left: auto;
+								width: fit-content;
+							}
+
+							p {
+								margin: 0;
+							}
+
+							.material-symbols-outlined {
+								font-family: 'Material Symbols Outlined' !important;
+							}
 						}
 					}
 				}

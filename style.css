@@ -29473,6 +29473,24 @@ progress {
   width: 0%;
 }
 
+.croxo-underline-hover--right {
+  position: relative;
+}
+.croxo-underline-hover--right:hover::after {
+  width: 100%;
+}
+.croxo-underline-hover--right::after {
+  background: var(--acid-color);
+  bottom: 0;
+  content: " ";
+  right: 0;
+  height: 1px;
+  margin-left: 2px;
+  position: absolute;
+  transition: all 350ms;
+  width: 0%;
+}
+
 .croxo-underline-hover--width-fit {
   position: relative;
   width: fit-content;
@@ -29594,6 +29612,10 @@ progress {
 
 .croxo-icon-size-micro {
   font-size: 15px;
+}
+
+.tilt-b-2 {
+  margin-bottom: -2px;
 }
 
 .tilt-l-2 {
@@ -29775,23 +29797,46 @@ progress {
 .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about {
   position: relative;
 }
-.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__title {
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper {
+  overflow: hidden;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper:hover {
+  bottom: var(--aboutMenuTextHeightNeg);
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper:hover .menu-item--about__text {
+  margin-top: 0;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper .menu-item--about__title {
   align-self: stretch;
-  background-color: aliceblue;
+  background-color: white;
   color: var(--acid-color);
   padding: 8px 15px;
+  text-align: right;
   z-index: 3;
 }
-.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text {
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper .menu-item--about__text {
+  background-color: white;
   border: 2px solid transparent;
   border-top: 0px !important;
+  margin-top: var(--aboutMenuTextHeightNeg);
   z-index: 2;
 }
-.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text * {
-  text-align: left;
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper .menu-item--about__text * {
+  text-align: right;
 }
-.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__text p {
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper .menu-item--about__text a {
+  color: black;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 0;
+  margin-left: auto;
+  width: fit-content;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper .menu-item--about__text p {
   margin: 0;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper .menu-item--about__text .material-symbols-outlined {
+  font-family: "Material Symbols Outlined" !important;
 }
 .site-navigation .menu-topnav-container .menu .menu-item a {
   color: var(--acid-color);

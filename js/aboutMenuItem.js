@@ -12,7 +12,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		(aboutMenuItem.closest('.site-navigation')
 			?.querySelector('.menu-topnav-container .menu')?.appendChild(aboutMenuItem)),
 		(!!aboutMenuItem.querySelector('.menu-item--about__title')
-			&& (aboutMenuItem.querySelector('.menu-item--about__title')
+			&& (root.style.setProperty('--aboutMenuTextHeightNeg',
+				`-${aboutMenuItem.querySelector('.menu-item--about__text')
+					?.getBoundingClientRect().height}px`),
+				aboutMenuItem.querySelector('.menu-item--about__title')
 				.addEventListener("mouseenter", () => {
 					aboutMenuItem.querySelector('.menu-item--about__text')
 						?.classList.remove('croxo-color-transparent', 'croxo-background-transparent--deep--imporant', 'p-events-none--deep');

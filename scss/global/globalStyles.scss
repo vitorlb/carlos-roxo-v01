@@ -183,6 +183,28 @@
 	}
 }
 
+.croxo-underline-hover--right {
+	position: relative;
+
+	&:hover {
+		&::after {
+			width: 100%;
+		}
+	}
+
+	&::after {
+		background: var(--acid-color);
+		bottom: 0;
+		content: ' ';
+		right: 0;
+		height: 1px;
+		margin-left: 2px;
+		position: absolute;
+		transition: all 350ms;
+		width: 0%;
+	}
+}
+
 .croxo-underline-hover--width-fit {
 	position: relative;
 	width: fit-content;
@@ -332,6 +354,10 @@
 }
 
 //tilt
+
+.tilt-b-2 {
+	margin-bottom: -2px;
+}
 
 .tilt-l-2 {
 	margin-left: -2px;
