@@ -278,7 +278,6 @@ function grelha_discos()
 		wp_reset_query();
 		$query = new WP_Query($args);
 		while ($query->have_posts()) : $query->the_post();
-			$authorName = get_post_meta(get_the_ID(), '_author_name_value_key')[0] ?? null;
 			$permalink = get_permalink();
 		?>
 			<li class="disco"> <?php
@@ -292,7 +291,7 @@ function grelha_discos()
 						<p><?php the_title(); ?></p>
 					</div>
 				<?php } ?>
-				<div class="disco_title">
+				<div class="disco_title d-flex flex-column">
 					<p class="disco_title__paragraph p-2 pb-3">
 						<a href="<?= $permalink ?>">
 							<span style="font-size: 1.3rem"><?php the_title() ?><br></span>
@@ -309,67 +308,80 @@ function grelha_discos()
 
 
 /**** events list function ****/
-function events_list($past_events)
+function events_list($time)
 {
-	$args_past = array(
-		'post_type'      => 'post', 
+	$args = array(
+		'post_type'      => 'post',
 		'posts_per_page' => -1,
 		'meta_query'     => array(
 			array(
 				'key'     => '_custom_date',
 				'value'   => date('Y-m-d'), // Today's date
-				'compare' => '<', // Filter posts where the custom date is less than today
-				'type'    => 'DATE',
-			),
-		),
-	);
-	$args_future = array(
-		'post_type'      => 'post', 
-		'posts_per_page' => -1,
-		'meta_query'     => array(
-			array(
-				'key'     => '_custom_date',
-				'value'   => date('Y-m-d'), // Today's date
-				'compare' => '>=', // Filter posts where the custom date is today or greater
+				'compare' => !!$time ? '>=' : '<', // Filter posts where the custom date is less than today
 				'type'    => 'DATE',
 			),
 		),
 	);
 ?>
-	<div class="croxo--events-list--main-wrapper">
-		<?php
-		// Display posts from the past
-		if ($past_events == false) {
-			$query_past = new WP_Query($args_past);
+	<div class="croxo--events-list--main-wrapper discos-grelha">
+		<ul class="discos">
+			<?php
+			// Display posts from the past 
+			$query_past = new WP_Query($args);
 			if ($query_past->have_posts()) {
 				while ($query_past->have_posts()) {
 					$query_past->the_post();
+					$permalink = get_permalink();
+					$excerpt = get_the_excerpt()
 					// Display posts from the past here
-		?>
-					<h2><? echo get_the_title(); ?></h2>
-				<?php
+			?>
+					<li class="disco"> <?php if (has_post_thumbnail()) { ?>
+							<div class="disco_thumb">
+								<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
+							</div>
+						<?php } else {
+						?>
+							<div class="disco_thumb">
+								<p><?php the_title(); ?></p>
+							</div>
+						<?php } ?>
+						<div class="disco_title">
+							<div class="disco_title__text-container d-flex flex-column justify-content-end">
+								<p class="disco_title__paragraph px-2 pt-2">
+									<a href="<?= $permalink ?>">
+										<span style="font-size: 1.3rem"><?php the_title() ?><br></span>
+									</a>
+								</p>
+								<?php if (!empty($excerpt)) { ?>
+									<span class="disco_title__excerpt px-2">
+										<?php echo $excerpt; ?>
+									</span>
+								<?php } ?>
+								<div class="disco_title__actions-container d-flex justify-content-between px-2 pt-2">
+									<a href="<?php echo $permalink; ?>" class="disco_title__actions-container__post-link theme-color reset-link d-flex align-items-center">
+										<span class="disco_title__actions-container__post-link__icon material-symbols-outlined tilt-b-2">mystery</span>
+										<span class="disco_title__actions-container__post-link__span ps-1">See more</span>
+									</a>
+									<?php if (!!$time) {
+									?>
+										<a class="disco_title__actions-container__apply-link theme-color reset-link d-flex align-items-center">
+											<span class="disco_title__actions-container__apply-link__icon material-symbols-outlined tilt-b-2">hand_gesture</span>
+											<span class="disco_title__actions-container__apply-link__span ps-1">apply!</span>
+										</a>
+									<?php
+									} ?>
+								</div>
+							</div>
+						</div>
+					</li>
+			<?php
 				}
 				wp_reset_postdata(); // Reset post data
 			} else {
 				echo 'No posts found in the past.';
 			}
-		} else {
-			$query_future = new WP_Query($args_future);
-			if ($query_future->have_posts()) {
-				while ($query_future->have_posts()) {
-					$query_future->the_post();
-					// Display posts from the past here
-				?>
-					<h2>it's thaa FUTURE!</h2>
-					<h1 class="theme-color"><?php echo get_the_title(); ?></h1>
-		<?php
-				}
-				wp_reset_postdata(); // Reset post data
-			} else {
-				echo 'No posts found in the future.';
-			}
-		}
-		?>
+			?>
+		</ul>
 	</div>
 <?php
 }

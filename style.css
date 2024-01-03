@@ -29705,20 +29705,50 @@ progress {
   right: 0;
   top: 0;
 }
-.discos-grelha .discos .disco .disco_title:hover .disco_title__paragraph {
+.discos-grelha .discos .disco .disco_title:hover > * {
   opacity: 1;
   transform: translate(0, 0px);
+}
+.discos-grelha .discos .disco .disco_title:hover .disco_title__text-container > * {
+  background-color: white;
+}
+.discos-grelha .discos .disco .disco_title > * {
+  opacity: 0;
+  transform: translate(0, 20px);
+  transition: all 500ms;
 }
 .discos-grelha .discos .disco .disco_title a {
   color: var(--acid-color);
 }
 .discos-grelha .discos .disco .disco_title .disco_title__paragraph {
-  background-color: white;
   display: block;
-  opacity: 0;
   margin: 0;
-  transform: translate(0, 20px);
+}
+.discos-grelha .discos .disco .disco_title .disco_title__text-container:hover .disco_title__excerpt {
+  height: 100%;
+}
+.discos-grelha .discos .disco .disco_title .disco_title__text-container > *:last-child {
+  padding-bottom: 8px;
+}
+.discos-grelha .discos .disco .disco_title .disco_title__text-container .disco_title__excerpt {
+  font-family: "Terminal Grotesque";
+  font-size: 12px;
+  height: 0%;
+  overflow: hidden;
+  line-height: 12px;
   transition: all 500ms;
+}
+.discos-grelha .discos .disco .disco_title .disco_title__text-container .disco_title__actions-container__post-link .disco_title__actions-container__post-link__icon {
+  font-size: 12px;
+}
+.discos-grelha .discos .disco .disco_title .disco_title__text-container .disco_title__actions-container__post-link .disco_title__actions-container__post-link__span {
+  font-size: 12px;
+}
+.discos-grelha .discos .disco .disco_title .disco_title__text-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__icon {
+  font-size: 12px;
+}
+.discos-grelha .discos .disco .disco_title .disco_title__text-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__span {
+  font-size: 12px;
 }
 
 .croxo-gallery.croxo-gallery--img-focused .croxo-gallery__gallery-item {

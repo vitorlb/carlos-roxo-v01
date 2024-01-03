@@ -1,5 +1,6 @@
 .discos-grelha {
   margin-top: 24px;
+
   .discos {
     column-gap: 36px;
     display: flex;
@@ -21,15 +22,13 @@
       &:nth-child(odd) {
         .disco_title {
 
-          .disco_title__paragraph {
-          }
+          .disco_title__paragraph {}
         }
       }
 
       &:nth-child(even) {
         .disco_title {
-            .disco_title__paragraph {
-          }
+          .disco_title__paragraph {}
         }
       }
 
@@ -40,15 +39,17 @@
       .disco_thumb {
         aspect-ratio: 1 / 1;
         display: flex;
+
         a {
           align-self: stretch;
           display: block;
           flex: 1;
+
           img {
             height: 100%;
             object-fit: cover;
             width: 100%;
-            
+
             filter: grayscale(100%);
             -webkit-filter: grayscale(100%);
           }
@@ -64,22 +65,78 @@
         position: absolute;
         right: 0;
         top: 0;
+
         &:hover {
-          .disco_title__paragraph {
+
+          >* {
             opacity: 1;
             transform: translate(0, 0px);
           }
+
+          .disco_title__text-container {
+            >* {
+              background-color: white;
+            }
+          }
         }
+
+        >* {
+          opacity: 0;
+          transform: translate(0, 20px);
+          transition: all 500ms;
+        }
+
         a {
           color: var(--acid-color);
         }
+
         .disco_title__paragraph {
-          background-color: white;
           display: block;
-          opacity: 0;
           margin: 0;
-          transform: translate(0, 20px);
-          transition: all 500ms;
+        }
+
+
+        .disco_title__text-container {
+          &:hover {
+            .disco_title__excerpt {
+              height: 100%; 
+            }
+          }
+
+          >* {
+            &:last-child {
+              padding-bottom: 8px;
+            }
+          }
+
+          .disco_title__excerpt {
+            font-family: "Terminal Grotesque";
+            font-size: 12px;
+            height: 0%;
+            overflow: hidden;
+            line-height: 12px; 
+            transition: all 500ms ;
+          }
+
+          .disco_title__actions-container__post-link {
+            .disco_title__actions-container__post-link__icon {
+              font-size: 12px;
+            }
+
+            .disco_title__actions-container__post-link__span {
+              font-size: 12px;
+            }
+          }
+
+          .disco_title__actions-container__apply-link {
+            .disco_title__actions-container__apply-link__icon {
+              font-size: 12px;
+            }
+
+            .disco_title__actions-container__apply-link__span {
+              font-size: 12px;
+            }
+          }
         }
       }
     }
