@@ -14,7 +14,7 @@ $postType = get_post_type();
 ?> 
 <div class="ctp-header-wrapper sticky-top <?php if ($postType == 'post') { ?> d-flex <?php }  ?>">
 	<?php if ($postType == 'post') { ?>
-		<div class="ctp-header-wrapper__calendar-wrapper flexone mt-3">
+		<div class="ctp-header-wrapper__calendar-wrapper flexone mt-3 pe-4">
 			<?php get_template_part('template-parts/components/calendar-item') ?>
 		</div>
 		<div class="ctp-header-wrapper__text-info-wrapper flexfour">

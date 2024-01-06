@@ -22,7 +22,7 @@ while (have_posts()) :
 			<div class="page-content flexone pt-4">
 				<?php get_template_part('template-parts/components/gallery'); ?>
 			</div>
-			<div class="croxo-custom-post-type__header flexone pt-2 ps-5">
+			<div class="croxo-custom-post-type__header flexone pt-2 ps-3">
 				<?php get_template_part('template-parts/components/cpt-header-descr'); ?>
 			</div>
 		</div>
