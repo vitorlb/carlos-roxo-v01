@@ -1,0 +1,28 @@
+.croxo-calendar-day {
+	border-width: 4px;
+	border-top-width: 2px;
+
+	.croxo-calendar-day__stripe {
+		border-bottom: 2px solid var(--acid-color);
+		* {
+			font-size: 18px;
+		}
+	}
+
+	.croxo-calendar-day__text-container {
+		.croxo-calendar-day__text-container__numbers {
+
+			* {
+				font-size: 40px;
+				line-height: 45px;
+			}
+		}
+
+		.croxo-calendar-day__text-container__word {
+			* {
+				font-size: 21px;
+				line-height: 20px;
+			}
+		}
+	}
+}

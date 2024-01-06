@@ -1,0 +1,20 @@
+.croxo-galinheiro--main-wrapper {
+  .croxo-galinheiro--main-wrapper__events-list {
+    .croxo-galinheiro--main-wrapper__events-list__future {
+      .croxo-galinheiro--main-wrapper__events-list__future__title-container {
+        h5 {
+          &:hover {
+            .material-symbols-outlined {
+              transform: translate(0, 4px);
+            }
+          }
+
+          .material-symbols-outlined {
+            font-size: 15px;
+            transition: all 550ms ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}

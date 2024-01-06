@@ -17,10 +17,19 @@ while (have_posts()) :
 	<main class="croxo-galinheiro--main-wrapper">
 		<div class="croxo-galinheiro--main-wrapper__events-list container">
 			<div id="croxoEventsFuture" class="croxo-galinheiro--main-wrapper__events-list__future">
-				<h1 class="theme-color">Upcoming events!</h1>
+				<div class="
+						croxo-galinheiro--main-wrapper__events-list__future__title-container
+						d-flex
+						justify-content-between">
+					<h1 class="theme-color">Upcoming events!</h1>
+					<h5 class="theme-color align-items-center d-flex">
+						<span>Slide to past events</span>
+						<span class="material-symbols-outlined d-block ps-1 tilt-b-5">keyboard_double_arrow_down </span>
+					</h5>
+				</div>
 				<?php events_list(true) ?>
 			</div>
-			<div id="croxoEventsFuture" class="croxo-galinheiro--main-wrapper__events-list__past">
+			<div id="croxoEventsPast" class="croxo-galinheiro--main-wrapper__events-list__past mt-lg-5">
 				<h1 class="theme-color">Past events</h1>
 				<?php events_list(false) ?>
 			</div>

@@ -323,8 +323,8 @@ function events_list($time)
 		),
 	);
 ?>
-	<div class="croxo--events-list--main-wrapper discos-grelha">
-		<ul class="discos">
+	<div class="croxo--events-list--main-wrapper mt-lg-5">
+		<ul class="croxo--events-list__list">
 			<?php
 			// Display posts from the past 
 			$query_past = new WP_Query($args);
@@ -335,17 +335,17 @@ function events_list($time)
 					$excerpt = get_the_excerpt()
 					// Display posts from the past here
 			?>
-					<li class="disco"> <?php if (has_post_thumbnail()) { ?>
-							<div class="disco_thumb">
+					<li class="croxo--events-list__list__list-item"> <?php if (has_post_thumbnail()) { ?>
+							<div class="croxo--events-list__list__list-item__thumb-wrapper">
 								<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
 							</div>
 						<?php } else {
 						?>
-							<div class="disco_thumb">
+							<div class="disco_thumb croxo--events-list__list__list-item__thumb-wrapper">
 								<p><?php the_title(); ?></p>
 							</div>
 						<?php } ?>
-						<div class="disco_title">
+						<div class="disco_title croxo--events-list__list__list-item__title">
 							<div class="disco_title__text-container d-flex flex-column justify-content-end">
 								<p class="disco_title__paragraph px-2 pt-2">
 									<a href="<?= $permalink ?>">
@@ -359,7 +359,7 @@ function events_list($time)
 								<?php } ?>
 								<div class="disco_title__actions-container d-flex justify-content-between px-2 pt-2">
 									<a href="<?php echo $permalink; ?>" class="disco_title__actions-container__post-link theme-color reset-link d-flex align-items-center">
-										<span class="disco_title__actions-container__post-link__icon material-symbols-outlined tilt-b-2">mystery</span>
+										<span class="disco_title__actions-container__post-link__icon material-symbols-outlined">mystery</span>
 										<span class="disco_title__actions-container__post-link__span ps-1">See more</span>
 									</a>
 									<?php if (!!$time) {
@@ -478,6 +478,14 @@ function enqueue_about_menu_item()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_about_menu_item');
+
+function enqueue_eventsList()
+{
+	wp_register_script('events-list', get_stylesheet_directory_uri() . '/js/eventsList.js', [], get_stylesheet_directory_uri() . '/js/eventsList.js', true);
+	wp_enqueue_script('events-list');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_eventsList');
 
 // Custom date metabox
 // Add meta box for date to a specific post type (replace 'your_post_type' with your actual post type)

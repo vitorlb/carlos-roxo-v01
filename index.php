@@ -25,6 +25,10 @@ if (is_singular($post_types = 'ceramics')) {
 	if (!$is_elementor_theme_exist || !elementor_theme_do_location('ilustrations')) {
 		get_template_part('template-parts/ilustrations');
 	}
+} elseif (is_singular($post_types = 'post')) {
+	if (!$is_elementor_theme_exist || !elementor_theme_do_location('ilustrations')) {
+		get_template_part('template-parts/event');
+	}
 } elseif (is_page('galinheiro-criativo')) {
 	if (!$is_elementor_theme_exist || !elementor_theme_do_location('single')) {
 		get_template_part('template-parts/galinheiro');

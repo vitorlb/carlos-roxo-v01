@@ -37,8 +37,10 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 @import './global/variables.scss'; 
 @import './global/globalStyles.scss'; 
 @import 'header';
+@import 'pages'; 
 @import 'lists'; 
 @import './components/croxoGallery.scss'; 
+@import './components/calendarItem.scss'; 
 @import './menus/topNav.scss'; 
 // @import './post_types/customPostType.scss'; 
 // @import './shop/storeFront.scss'; 
