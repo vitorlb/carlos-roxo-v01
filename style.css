@@ -29995,6 +29995,10 @@ progress {
   line-height: 20px;
 }
 
+.croxo-custom-post-type__header .ctp-header-wrapper .ctp-header-wrapper__text-info-wrapper header h1, .croxo-custom-post-type__header .ctp-header-wrapper .ctp-header-wrapper__text-info-wrapper header .h1 {
+  line-height: 66px;
+}
+
 .site-navigation .menu-topnav-container {
   width: 100%;
 }
