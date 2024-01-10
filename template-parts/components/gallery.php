@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 		foreach ($images as $image) {
 			$attachment = wp_prepare_attachment_for_js($image);
 	?>
-			<div class="croxo-gallery__gallery-item c-pointer ratio-square flexone">
+			<div class="croxo-gallery__gallery-item c-pointer flexone">
 				<img class="croxo-gallery__gallery-item__img img-cover" src="<?php echo $attachment['url'] ?>" alt="">
 			</div>
 	<?php

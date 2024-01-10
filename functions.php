@@ -324,57 +324,16 @@ function events_list($time)
 	);
 ?>
 	<div class="croxo--events-list--main-wrapper mt-lg-5">
-		<ul class="croxo--events-list__list">
+		<ul class="croxo--events-list__list d-flex flex-column">
 			<?php
 			// Display posts from the past 
 			$query_past = new WP_Query($args);
 			if ($query_past->have_posts()) {
 				while ($query_past->have_posts()) {
 					$query_past->the_post();
-					$permalink = get_permalink();
-					$excerpt = get_the_excerpt()
+					
 					// Display posts from the past here
-			?>
-					<li class="croxo--events-list__list__list-item"> <?php if (has_post_thumbnail()) { ?>
-							<div class="croxo--events-list__list__list-item__thumb-wrapper">
-								<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
-							</div>
-						<?php } else {
-						?>
-							<div class="disco_thumb croxo--events-list__list__list-item__thumb-wrapper">
-								<p><?php the_title(); ?></p>
-							</div>
-						<?php } ?>
-						<div class="disco_title croxo--events-list__list__list-item__title">
-							<div class="disco_title__text-container d-flex flex-column justify-content-end">
-								<p class="disco_title__paragraph px-2 pt-2">
-									<a href="<?= $permalink ?>">
-										<span style="font-size: 1.3rem"><?php the_title() ?><br></span>
-									</a>
-								</p>
-								<?php if (!empty($excerpt)) { ?>
-									<span class="disco_title__excerpt px-2">
-										<?php echo $excerpt; ?>
-									</span>
-								<?php } ?>
-								<div class="disco_title__actions-container d-flex justify-content-between px-2 pt-2">
-									<a href="<?php echo $permalink; ?>" class="disco_title__actions-container__post-link theme-color reset-link d-flex align-items-center">
-										<span class="disco_title__actions-container__post-link__icon material-symbols-outlined">mystery</span>
-										<span class="disco_title__actions-container__post-link__span ps-1">See more</span>
-									</a>
-									<?php if (!!$time) {
-									?>
-										<a class="disco_title__actions-container__apply-link theme-color reset-link d-flex align-items-center">
-											<span class="disco_title__actions-container__apply-link__icon material-symbols-outlined tilt-b-2">hand_gesture</span>
-											<span class="disco_title__actions-container__apply-link__span ps-1">apply!</span>
-										</a>
-									<?php
-									} ?>
-								</div>
-							</div>
-						</div>
-					</li>
-			<?php
+					get_template_part('template-parts/components/event-list-item');
 				}
 				wp_reset_postdata(); // Reset post data
 			} else {
