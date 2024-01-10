@@ -291,7 +291,7 @@ function grelha_discos()
 						<p><?php the_title(); ?></p>
 					</div>
 				<?php } ?>
-				<div class="disco_title d-flex flex-column">
+				<div class="disco_title croxo-font-text d-flex flex-column">
 					<p class="disco_title__paragraph p-2 pb-3">
 						<a href="<?= $permalink ?>">
 							<span style="font-size: 1.3rem"><?php the_title() ?><br></span>
@@ -331,7 +331,7 @@ function events_list($time)
 			if ($query_past->have_posts()) {
 				while ($query_past->have_posts()) {
 					$query_past->the_post();
-					
+
 					// Display posts from the past here
 					get_template_part('template-parts/components/event-list-item');
 				}

@@ -271,11 +271,11 @@
 }
 
 .material-symbols-filled {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+	font-variation-settings:
+		'FILL' 1,
+		'wght' 400,
+		'GRAD' 0,
+		'opsz' 24
 }
 
 //pointer events
@@ -344,11 +344,18 @@
 		background: none;
 		background-color: none;
 		color: inherit;
+
 	}
 }
 
 .reset-link {
 	text-decoration: none;
+
+	&:hover {
+		text-decoration: none;
+
+		--bs-link-color-rgb: none !important;
+	}
 }
 
 //text formatting
@@ -422,6 +429,12 @@
 
 	&:hover {
 		margin-right: -18px;
+	}
+}
+
+.tilt-t-lg-6 {
+	@include media-breakpoint-up(lg) {
+		margin-right: -6px;
 	}
 }
 

@@ -165,147 +165,97 @@
     padding: 0;
     row-gap: 36px;
 
-    .croxo--events-list__list__list-item {
-      border: 2px solid transparent; 
-      flex-grow: 0;
-      list-style-type: none;
-      position: relative;
+  }
+}
 
-      &:hover {
-        border: 2px solid var(--acid-color);
+.croxo-events-list-item {
+  column-gap: 32px;
+  list-style-type: none;
+  position: relative;
+
+  &::marker {
+    display: none;
+  }
+
+  .croxo-events-list-item__thumb-wrapper {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-basis: 20%;
+
+    a {
+      align-self: stretch;
+      display: block;
+      flex: 1;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+      }
+    }
+  }
+
+  .croxo-events-list-item__calendar-wrapper {
+    flex-basis: 10%;
+  }
+
+  a {
+    color: var(--acid-color);
+  }
+
+  .disco_title__paragraph {
+    display: block;
+    margin: 0;
+  }
+
+
+  .disco_title__text-container {
+
+    >* {
+      transition: all 500ms;
+
+      &:last-child {
+        padding-bottom: 8px;
+      }
+    }
+
+    .disco_title__excerpt {
+      font-family: "Terminal Grotesque";
+      font-size: 18px;
+      padding-top: 0;
+    }
+
+    .disco_title__actions-container {
+      column-gap: 18px;
+
+      .disco_title__actions-container__post-link {
+        .disco_title__actions-container__post-link__icon {
+          font-size: 18px;
+
+          &:hover {
+            text-decoration: none !important;
+          }
+        }
+
+        .disco_title__actions-container__post-link__span {
+          font-size: 18px;
+        }
       }
 
-      &:nth-child(odd) {
-        .disco_title {
+      .disco_title__actions-container__apply-link {
+        .disco_title__actions-container__apply-link__icon {
+          font-size: 18px;
 
-          .disco_title__paragraph {}
-        }
-      }
-
-      &:nth-child(even) {
-        .disco_title {
-          .disco_title__paragraph {}
-        }
-      }
-
-      &::marker {
-        display: none;
-      }
-
-      .croxo--events-list__list__list-item__thumb-wrapper {
-        aspect-ratio: 1 / 1;
-        display: flex;
-
-        a {
-          align-self: stretch;
-          display: block;
-          flex: 1;
-
-          img {
-            height: 100%;
-            object-fit: cover;
-            width: 100%;
-
-            filter: grayscale(100%);
-            -webkit-filter: grayscale(100%);
-          }
-        }
-      }
-
-      .disco_title {
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        left: 0;
-        overflow: hidden;
-        position: absolute;
-        right: 0;
-        top: 0;
-
-        &:hover {
-
-          >* {
-            opacity: 1;
-            transform: translate(0, 0px);
-          }
-
-          .disco_title__text-container {
-            >* {
-              background-color: white;
-            }
+          &:hover {
+            text-decoration: none !important;
           }
         }
 
-        >* {
-          opacity: 0;
-          transform: translate(0, 20px);
-          transition: all 500ms;
-        }
-
-        a {
-          color: var(--acid-color);
-        }
-
-        .disco_title__paragraph {
-          display: block;
-          margin: 0;
-        }
-
-
-        .disco_title__text-container {
-          &.seemore-hovering {
-            .disco_title__excerpt {
-              height: 100%;
-              padding-top: 10px;
-            }
-          }
-
-          >* {
-            transition: all 500ms;
-
-            &:last-child {
-              padding-bottom: 8px;
-            }
-          }
-
-          .disco_title__excerpt {
-            font-family: "Terminal Grotesque";
-            font-size: 12px;
-            height: 0%;
-            overflow: hidden;
-            line-height: 12px;
-            padding-top: 0;
-            transition: all 500ms, height 1100ms;
-          }
-
-          .disco_title__actions-container__post-link {
-            .disco_title__actions-container__post-link__icon {
-              font-size: 14px;
-
-              &:hover {
-                text-decoration: none !important;
-              }
-            }
-
-            .disco_title__actions-container__post-link__span {
-              font-size: 14px;
-            }
-          }
-
-          .disco_title__actions-container__apply-link {
-            .disco_title__actions-container__apply-link__icon {
-              font-size: 14px;
-
-              &:hover {
-                text-decoration: none !important;
-              }
-            }
-
-            .disco_title__actions-container__apply-link__span {
-              font-size: 14px;
-            }
-          }
+        .disco_title__actions-container__apply-link__span {
+          font-size: 18px;
         }
       }
     }

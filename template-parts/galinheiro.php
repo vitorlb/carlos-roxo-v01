@@ -21,8 +21,8 @@ while (have_posts()) :
 						croxo-galinheiro--main-wrapper__events-list__future__title-container
 						d-flex
 						justify-content-between">
-					<h1 class="theme-color">Upcoming events!</h1>
-					<h5 class="theme-color croxo-galinheiro--main-wrapper__events-list__future__title-container__slide-to-past align-items-center d-flex">
+					<h1 class="theme-color croxo-font-text">Upcoming events!</h1>
+					<h5 class="croxo-galinheiro--main-wrapper__events-list__future__title-container__slide-to-past theme-color croxo-font-text align-items-center d-flex">
 						<span>Slide to past events</span>
 						<span class="material-symbols-outlined d-block ps-1 tilt-b-5">keyboard_double_arrow_down </span>
 					</h5>
@@ -30,7 +30,7 @@ while (have_posts()) :
 				<?php events_list(true) ?>
 			</div>
 			<div id="croxoEventsPast" class="croxo-galinheiro--main-wrapper__events-list__past mt-lg-5">
-				<h1 class="theme-color">Past events</h1>
+				<h1 class="theme-color croxo-font-text">Past events</h1>
 				<?php events_list(false) ?>
 			</div>
 		</div>

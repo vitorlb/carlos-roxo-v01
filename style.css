@@ -29603,6 +29603,10 @@ progress {
 .reset-link {
   text-decoration: none;
 }
+.reset-link:hover {
+  text-decoration: none;
+  --bs-link-color-rgb: none !important;
+}
 
 .croxo-font-text {
   font-family: "Terminal Grotesque";
@@ -29668,6 +29672,12 @@ progress {
 }
 .tilt-r-18--hover:hover {
   margin-right: -18px;
+}
+
+@media (min-width: 992px) {
+  .tilt-t-lg-6 {
+    margin-right: -6px;
+  }
 }
 
 .transform-origin-center {
@@ -29821,100 +29831,73 @@ progress {
   padding: 0;
   row-gap: 36px;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item {
-  border: 2px solid transparent;
-  flex-grow: 0;
+
+.croxo-events-list-item {
+  column-gap: 32px;
   list-style-type: none;
   position: relative;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item:hover {
-  border: 2px solid var(--acid-color);
-}
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item::marker {
+.croxo-events-list-item::marker {
   display: none;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .croxo--events-list__list__list-item__thumb-wrapper {
+.croxo-events-list-item .croxo-events-list-item__thumb-wrapper {
   aspect-ratio: 1/1;
   display: flex;
+  flex-basis: 20%;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .croxo--events-list__list__list-item__thumb-wrapper a {
+.croxo-events-list-item .croxo-events-list-item__thumb-wrapper a {
   align-self: stretch;
   display: block;
   flex: 1;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .croxo--events-list__list__list-item__thumb-wrapper a img {
+.croxo-events-list-item .croxo-events-list-item__thumb-wrapper a img {
   height: 100%;
   object-fit: cover;
   width: 100%;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title {
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
+.croxo-events-list-item .croxo-events-list-item__calendar-wrapper {
+  flex-basis: 10%;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title:hover > * {
-  opacity: 1;
-  transform: translate(0, 0px);
-}
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title:hover .disco_title__text-container > * {
-  background-color: white;
-}
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title > * {
-  opacity: 0;
-  transform: translate(0, 20px);
-  transition: all 500ms;
-}
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title a {
+.croxo-events-list-item a {
   color: var(--acid-color);
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__paragraph {
+.croxo-events-list-item .disco_title__paragraph {
   display: block;
   margin: 0;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container.seemore-hovering .disco_title__excerpt {
-  height: 100%;
-  padding-top: 10px;
-}
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container > * {
+.croxo-events-list-item .disco_title__text-container > * {
   transition: all 500ms;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container > *:last-child {
+.croxo-events-list-item .disco_title__text-container > *:last-child {
   padding-bottom: 8px;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container .disco_title__excerpt {
+.croxo-events-list-item .disco_title__text-container .disco_title__excerpt {
   font-family: "Terminal Grotesque";
-  font-size: 12px;
-  height: 0%;
-  overflow: hidden;
-  line-height: 12px;
+  font-size: 18px;
   padding-top: 0;
-  transition: all 500ms, height 1100ms;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container .disco_title__actions-container__post-link .disco_title__actions-container__post-link__icon {
-  font-size: 14px;
+.croxo-events-list-item .disco_title__text-container .disco_title__actions-container {
+  column-gap: 18px;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container .disco_title__actions-container__post-link .disco_title__actions-container__post-link__icon:hover {
+.croxo-events-list-item .disco_title__text-container .disco_title__actions-container .disco_title__actions-container__post-link .disco_title__actions-container__post-link__icon {
+  font-size: 18px;
+}
+.croxo-events-list-item .disco_title__text-container .disco_title__actions-container .disco_title__actions-container__post-link .disco_title__actions-container__post-link__icon:hover {
   text-decoration: none !important;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container .disco_title__actions-container__post-link .disco_title__actions-container__post-link__span {
-  font-size: 14px;
+.croxo-events-list-item .disco_title__text-container .disco_title__actions-container .disco_title__actions-container__post-link .disco_title__actions-container__post-link__span {
+  font-size: 18px;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__icon {
-  font-size: 14px;
+.croxo-events-list-item .disco_title__text-container .disco_title__actions-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__icon {
+  font-size: 18px;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__icon:hover {
+.croxo-events-list-item .disco_title__text-container .disco_title__actions-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__icon:hover {
   text-decoration: none !important;
 }
-.croxo--events-list--main-wrapper .croxo--events-list__list .croxo--events-list__list__list-item .disco_title .disco_title__text-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__span {
-  font-size: 14px;
+.croxo-events-list-item .disco_title__text-container .disco_title__actions-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__span {
+  font-size: 18px;
 }
 
 .croxo-gallery.croxo-gallery--img-focused .croxo-gallery__gallery-item {
