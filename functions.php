@@ -446,6 +446,14 @@ function enqueue_eventsList()
 
 add_action('wp_enqueue_scripts', 'enqueue_eventsList');
 
+//scrollNav
+function enqueue_scrollNav()
+{
+	wp_register_script('scroll-nav', get_stylesheet_directory_uri() . '/js/scrollNav.js', [], get_stylesheet_directory_uri() . '/js/scrollNav.js', true);
+	wp_enqueue_script('scroll-nav');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_scrollNav');
 // Custom date metabox
 // Add meta box for date to a specific post type (replace 'your_post_type' with your actual post type)
 function add_custom_date_metabox()

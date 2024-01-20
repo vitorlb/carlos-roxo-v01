@@ -81,3 +81,41 @@
 		}
 	}
 }
+
+.site-navigation--scroll {
+	background-color: white;
+	border-bottom: 2px solid var(--acid-color);
+	left: 0;
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	right: 0;
+	transition: all 350ms;
+	top: 0;
+	z-index: 3;
+
+	* {
+		pointer-events: none;
+	}
+
+	&.site-navigation--scroll--show { 
+		opacity: 1;
+		pointer-events: all;
+
+		* {
+			pointer-events: all;
+		}
+	}
+
+	.croxo-icons {
+		font-size: 48px;
+	}
+
+	.site-navigation {
+		.menu-topnav-container {
+			.menu {
+				margin: 0;
+			}
+		}
+	}
+}

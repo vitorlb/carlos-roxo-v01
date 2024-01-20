@@ -60,16 +60,32 @@
 
 .theme-color {
 	color: var(--acid-color);
-	transition: all 350;
+	transition: all 350ms;
+}
+
+.theme-color--fill {
+	fill: var(--acid-color);
+	transition: all 350ms;
+}
+
+
+.theme-color--fill--deep {
+	fill: var(--acid-color);
+	transition: all 350ms;
+
+	* {
+		fill: var(--acid-color);
+		transition: all 350ms;
+	}
 }
 
 .theme-color--deep {
 	color: var(--acid-color);
-	transition: all 350;
+	transition: all 350ms;
 
 	* {
 		color: var(--acid-color);
-		transition: all 350;
+		transition: all 350ms;
 	}
 }
 
