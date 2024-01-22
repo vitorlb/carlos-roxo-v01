@@ -445,15 +445,22 @@ function enqueue_eventsList()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_eventsList');
-
-//scrollNav
+ 
 function enqueue_scrollNav()
 {
 	wp_register_script('scroll-nav', get_stylesheet_directory_uri() . '/js/scrollNav.js', [], get_stylesheet_directory_uri() . '/js/scrollNav.js', true);
 	wp_enqueue_script('scroll-nav');
 }
+ 
+function enqueue_formData()
+{
+	wp_register_script('form-data', get_stylesheet_directory_uri() . '/js/formData.js', [], get_stylesheet_directory_uri() . '/js/formData.js', true);
+	wp_enqueue_script('form-data');
+}
 
-add_action('wp_enqueue_scripts', 'enqueue_scrollNav');
+add_action('wp_enqueue_scripts', 'enqueue_formData');
+
+
 // Custom date metabox
 // Add meta box for date to a specific post type (replace 'your_post_type' with your actual post type)
 function add_custom_date_metabox()
@@ -497,3 +504,47 @@ function save_custom_date_metabox($post_id)
 	}
 }
 add_action('save_post', 'save_custom_date_metabox');
+
+// Add a custom metabox with a checkbox to your custom post type
+function show_contact_form_metabox() {
+	$post_types = array('ilustrations', 'animation', 'ceramics', 'graphic_design'); // Replace with your custom post type slugs
+
+    add_meta_box(
+        'show_contact_form_metabox',
+        'Show contact form',
+        'render_show_contact_form_metabox',
+        $post_types,	
+        'side',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'show_contact_form_metabox');
+
+// Render the content of the custom metabox
+function render_show_contact_form_metabox($post) {
+    // Retrieve the current value of the checkbox
+    $checkbox_value = get_post_meta($post->ID, '_show_contact_form_checkbox', true);
+
+    // Display the checkbox
+    ?>
+    <label>
+        <input type="checkbox" name="show_contact_form_checkbox" value="1" <?php checked($checkbox_value, '1'); ?>>
+        Mostrar formulário de contacto
+    </label>
+    <?php
+}
+
+// Save the value of the checkbox when the post is saved
+function save_show_contact_form_metabox($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (isset($_POST['show_contact_form_checkbox'])) {
+        update_post_meta($post_id, '_show_contact_form_checkbox', sanitize_text_field($_POST['show_contact_form_checkbox']));
+    } else {
+        delete_post_meta($post_id, '_show_contact_form_checkbox');
+    }
+}
+add_action('save_post', 'save_show_contact_form_metabox');
+

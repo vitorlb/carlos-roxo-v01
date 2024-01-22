@@ -28,10 +28,16 @@ $postType = get_post_type();
 		</header>
 		<div class="page-content flextwo croxo-font-text d-flex flex-column">
 			<?php the_content(); ?>
-			<div class="page-content__go-back-wrapper d-flex align-items-center align-self-start tilt-l-2 croxo-underline-hover croxo-go-back-btn">
-				<span class="material-symbols-outlined croxo-icon-size-micro">first_page</span>
-				<span class="croxo-font-text croxo-text-label ps-1 c-pointer">go back</span>
+			<div class="actions-container d-flex justify-content-between">
+				<div class="page-content__go-back-wrapper d-flex align-items-center align-self-start tilt-l-2 croxo-underline-hover croxo-go-back-btn">
+					<span class="material-symbols-outlined croxo-icon-size-micro">first_page</span>
+					<span class="croxo-font-text croxo-text-label ps-1 c-pointer">go back</span>
+				</div>
+				<?php if ($postType != 'post') {
+					get_template_part('template-parts/components/order-info');
+				} ?>
 			</div>
+
 			<div class="post-tags">
 				<?php the_tags('<span class="tag-links">' . esc_html__('Tagged ', 'hello-elementor'), null, '</span>'); ?>
 			</div>
