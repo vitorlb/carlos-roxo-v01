@@ -29688,9 +29688,21 @@ progress {
   margin-right: -18px;
 }
 
+.tilt-t-1 {
+  margin-top: -1px;
+}
+
+.tilt-t-2 {
+  margin-top: -2px;
+}
+
+.tilt-t-3 {
+  margin-top: -3px;
+}
+
 @media (min-width: 992px) {
   .tilt-t-lg-6 {
-    margin-right: -6px;
+    margin-top: -6px;
   }
 }
 
@@ -30031,6 +30043,52 @@ progress {
 }
 .croxo-custom-post-type__header .ctp-header-wrapper .ctp-header-wrapper__text-info-wrapper header h1, .croxo-custom-post-type__header .ctp-header-wrapper .ctp-header-wrapper__text-info-wrapper header .h1 {
   line-height: 66px;
+}
+
+.contact-form-cta:hover .material-symbols-outlined {
+  transform: rotate(720deg);
+}
+.contact-form-cta .material-symbols-outlined {
+  font-size: 18px;
+  transition: all 850ms ease-in-out;
+  transform-origin: center;
+}
+.contact-form-cta .contact-form-cta__text {
+  font-size: 18px;
+}
+
+.croxo-contact-form__main-wrapper {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  bottom: 0;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 3;
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper {
+  background-color: white;
+  border: 5px solid var(--acid-color);
+  width: 90vw;
+}
+@media (min-width: 992px) {
+  .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper {
+    width: 70vw;
+  }
+}
+@media (min-width: 1200px) {
+  .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper {
+    width: 40vw;
+  }
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p {
+  display: flex;
+  margin: 0;
 }
 
 .site-navigation .menu-topnav-container {

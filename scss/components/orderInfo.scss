@@ -1,0 +1,15 @@
+.contact-form-cta {
+    &:hover {
+        .material-symbols-outlined {
+            transform: rotate(720deg);
+        }
+    }
+    .material-symbols-outlined {
+        font-size: 18px;
+        transition: all 850ms ease-in-out;
+        transform-origin: center;
+    }
+    .contact-form-cta__text {
+        font-size: 18px;
+    }
+}

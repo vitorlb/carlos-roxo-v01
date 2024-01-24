@@ -25,6 +25,9 @@ $postType = get_post_type();
 		<?php }; ?>
 		<header class="page-header flexone">
 			<?php the_title('<h1 class="entry-title theme-color mt-0 croxo-font-text--deep croxo-text-h1-xl listen-theme-color">', '</h1>'); ?>
+			<?php if ($postType != 'post') {
+				get_template_part('template-parts/components/order-info');
+			} ?>
 		</header>
 		<div class="page-content flextwo croxo-font-text d-flex flex-column">
 			<?php the_content(); ?>
@@ -33,9 +36,7 @@ $postType = get_post_type();
 					<span class="material-symbols-outlined croxo-icon-size-micro">first_page</span>
 					<span class="croxo-font-text croxo-text-label ps-1 c-pointer">go back</span>
 				</div>
-				<?php if ($postType != 'post') {
-					get_template_part('template-parts/components/order-info');
-				} ?>
+
 			</div>
 
 			<div class="post-tags">
