@@ -1,4 +1,5 @@
-console.log('greetings, this is formdata')
-//customFormData
-//let fetchedData = null;
-//!!customFormData && (fetchedData = customFormData) 
+let fetchedData = null;
+!!(typeof customFormData !== 'undefined') 
+    && (fetchedData = customFormData) 
+
+console.log('all done', fetchedData)
