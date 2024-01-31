@@ -50,8 +50,8 @@
             object-fit: cover;
             width: 100%;
 
-            filter: grayscale(100%);
-            -webkit-filter: grayscale(100%);
+            //filter: grayscale(100%);
+            //-webkit-filter: grayscale(100%);
           }
         }
       }
@@ -169,7 +169,7 @@
 }
 
 .croxo-events-list-item {
-  column-gap: 32px;
+  column-gap: 24px;
   list-style-type: none;
   position: relative;
 
@@ -199,7 +199,7 @@
   }
 
   .croxo-events-list-item__calendar-wrapper {
-    flex-basis: 10%;
+    flex-basis: 12%;
   }
 
   a {

@@ -21,7 +21,7 @@ while (have_posts()) :
 						d-flex
 						justify-content-between">
 				<h1 class="theme-color croxo-font-text">Upcoming events!</h1>
-				<h5 class="croxo-galinheiro--main-wrapper__events-list__future__title-container__slide-to-past theme-color croxo-font-text align-items-center d-flex">
+				<h5 class="croxo-galinheiro--main-wrapper__events-list__future__title-container__slide-to-past theme-color croxo-font-text align-items-center d-flex c-pointer">
 					<span>Slide to past events</span>
 					<span class="material-symbols-outlined d-block ps-1 tilt-b-5">keyboard_double_arrow_down </span>
 				</h5>

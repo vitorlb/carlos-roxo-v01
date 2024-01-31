@@ -15,6 +15,9 @@
     .croxo-contact-form__form-wrapper {
         background-color: white;
         border: 5px solid var(--acid-color);
+        display: flex;
+        flex-direction: column;
+        row-gap: 18px;
         width: 90vw;
 
         @include media-breakpoint-up(lg) {
@@ -25,11 +28,71 @@
             width: 40vw;
         }
 
+        .croxo-contact-form__close-btn {
+            span {
+                &:hover {
+                    transform: rotate(360deg);
+                    transform-origin: center;
+                }
+            }
+        }
+
         .croxo-contact-form__form-item {
             p {
                 display: flex;
                 margin: 0;
+
+                * {
+                    flex: 1;
+                }
+
+                input {
+                    border: 2px solid var(--acid-color);
+                }
+
+                textarea {
+                    border: 2px solid var(--acid-color);
+                }
+            }
+
+            &.croxo-contact-form__form-item--contact {
+                .croxo-contact-form__contact-types {
+                    button {
+                        &:last-child {
+                            margin-left: 8px;
+                        }
+
+                        &.contact-types--inactive {
+                            .material-symbols-outlined {
+                                opacity: 0.5;
+                            }
+                        }
+
+                        .material-symbols-outlined {
+                            font-size: 17px;
+                        }
+                    }
+                }
             }
         }
+    }
+
+    .croxo-contact-form-submit-btn {
+        border: 0px;
+        color: var(--acid-color);
+        font-family: 'Terminal Grotesque';
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0;
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
+    }
+
+    .wpcf7-response-output {
+        display: none;
     }
 }

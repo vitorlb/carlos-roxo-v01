@@ -360,7 +360,10 @@
 		background: none;
 		background-color: none;
 		color: inherit;
+	}
 
+	&:focus {
+		background-color: transparent;
 	}
 }
 
@@ -384,7 +387,9 @@
 	font-family: 'Terminal Grotesque';
 
 	* {
-		font-family: 'Terminal Grotesque';
+		&:not(.material-symbols-outlined) {
+			font-family: 'Terminal Grotesque';
+		}
 	}
 }
 

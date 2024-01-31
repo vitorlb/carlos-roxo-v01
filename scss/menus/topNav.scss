@@ -21,6 +21,25 @@
 				&.menu-item--about {
 					position: relative;
 
+					&.menu-item--about--disabled {
+						pointer-events: none;
+
+						* {
+							pointer-events: none;
+						}
+
+						.menu-item--about__wrapper {
+							.menu-item--about__title {
+								background-color: transparent;
+								opacity: 0.2;
+							}
+
+							.menu-item--about__text {
+								display: none;
+							}
+						}
+					}
+
 					.menu-item--about__wrapper {
 						overflow: hidden;
 
@@ -98,7 +117,7 @@
 		pointer-events: none;
 	}
 
-	&.site-navigation--scroll--show { 
+	&.site-navigation--scroll--show {
 		opacity: 1;
 		pointer-events: all;
 

@@ -1,0 +1,30 @@
+.croxo-work-filters {
+    form {
+        .post-type-filter {
+            column-gap: 12px;
+
+            label {
+                input {
+                    &:checked {
+                        &+span {
+                            border: 2px solid var(--acid-color);
+                        }
+                    }
+                }
+
+                span {
+                    border: 2px solid transparent;
+                    transition: all 350ms;
+                }
+
+                &.reset-btn {
+                    transition: all 850ms;
+
+                    &:hover {
+                        transform: rotate(-360deg);
+                    }
+                }
+            }
+        }
+    }
+}

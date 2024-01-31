@@ -271,22 +271,58 @@ add_action('init', 'about_custom_post_type');
 /**** Slider Call Function ****/
 function grelha_discos()
 {
-	$args = array('post_type' => array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'post'));
+	$post_types = array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing');
+	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
+	$selected_work_types = isset($_GET['work_types']) ? array_map('sanitize_text_field', $_GET['work_types']) : array();
+	$work_types_filter = isset($_GET['work_filter']) ? isset($_GET['work_filter']) : null;
+	$args = array(
+		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types
+
+	);
+
 ?>
-	<ul class="discos">
+	<div class="croxo-work-filters">
+		<form id="post-type-filter-form" method="get" action="">
+			<div class="post-type-filter d-flex">
+				<label class="d-block position-relative c-pointer reset-btn px-0">
+					<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
+					<span class="material-symbols-outlined theme-color">restart_alt</span>
+				</label>
+				<?php
+				foreach ($post_types as $post_type) {
+				?>
+					<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
+						<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="<?php echo $post_type ?>" <?php checked(in_array($post_type, $selected_post_types)) ?>>
+						<span class="d-block py-1 px-2"><?php echo ucfirst(str_replace('_', ' ', $post_type)); ?></span>
+					</label>
+				<?php
+				}
+				?>
+				<div class="gap flexone"></div>
+				<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
+					<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="author" <?php checked(in_array("author", $selected_work_types)) ?>>
+					<span class="d-block py-1 px-2">Author</span>
+				</label>
+				<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
+					<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="institutional" <?php checked(in_array("institutional", $selected_work_types)) ?>>
+					<span class="d-block py-1 px-2">Institutional</span>
+				</label>
+			</div>
+		</form>
+	</div>
+	<ul class="discos mt-3">
 		<?php
 		wp_reset_query();
 		$query = new WP_Query($args);
 		while ($query->have_posts()) : $query->the_post();
 			$permalink = get_permalink();
 		?>
-			<li class="disco"> <?php
-													if (has_post_thumbnail()) {  ?>
+			<li class="disco <?php echo implode(' ', get_post_class()); ?>">
+				<?php if (has_post_thumbnail()) { ?>
 					<div class="disco_thumb">
 						<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
 					</div>
-				<?php } else {
-				?>
+				<?php } else { ?>
 					<div class="disco_thumb">
 						<p><?php the_title(); ?></p>
 					</div>
@@ -299,12 +335,79 @@ function grelha_discos()
 					</p>
 				</div>
 			</li>
-		<?php
-		endwhile;
-		?>
+		<?php endwhile; ?>
 	</ul>
 <?php
 }
+
+/**** Filter posts Function ****/
+function filter_posts()
+{
+	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
+	$work_types_filter = isset($_GET['work_filter']) ? $_GET['work_filter'] : null;
+ 
+	$args = array(
+		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics')
+	);
+	$args_work_type_inst = array(
+		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics'),
+		'meta_query' => array(
+			array(
+				'key' => '_institutional_work',
+				'value' => 'on',  // Check for posts where the '_institutional_work' meta field is set to 'on'
+				'compare' => '='
+			)
+		)
+	);
+	$args_work_type_author = array(
+		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics'),
+		'meta_query' => array(
+			array(
+				'key' => '_institutional_work',
+				'compare' => 'NOT EXISTS', // Include posts where the meta key doesn't exist
+			),
+		),
+	);
+	if ($work_types_filter === 'author') {
+		$query = new WP_Query($args_work_type_author);
+	} elseif ($work_types_filter === 'institutional') {
+		$query = new WP_Query($args_work_type_inst);
+	} else {
+		$query = new WP_Query($args);
+	}
+?>
+	<?php
+	// Loop through the posts and display each one
+	while ($query->have_posts()) : $query->the_post();
+		$permalink = get_permalink();
+	?>
+		<li class="disco <?php echo implode(' ', get_post_class()); ?>">
+			<?php if (has_post_thumbnail()) { ?>
+				<div class="disco_thumb">
+					<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
+				</div>
+			<?php } else { ?>
+				<div class="disco_thumb">
+					<p><?php the_title(); ?></p>
+				</div>
+			<?php } ?>
+			<div class="disco_title croxo-font-text d-flex flex-column">
+				<p class="disco_title__paragraph p-2 pb-3">
+					<a href="<?= $permalink ?>">
+						<span style="font-size: 1.3rem"><?php the_title() ?><br></span>
+					</a>
+				</p>
+			</div>
+		</li>
+	<?php
+	endwhile;
+
+	// Terminate the request
+	wp_die();
+}
+
+add_action('wp_ajax_filter_posts', 'filter_posts');
+add_action('wp_ajax_nopriv_filter_posts', 'filter_posts');
 
 
 /**** events list function ****/
@@ -313,6 +416,9 @@ function events_list($time)
 	$args = array(
 		'post_type'      => 'post',
 		'posts_per_page' => -1,
+		'meta_key'       => '_custom_date',
+		'orderby'        => 'meta_value',
+		'order'          => 'ASC', // Use 'DESC' for descending order
 		'meta_query'     => array(
 			array(
 				'key'     => '_custom_date',
@@ -322,7 +428,7 @@ function events_list($time)
 			),
 		),
 	);
-?>
+	?>
 	<div class="croxo--events-list--main-wrapper mt-lg-5">
 		<ul class="croxo--events-list__list d-flex flex-column">
 			<?php
@@ -445,13 +551,15 @@ function enqueue_eventsList()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_eventsList');
- 
+
 function enqueue_scrollNav()
 {
 	wp_register_script('scroll-nav', get_stylesheet_directory_uri() . '/js/scrollNav.js', [], get_stylesheet_directory_uri() . '/js/scrollNav.js', true);
 	wp_enqueue_script('scroll-nav');
 }
- 
+
+add_action('wp_enqueue_scripts', 'enqueue_scrollNav');
+
 function enqueue_formData()
 {
 	wp_register_script('form-data', get_stylesheet_directory_uri() . '/js/formData.js', [], get_stylesheet_directory_uri() . '/js/formData.js', true);
@@ -460,6 +568,13 @@ function enqueue_formData()
 
 add_action('wp_enqueue_scripts', 'enqueue_formData');
 
+function enqueue_filtersAjax()
+{
+	wp_enqueue_script('filtersAjax', get_stylesheet_directory_uri() . '/js/filtersAjax.js', array('jquery'), '', true);
+	wp_localize_script('filtersAjax', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_filtersAjax');
 
 // Custom date metabox
 // Add meta box for date to a specific post type (replace 'your_post_type' with your actual post type)
@@ -506,45 +621,90 @@ function save_custom_date_metabox($post_id)
 add_action('save_post', 'save_custom_date_metabox');
 
 // Add a custom metabox with a checkbox to your custom post type
-function show_contact_form_metabox() {
+function show_contact_form_metabox()
+{
 	$post_types = array('ilustrations', 'animation', 'ceramics', 'graphic_design'); // Replace with your custom post type slugs
 
-    add_meta_box(
-        'show_contact_form_metabox',
-        'Show contact form',
-        'render_show_contact_form_metabox',
-        $post_types,	
-        'side',
-        'high'
-    );
+	add_meta_box(
+		'show_contact_form_metabox',
+		'Show contact form',
+		'render_show_contact_form_metabox',
+		$post_types,
+		'side',
+		'high'
+	);
 }
 add_action('add_meta_boxes', 'show_contact_form_metabox');
 
 // Render the content of the custom metabox
-function render_show_contact_form_metabox($post) {
-    // Retrieve the current value of the checkbox
-    $checkbox_value = get_post_meta($post->ID, '_show_contact_form_checkbox', true);
+function render_show_contact_form_metabox($post)
+{
+	// Retrieve the current value of the checkbox
+	$checkbox_value = get_post_meta($post->ID, '_show_contact_form_checkbox', true);
 
-    // Display the checkbox
-    ?>
-    <label>
-        <input type="checkbox" name="show_contact_form_checkbox" value="1" <?php checked($checkbox_value, '1'); ?>>
-        Mostrar formulário de contacto
-    </label>
-    <?php
+	// Display the checkbox
+?>
+	<label>
+		<input type="checkbox" name="show_contact_form_checkbox" value="1" <?php checked($checkbox_value, '1'); ?>>
+		Mostrar formulário de contacto
+	</label>
+<?php
 }
 
 // Save the value of the checkbox when the post is saved
-function save_show_contact_form_metabox($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return;
-    }
+function save_show_contact_form_metabox($post_id)
+{
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+		return;
+	}
 
-    if (isset($_POST['show_contact_form_checkbox'])) {
-        update_post_meta($post_id, '_show_contact_form_checkbox', sanitize_text_field($_POST['show_contact_form_checkbox']));
-    } else {
-        delete_post_meta($post_id, '_show_contact_form_checkbox');
-    }
+	if (isset($_POST['show_contact_form_checkbox'])) {
+		update_post_meta($post_id, '_show_contact_form_checkbox', sanitize_text_field($_POST['show_contact_form_checkbox']));
+	} else {
+		delete_post_meta($post_id, '_show_contact_form_checkbox');
+	}
 }
 add_action('save_post', 'save_show_contact_form_metabox');
+
+
+/*
+INSTITUTIONAL WORK META BOX
+*/
+
+function add_institutional_work_metabox()
+{
+	$post_types = array('animation', 'ceramics', 'graphic_design', 'clothing', 'ilustrations'); // Add your custom post types here
+	foreach ($post_types as $post_type) {
+		add_meta_box(
+			'institutional_work_metabox',
+			'Institutional Work',
+			'render_institutional_work_metabox',
+			$post_type,
+			'side',
+			'default'
+		);
+	}
+}
+add_action('add_meta_boxes', 'add_institutional_work_metabox');
+
+function render_institutional_work_metabox($post)
+{
+	$value = get_post_meta($post->ID, '_institutional_work', true);
+?>
+	<label for="institutional_work">
+		<input type="checkbox" name="institutional_work" id="institutional_work" <?php checked($value, 'on'); ?> />
+		Institutional Work
+	</label>
+<?php
+}
+
+function save_institutional_work_metabox($post_id)
+{
+	if (isset($_POST['institutional_work'])) {
+		update_post_meta($post_id, '_institutional_work', 'on');
+	} else {
+		delete_post_meta($post_id, '_institutional_work');
+	}
+}
+add_action('save_post', 'save_institutional_work_metabox');
 

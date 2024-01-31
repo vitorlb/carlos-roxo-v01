@@ -17,7 +17,7 @@ $checkbox_value = get_post_meta($post_id, '_show_contact_form_checkbox', true);
 
 if ($checkbox_value === '1') { 
 ?>
-    <div class="contact-form-cta theme-color--deep d-flex align-items-center pb-3 ">
+    <div class="contact-form-cta theme-color--deep d-flex align-items-center pb-3 c-pointer">
         <span class="contact-form-cta__icon d-block material-symbols-outlined me-2">
             package_2
         </span>

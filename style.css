@@ -29613,6 +29613,9 @@ progress {
   background-color: none;
   color: inherit;
 }
+.reset-button:focus {
+  background-color: transparent;
+}
 
 .reset-link {
   text-decoration: none;
@@ -29629,7 +29632,7 @@ progress {
 .croxo-font-text--deep {
   font-family: "Terminal Grotesque";
 }
-.croxo-font-text--deep * {
+.croxo-font-text--deep *:not(.material-symbols-outlined) {
   font-family: "Terminal Grotesque";
 }
 
@@ -29811,8 +29814,6 @@ progress {
   height: 100%;
   object-fit: cover;
   width: 100%;
-  filter: grayscale(100%);
-  -webkit-filter: grayscale(100%);
 }
 .discos-grelha .discos .disco .disco_title {
   bottom: 0;
@@ -29893,7 +29894,7 @@ progress {
 }
 
 .croxo-events-list-item {
-  column-gap: 32px;
+  column-gap: 24px;
   list-style-type: none;
   position: relative;
 }
@@ -29918,7 +29919,7 @@ progress {
   -webkit-filter: grayscale(100%);
 }
 .croxo-events-list-item .croxo-events-list-item__calendar-wrapper {
-  flex-basis: 10%;
+  flex-basis: 12%;
 }
 .croxo-events-list-item a {
   color: var(--acid-color);
@@ -30057,6 +30058,23 @@ progress {
   font-size: 18px;
 }
 
+.croxo-work-filters form .post-type-filter {
+  column-gap: 12px;
+}
+.croxo-work-filters form .post-type-filter label input:checked + span {
+  border: 2px solid var(--acid-color);
+}
+.croxo-work-filters form .post-type-filter label span {
+  border: 2px solid transparent;
+  transition: all 350ms;
+}
+.croxo-work-filters form .post-type-filter label.reset-btn {
+  transition: all 850ms;
+}
+.croxo-work-filters form .post-type-filter label.reset-btn:hover {
+  transform: rotate(-360deg);
+}
+
 .croxo-contact-form__main-wrapper {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.8);
@@ -30074,6 +30092,9 @@ progress {
 .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper {
   background-color: white;
   border: 5px solid var(--acid-color);
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
   width: 90vw;
 }
 @media (min-width: 992px) {
@@ -30086,9 +30107,46 @@ progress {
     width: 40vw;
   }
 }
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__close-btn span:hover {
+  transform: rotate(360deg);
+  transform-origin: center;
+}
 .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p {
   display: flex;
   margin: 0;
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p * {
+  flex: 1;
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p input {
+  border: 2px solid var(--acid-color);
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p textarea {
+  border: 2px solid var(--acid-color);
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button:last-child {
+  margin-left: 8px;
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button.contact-types--inactive .material-symbols-outlined {
+  opacity: 0.5;
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button .material-symbols-outlined {
+  font-size: 17px;
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn {
+  border: 0px;
+  color: var(--acid-color);
+  font-family: "Terminal Grotesque";
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0;
+  text-decoration: underline;
+}
+.croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn:hover, .croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn:focus {
+  background-color: transparent;
+}
+.croxo-contact-form__main-wrapper .wpcf7-response-output {
+  display: none;
 }
 
 .site-navigation .menu-topnav-container {
@@ -30110,6 +30168,19 @@ progress {
 }
 .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about {
   position: relative;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about.menu-item--about--disabled {
+  pointer-events: none;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about.menu-item--about--disabled * {
+  pointer-events: none;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about.menu-item--about--disabled .menu-item--about__wrapper .menu-item--about__title {
+  background-color: transparent;
+  opacity: 0.2;
+}
+.site-navigation .menu-topnav-container .menu .menu-item.menu-item--about.menu-item--about--disabled .menu-item--about__wrapper .menu-item--about__text {
+  display: none;
 }
 .site-navigation .menu-topnav-container .menu .menu-item.menu-item--about .menu-item--about__wrapper {
   overflow: hidden;

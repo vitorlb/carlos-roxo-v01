@@ -2,11 +2,14 @@
 console.log('so colourfulll');
 let root = document.documentElement;
 let acidArray = [
+	'#fc85ff',
+	'#d10000',
+	'#333333',
+	'#f9d500',
+	'#2edb63',
 	'#cbfd05',
-	'#00ff02',
-	'#a784f9',
-	'#611de9',
-	'#ff35ff'
+	'a784f9',
+	'611de9'
 ];
 let acidColor = '#ff35ff';
 //TODO: avoid repeated colors using while 
