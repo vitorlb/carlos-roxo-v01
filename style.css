@@ -29727,8 +29727,8 @@ progress {
 
 @font-face {
   font-family: "croxoicons";
-  src: url("fonts/croxoicons.eot");
-  src: url("fonts/croxoicons.eot") format("embedded-opentype"), url("fonts/croxoicons.ttf") format("truetype"), url("fonts/croxoicons.woff") format("woff"), url("fonts/croxoicons.svg?pidhsb#croxoicons") format("svg");
+  src: url("fonts/croxoicons.eot?jwgn6w");
+  src: url("fonts/croxoicons.eot?jwgn6w#iefix") format("embedded-opentype"), url("fonts/croxoicons.ttf?jwgn6w") format("truetype"), url("fonts/croxoicons.woff?jwgn6w") format("woff"), url("fonts/croxoicons.svg?jwgn6w#croxoicons") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -29757,6 +29757,10 @@ progress {
 
 .croxo-iconstitulo_site_2:before {
   content: "\e902";
+}
+
+.croxo-iconslava_logo-01:before {
+  content: "\e903";
 }
 
 .site-header .site-title a {

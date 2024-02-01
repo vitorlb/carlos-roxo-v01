@@ -22,8 +22,14 @@ if (!defined('ABSPATH')) {
 			<div class="croxo-gallery__gallery-item c-pointer flexone">
 				<img class="croxo-gallery__gallery-item__img img-cover" src="<?php echo $attachment['url'] ?>" alt="">
 			</div>
-	<?php
+		<?php
 		}
+	} elseif (has_post_thumbnail()) {
+		?>
+		<div class="croxo-gallery__gallery-item c-pointer flexone">
+		<?php the_post_thumbnail(); ?>
+		</div>
+	<?php
 	}
 	?>
 	<div class="croxo-gallery__lightbox fixed-stretch justify-content-center align-items-center d-none">

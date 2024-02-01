@@ -418,7 +418,7 @@ function events_list($time)
 		'posts_per_page' => -1,
 		'meta_key'       => '_custom_date',
 		'orderby'        => 'meta_value',
-		'order'          => 'ASC', // Use 'DESC' for descending order
+		'order'          => 'DESC', // Use 'DESC' for descending order
 		'meta_query'     => array(
 			array(
 				'key'     => '_custom_date',

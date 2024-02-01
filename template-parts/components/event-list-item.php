@@ -24,33 +24,32 @@ $excerpt = get_the_excerpt();
 			<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
 		</div>
 	<?php } ?>
-		<div class="croxo-events-list-item__calendar-wrapper">
-			<?php get_template_part('template-parts/components/calendar-item') ?>
-		</div>
-		<div class="disco_title__text-container d-flex flexone flex-column tilt-t-lg-6">
-			<h2 class="disco_title__paragraph croxo-font-text px-2">
-				<a class="reset-link" href="<?= $permalink ?>">
-					<span><?php the_title() ?><br></span>
-				</a>
-			</h2>
-			<?php if (!empty($excerpt)) { ?>
-				<span class="disco_title__excerpt croxo-font-text px-2">
-					<?php echo $excerpt; ?>
-				</span>
-			<?php } ?>
-			<div class="disco_title__actions-container d-flex px-2 pt-2">
+	<div class="croxo-events-list-item__calendar-wrapper">
+		<?php get_template_part('template-parts/components/calendar-item') ?>
+	</div>
+	<div class="disco_title__text-container d-flex flexone flex-column tilt-t-lg-6">
+		<h2 class="disco_title__paragraph croxo-font-text px-2">
+			<a class="reset-link" href="<?= $permalink ?>">
+				<span><?php the_title() ?><br></span>
+			</a>
+		</h2>
+		<?php if (!empty($excerpt)) { ?>
+			<span class="disco_title__excerpt croxo-font-text px-2">
+				<?php echo $excerpt; ?>
+			</span>
+		<?php } ?>
+		<div class="disco_title__actions-container d-flex px-2 pt-2">
+			<?php if (!!$time) {
+			?>
 				<a class="disco_title__actions-container__apply-link reset-link d-flex align-items-center">
 					<span class="disco_title__actions-container__apply-link__icon material-symbols-outlined tilt-b-2  theme-color">hand_gesture</span>
 					<span class="disco_title__actions-container__apply-link__span croxo-font-text ps-1  theme-color">apply!</span>
 				</a>
-				<a href="<?php echo $permalink; ?>" class="disco_title__actions-container__post-link reset-link d-flex align-items-center">
-					<span class="disco_title__actions-container__post-link__icon material-symbols-outlined theme-color">mystery</span>
-					<span class="disco_title__actions-container__post-link__span croxo-font-text ps-1 theme-color">See more</span>
-				</a>
-				<?php if (!!$time) {
-				?>
-				<?php
-				} ?>
-			</div>
+			<?php } ?>
+			<a href="<?php echo $permalink; ?>" class="disco_title__actions-container__post-link reset-link d-flex align-items-center">
+				<span class="disco_title__actions-container__post-link__icon material-symbols-outlined theme-color">mystery</span>
+				<span class="disco_title__actions-container__post-link__span croxo-font-text ps-1 theme-color">See more</span>
+			</a>
 		</div>
+	</div>
 </li>
