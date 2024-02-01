@@ -244,7 +244,7 @@ function about_custom_post_type()
 	$args = array(
 		'labels' => $labels,
 		'public' => true,
-		'menu_icon' => 'dashicons-format-status',
+		'menu_icon' => 'dashicons-text',
 		'has_archive' => false,
 		'publicly_queryable' => true,
 		'query_var' => true,
@@ -266,6 +266,54 @@ function about_custom_post_type()
 	register_post_type('about_text', $args);
 }
 add_action('init', 'about_custom_post_type');
+
+
+/*
+'GALINHEIRO' POST TYPE
+*/
+
+function galinheiro_custom_post_type()
+{
+	$labels = array(
+		'name' => 'Galinheiro intro text',
+		'singular_name' => 'Galinheiro intro text',
+		'add_new' => 'Add texto',
+		'all_items' => 'Galinheiro text - ATTENTION, only on post allowed',
+		'add_new_item' => 'Add texto - ATTENTION, only on post allowed',
+		'edit_item' => 'Edit',
+		'new item' => 'New text',
+		'view_item' => 'View text',
+		'search_item' => 'Search text',
+		'not_found' => 'No text',
+		'not_found_in_trash' => 'None in trash',
+		'parent_item_colon' => 'Parent Item'
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'menu_icon' => 'dashicons-text',
+		'has_archive' => false,
+		'publicly_queryable' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			'editor',
+			'thumbnail',
+			'excerpt',
+			'revision',
+		),
+		'taxonomies' => array('category', 'post_tag'),
+		'menu_position' => 6,
+		'exclude_from_search' => false,
+		'posts_per_page' => 1,
+	);
+	register_post_type('galinheiro_text', $args);
+}
+add_action('init', 'galinheiro_custom_post_type');
 
 
 /**** Slider Call Function ****/
