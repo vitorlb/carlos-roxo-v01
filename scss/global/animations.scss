@@ -1,0 +1,28 @@
+//animations
+@keyframes popin {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes popout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+  }
+
+//scss
+
+.anim-350 {
+    animation-duration: 350ms;
+}
+
+.anim-forwards {
+    animation-fill-mode: forwards;
+}
+
+.anim-popin {
+    animation-name: popin;
+}
+
+.anim-popout {
+    animation-name: popout;
+}

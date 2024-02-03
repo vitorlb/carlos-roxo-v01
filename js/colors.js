@@ -8,8 +8,8 @@ let acidArray = [
 	'#f9d500',
 	'#2edb63',
 	'#cbfd05',
-	'a784f9',
-	'611de9'
+	'#a784f9',
+	'#611de9'
 ];
 let acidColor = '#ff35ff';
 //TODO: avoid repeated colors using while 

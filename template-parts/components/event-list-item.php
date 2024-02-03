@@ -17,13 +17,17 @@ $today_date = date('Y-m-d');
 $time =  ($custom_date > $today_date) ? true : false;
 $permalink = get_permalink();
 $excerpt = get_the_excerpt();
-?>
-
-<li class="croxo-events-list-item d-flex"> <?php if (has_post_thumbnail()) { ?>
-		<div class="d-none croxo-events-list-item__thumb-wrapper">
-			<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
-		</div>
+$images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
+$event_thumbnail = null;
+if (!empty($images) || has_post_thumbnail()) {
+	$event_thumbnail = !empty($images) ? wp_prepare_attachment_for_js($images[0])['url'] : get_the_post_thumbnail_url();
+}
+?> 
+<li class="croxo-events-list-item d-flex"
+	<?php if(!!$event_thumbnail) { ?>
+		thumb-path="<?php echo $event_thumbnail; ?>"
 	<?php } ?>
+>
 	<div class="croxo-events-list-item__calendar-wrapper">
 		<?php get_template_part('template-parts/components/calendar-item') ?>
 	</div>

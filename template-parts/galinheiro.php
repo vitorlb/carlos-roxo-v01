@@ -16,10 +16,25 @@ while (have_posts()) :
 ?>
 	<main class="croxo-galinheiro--main-wrapper d-flex flex-column container">
 		<div class="croxo-galinheiro--main-wrapper__header">
+			<div class="header__logo d-flex align-items-center justify-content-center mt-5 column-gap-10">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/galinheiro_logo.jpg" alt="">
+			</div>
+			<div class="header__main-info d-flex align-items-center mb-5 mt-2 column-gap-10">
+				<div class="header__icon d-flex justify-content-end">
+					<span class="croxo-icons croxo-iconslava_logo-01-mirror croxo-text-giant-sm"></span>
+				</div>
+				<div class="header__text croxo-font-text--deep text-center">
+					<?php get_template_part('template-parts/components/galinheiro-header-text'); ?>
+				</div>
+				<div class="header__icon d-flex">
+					<span class="croxo-icons croxo-iconslava_logo-01 croxo-text-giant-sm"></span>
+				</div>
+			</div>
 			<div class="
 						croxo-galinheiro--main-wrapper__events-list__future__title-container
 						d-flex
-						justify-content-between">
+						justify-content-between
+						">
 				<h1 class="theme-color croxo-font-text">Upcoming events!</h1>
 				<h5 class="croxo-galinheiro--main-wrapper__events-list__future__title-container__slide-to-past theme-color croxo-font-text align-items-center d-flex c-pointer">
 					<span>Slide to past events</span>
@@ -37,8 +52,10 @@ while (have_posts()) :
 					<?php events_list(false) ?>
 				</div>
 			</div>
-			<div class="croxo-galinheiro--main-wrapper__img-container flexone">
-				<img src="http://localhost/carlosroxo.com/wp-content/uploads/2023/11/Screenshot-2023-11-26-172410.png" alt="">
+			<div class="croxo-galinheiro--main-wrapper__img-container pt-4 flexone">
+				<div class="croxo-galinheiro--main-wrapper__img-container__wrapper d-none anim-popin anim-350 anim-forwards sticky-top border-theme-color">
+					<img src="" alt="">
+				</div>
 			</div>
 		</div>
 	</main>

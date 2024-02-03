@@ -221,7 +221,7 @@ function graphic_design_custom_post_type()
 add_action('init', 'graphic_design_custom_post_type');
 
 /*
-'ABOUT' POST TYPE
+'ABOUT TEXT' POST TYPE
 */
 
 function about_custom_post_type()
@@ -269,7 +269,7 @@ add_action('init', 'about_custom_post_type');
 
 
 /*
-'GALINHEIRO' POST TYPE
+'GALINHEIRO TEXT' POST TYPE
 */
 
 function galinheiro_custom_post_type()
@@ -278,8 +278,8 @@ function galinheiro_custom_post_type()
 		'name' => 'Galinheiro intro text',
 		'singular_name' => 'Galinheiro intro text',
 		'add_new' => 'Add texto',
-		'all_items' => 'Galinheiro text - ATTENTION, only on post allowed',
-		'add_new_item' => 'Add texto - ATTENTION, only on post allowed',
+		'all_items' => 'Galinheiro text - ATTENTION, only one post allowed',
+		'add_new_item' => 'Add texto - ATTENTION, only one post allowed',
 		'edit_item' => 'Edit',
 		'new item' => 'New text',
 		'view_item' => 'View text',

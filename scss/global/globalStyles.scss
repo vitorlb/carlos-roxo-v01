@@ -1,3 +1,5 @@
+@import './animations.scss';
+
 //backgrounds
 
 .croxo-background-transparent {
@@ -199,6 +201,18 @@
 	column-gap: var(--wp--preset--spacing--90);
 }
 
+//TODO: deprecate above gaps classes
+
+@for $i from 1 through 20 {
+	.row-gap-#{$i} {
+		row-gap: calc($i * 6px);
+	}
+
+	.column-gap-#{$i} {
+		column-gap: calc($i * 6px);
+	}
+}
+
 //hovers
 
 .croxo-underline-hover {
@@ -339,9 +353,17 @@
 
 .sticky-top {
 	position: sticky;
-	top: 24px;
+	top: 120px;
 	z-index: 0;
 }
+
+@for $i from 1 through 20 {
+	//TODO: insert other positions
+	.p-top-#{$i} {
+		top: calc($i * 6px)
+	}
+}
+
 
 //ratios
 
@@ -393,6 +415,14 @@
 	}
 }
 
+.croxo-text-giant {
+	font-size: $font-size-giant;
+}
+
+.croxo-text-giant-sm {
+	font-size: $font-size-giant-sm;
+}
+
 .croxo-text-h1 {
 	font-size: $font-size-h1;
 }
@@ -403,6 +433,10 @@
 
 .croxo-text-h1-xxl {
 	font-size: $font-size-h1-xxl;
+}
+
+.croxo-text-base {
+	font-size: $font-size-text;
 }
 
 .croxo-text-label {
@@ -472,6 +506,18 @@
 }
 
 //transform
+
+.transform-reflect-horizontal {
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+.transform-reflect-horizontal--before {
+	&::before {
+		-webkit-transform: scaleX(-1);
+		transform: scaleX(-1);
+	}
+}
 
 .transform-origin-center {
 	transform-origin: center;

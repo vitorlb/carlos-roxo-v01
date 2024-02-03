@@ -15,7 +15,6 @@ jQuery(document).ready(function ($) {
         (selectedWorkTypes.length === 1) 
             ? workTypeSelectionMode = selectedWorkTypes[0]
             : workTypeSelectionMode = null;  
-        debugger;
         // Perform AJAX request
         $.ajax({
             type: 'GET',

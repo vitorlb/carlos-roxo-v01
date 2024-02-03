@@ -29303,6 +29303,38 @@ progress {
   --bs-btn-border-radius: var(--bs-border-radius-sm);
 }
 
+@keyframes popin {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes popout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.anim-350 {
+  animation-duration: 350ms;
+}
+
+.anim-forwards {
+  animation-fill-mode: forwards;
+}
+
+.anim-popin {
+  animation-name: popin;
+}
+
+.anim-popout {
+  animation-name: popout;
+}
+
 .croxo-background-transparent {
   background-color: transparent;
 }
@@ -29486,6 +29518,166 @@ progress {
   column-gap: var(--wp--preset--spacing--90);
 }
 
+.row-gap-1 {
+  row-gap: 6px;
+}
+
+.column-gap-1 {
+  column-gap: 6px;
+}
+
+.row-gap-2 {
+  row-gap: 12px;
+}
+
+.column-gap-2 {
+  column-gap: 12px;
+}
+
+.row-gap-3 {
+  row-gap: 18px;
+}
+
+.column-gap-3 {
+  column-gap: 18px;
+}
+
+.row-gap-4 {
+  row-gap: 24px;
+}
+
+.column-gap-4 {
+  column-gap: 24px;
+}
+
+.row-gap-5 {
+  row-gap: 30px;
+}
+
+.column-gap-5 {
+  column-gap: 30px;
+}
+
+.row-gap-6 {
+  row-gap: 36px;
+}
+
+.column-gap-6 {
+  column-gap: 36px;
+}
+
+.row-gap-7 {
+  row-gap: 42px;
+}
+
+.column-gap-7 {
+  column-gap: 42px;
+}
+
+.row-gap-8 {
+  row-gap: 48px;
+}
+
+.column-gap-8 {
+  column-gap: 48px;
+}
+
+.row-gap-9 {
+  row-gap: 54px;
+}
+
+.column-gap-9 {
+  column-gap: 54px;
+}
+
+.row-gap-10 {
+  row-gap: 60px;
+}
+
+.column-gap-10 {
+  column-gap: 60px;
+}
+
+.row-gap-11 {
+  row-gap: 66px;
+}
+
+.column-gap-11 {
+  column-gap: 66px;
+}
+
+.row-gap-12 {
+  row-gap: 72px;
+}
+
+.column-gap-12 {
+  column-gap: 72px;
+}
+
+.row-gap-13 {
+  row-gap: 78px;
+}
+
+.column-gap-13 {
+  column-gap: 78px;
+}
+
+.row-gap-14 {
+  row-gap: 84px;
+}
+
+.column-gap-14 {
+  column-gap: 84px;
+}
+
+.row-gap-15 {
+  row-gap: 90px;
+}
+
+.column-gap-15 {
+  column-gap: 90px;
+}
+
+.row-gap-16 {
+  row-gap: 96px;
+}
+
+.column-gap-16 {
+  column-gap: 96px;
+}
+
+.row-gap-17 {
+  row-gap: 102px;
+}
+
+.column-gap-17 {
+  column-gap: 102px;
+}
+
+.row-gap-18 {
+  row-gap: 108px;
+}
+
+.column-gap-18 {
+  column-gap: 108px;
+}
+
+.row-gap-19 {
+  row-gap: 114px;
+}
+
+.column-gap-19 {
+  column-gap: 114px;
+}
+
+.row-gap-20 {
+  row-gap: 120px;
+}
+
+.column-gap-20 {
+  column-gap: 120px;
+}
+
 .croxo-underline-hover {
   position: relative;
 }
@@ -29595,8 +29787,88 @@ progress {
 
 .sticky-top {
   position: sticky;
-  top: 24px;
+  top: 120px;
   z-index: 0;
+}
+
+.p-top-1 {
+  top: 6px;
+}
+
+.p-top-2 {
+  top: 12px;
+}
+
+.p-top-3 {
+  top: 18px;
+}
+
+.p-top-4 {
+  top: 24px;
+}
+
+.p-top-5 {
+  top: 30px;
+}
+
+.p-top-6 {
+  top: 36px;
+}
+
+.p-top-7 {
+  top: 42px;
+}
+
+.p-top-8 {
+  top: 48px;
+}
+
+.p-top-9 {
+  top: 54px;
+}
+
+.p-top-10 {
+  top: 60px;
+}
+
+.p-top-11 {
+  top: 66px;
+}
+
+.p-top-12 {
+  top: 72px;
+}
+
+.p-top-13 {
+  top: 78px;
+}
+
+.p-top-14 {
+  top: 84px;
+}
+
+.p-top-15 {
+  top: 90px;
+}
+
+.p-top-16 {
+  top: 96px;
+}
+
+.p-top-17 {
+  top: 102px;
+}
+
+.p-top-18 {
+  top: 108px;
+}
+
+.p-top-19 {
+  top: 114px;
+}
+
+.p-top-20 {
+  top: 120px;
 }
 
 .ratio-square {
@@ -29636,6 +29908,14 @@ progress {
   font-family: "Terminal Grotesque";
 }
 
+.croxo-text-giant {
+  font-size: 222px;
+}
+
+.croxo-text-giant-sm {
+  font-size: 160px;
+}
+
 .croxo-text-h1 {
   font-size: 54px;
 }
@@ -29646,6 +29926,10 @@ progress {
 
 .croxo-text-h1-xxl {
   font-size: 84px;
+}
+
+.croxo-text-base {
+  font-size: 16px;
 }
 
 .croxo-text-label {
@@ -29709,6 +29993,16 @@ progress {
   }
 }
 
+.transform-reflect-horizontal {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.transform-reflect-horizontal--before::before {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
 .transform-origin-center {
   transform-origin: center;
 }
@@ -29727,8 +30021,8 @@ progress {
 
 @font-face {
   font-family: "croxoicons";
-  src: url("fonts/croxoicons.eot?jwgn6w");
-  src: url("fonts/croxoicons.eot?jwgn6w#iefix") format("embedded-opentype"), url("fonts/croxoicons.ttf?jwgn6w") format("truetype"), url("fonts/croxoicons.woff?jwgn6w") format("woff"), url("fonts/croxoicons.svg?jwgn6w#croxoicons") format("svg");
+  src: url("fonts/croxoicons.eot?uyl465");
+  src: url("fonts/croxoicons.eot?uyl465#iefix") format("embedded-opentype"), url("fonts/croxoicons.ttf?uyl465") format("truetype"), url("fonts/croxoicons.woff?uyl465") format("woff"), url("fonts/croxoicons.svg?uyl465#croxoicons") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -29761,6 +30055,10 @@ progress {
 
 .croxo-iconslava_logo-01:before {
   content: "\e903";
+}
+
+.croxo-iconslava_logo-01-mirror:before {
+  content: "\e904";
 }
 
 .site-header .site-title a {
@@ -29963,6 +30261,11 @@ progress {
 }
 .croxo-events-list-item .disco_title__text-container .disco_title__actions-container .disco_title__actions-container__apply-link .disco_title__actions-container__apply-link__span {
   font-size: 18px;
+}
+
+.croxo-galinheiro--main-wrapper .croxo-galinheiro--main-wrapper__header .header__logo img {
+  height: 84px;
+  width: auto;
 }
 
 .croxo-gallery.croxo-gallery--img-focused .croxo-gallery__gallery-item {
