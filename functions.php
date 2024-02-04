@@ -616,6 +616,14 @@ function enqueue_formData()
 
 add_action('wp_enqueue_scripts', 'enqueue_formData');
 
+function enqueue_eventData()
+{
+	wp_register_script('event-data', get_stylesheet_directory_uri() . '/js/eventData.js', [], get_stylesheet_directory_uri() . '/js/eventData.js', true);
+	wp_enqueue_script('event-data');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_eventData');
+
 function enqueue_filtersAjax()
 {
 	wp_enqueue_script('filtersAjax', get_stylesheet_directory_uri() . '/js/filtersAjax.js', array('jquery'), '', true);

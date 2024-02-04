@@ -58,6 +58,9 @@ while (have_posts()) :
 				</div>
 			</div>
 		</div>
+		<div id="croxoEventForm" class="croxo-event-form__main-wrapper d-none">
+			<?php echo do_shortcode('[contact-form-7 id="760bea4" title="Contact form 1"]'); ?>
+		</div>
 	</main>
 <?php
 endwhile;

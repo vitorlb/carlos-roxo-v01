@@ -45,12 +45,12 @@ if (!empty($images) || has_post_thumbnail()) {
 		<div class="disco_title__actions-container d-flex px-2 pt-2">
 			<?php if (!!$time) {
 			?>
-				<a class="disco_title__actions-container__apply-link reset-link d-flex align-items-center">
+				<a class="disco_title__actions-container__apply-link reset-link d-flex align-items-center c-pointer">
 					<span class="disco_title__actions-container__apply-link__icon material-symbols-outlined tilt-b-2  theme-color">hand_gesture</span>
 					<span class="disco_title__actions-container__apply-link__span croxo-font-text ps-1  theme-color">apply!</span>
 				</a>
 			<?php } ?>
-			<a href="<?php echo $permalink; ?>" class="disco_title__actions-container__post-link reset-link d-flex align-items-center">
+			<a href="<?php echo $permalink; ?>" class="disco_title__actions-container__post-link reset-link d-flex align-items-center c-pointer">
 				<span class="disco_title__actions-container__post-link__icon material-symbols-outlined theme-color">mystery</span>
 				<span class="disco_title__actions-container__post-link__span croxo-font-text ps-1 theme-color">See more</span>
 			</a>

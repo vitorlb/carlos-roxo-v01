@@ -16,10 +16,13 @@ $postType = get_post_type();
 	<?php if ($postType == 'post') { ?>
 		<div class="ctp-header-wrapper__calendar-wrapper flexone mt-3 pe-4">
 			<?php get_template_part('template-parts/components/calendar-item') ?>
-			<a class="ctp-header-wrapper__calendar-wrapper__apply-link reset-link d-flex align-items-center justify-content-center pt-2">
+			<a class="ctp-header-wrapper__calendar-wrapper__apply-link reset-link d-flex align-items-center justify-content-center pt-2 c-pointer">
 				<span class="ctp-header-wrapper__calendar-wrapper__apply-link__icon material-symbols-outlined theme-color tilt-b-2">hand_gesture</span>
 				<span class="ctp-header-wrapper__calendar-wrapper__apply-link__span ps-1 theme-color">apply!</span>
 			</a>
+			<div id="croxoEventForm" class="croxo-event-form__main-wrapper d-none">
+				<?php echo do_shortcode('[contact-form-7 id="760bea4" title="Contact form 1"]'); ?>
+			</div>
 		</div>
 		<div class="ctp-header-wrapper__text-info-wrapper flexfour <?php if ($postType == 'post') { ?> pt-2 <?php }  ?>">
 		<?php }; ?>
@@ -37,7 +40,7 @@ $postType = get_post_type();
 					<span class="croxo-font-text croxo-text-label ps-1 c-pointer">go back</span>
 				</div>
 
-			</div> 
+			</div>
 			<?php /* wp_link_pages(); <-- investigate */ ?>
 		</div>
 		<?php if ($postType == 'post') {

@@ -30382,7 +30382,7 @@ progress {
   transform: rotate(-360deg);
 }
 
-.croxo-contact-form__main-wrapper {
+.croxo-contact-form__main-wrapper, .croxo-event-form__main-wrapper {
   align-items: center;
   background-color: rgba(255, 255, 255, 0.8);
   bottom: 0;
@@ -30396,7 +30396,7 @@ progress {
   width: 100vw;
   z-index: 3;
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper {
   background-color: white;
   border: 5px solid var(--acid-color);
   display: flex;
@@ -30405,42 +30405,42 @@ progress {
   width: 90vw;
 }
 @media (min-width: 992px) {
-  .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper {
+  .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper {
     width: 70vw;
   }
 }
 @media (min-width: 1200px) {
-  .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper {
+  .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper {
     width: 40vw;
   }
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__close-btn span:hover {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__close-btn span:hover, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__close-btn span:hover {
   transform: rotate(360deg);
   transform-origin: center;
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p {
   display: flex;
   margin: 0;
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p * {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p *, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p * {
   flex: 1;
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p input {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p input, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p input {
   border: 2px solid var(--acid-color);
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p textarea {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p textarea, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item p textarea {
   border: 2px solid var(--acid-color);
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button:last-child {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button:last-child, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button:last-child {
   margin-left: 8px;
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button.contact-types--inactive .material-symbols-outlined {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button.contact-types--inactive .material-symbols-outlined, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button.contact-types--inactive .material-symbols-outlined {
   opacity: 0.5;
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button .material-symbols-outlined {
+.croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button .material-symbols-outlined, .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper .croxo-contact-form__form-item.croxo-contact-form__form-item--contact .croxo-contact-form__contact-types button .material-symbols-outlined {
   font-size: 17px;
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn {
+.croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn, .croxo-event-form__main-wrapper .croxo-contact-form-submit-btn {
   border: 0px;
   color: var(--acid-color);
   font-family: "Terminal Grotesque";
@@ -30449,10 +30449,10 @@ progress {
   padding: 0;
   text-decoration: underline;
 }
-.croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn:hover, .croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn:focus {
+.croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn:hover, .croxo-contact-form__main-wrapper .croxo-contact-form-submit-btn:focus, .croxo-event-form__main-wrapper .croxo-contact-form-submit-btn:hover, .croxo-event-form__main-wrapper .croxo-contact-form-submit-btn:focus {
   background-color: transparent;
 }
-.croxo-contact-form__main-wrapper .wpcf7-response-output {
+.croxo-contact-form__main-wrapper .wpcf7-response-output, .croxo-event-form__main-wrapper .wpcf7-response-output {
   display: none;
 }
 
