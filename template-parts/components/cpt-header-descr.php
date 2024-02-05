@@ -33,21 +33,20 @@ $postType = get_post_type();
 			} ?>
 		</header>
 		<div class="page-content flextwo croxo-font-text d-flex flex-column">
-			<?php the_content(); ?>
+			<?php the_content();
+			if (is_page('about')) { ?>
+				<div class="ctp-header-wrapper__page-content__quick-links mb-3">
+					<?php get_template_part('template-parts/components/quick-links'); ?>
+				</div>
+			<?php } ?>
 			<div class="actions-container d-flex justify-content-between">
-				<div class="page-content__go-back-wrapper d-flex align-items-center align-self-start tilt-l-2 croxo-underline-hover croxo-go-back-btn">
+				<div class="page-content__go-back-wrapper d-flex align-items-center align-self-start tilt-l-2 croxo-go-back-btn">
 					<span class="material-symbols-outlined croxo-icon-size-micro">first_page</span>
-					<span class="croxo-font-text croxo-text-label ps-1 c-pointer">go back</span>
+					<span class="croxo-font-text croxo-text-label ps-1 c-pointer croxo-underline-hover">go back</span>
 				</div>
 
 			</div>
 			<?php /* wp_link_pages(); <-- investigate */ ?>
 		</div>
-		<?php if ($postType == 'post') {
-		?>
-			<!-- close div.ctp-header-wrapper__text-info-wrapper -->
-		</div>
-	<?php
-		}; ?>
 
-</div>
+		</div>

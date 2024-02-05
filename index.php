@@ -35,6 +35,10 @@ if (
 	if (!$is_elementor_theme_exist || !elementor_theme_do_location('single')) {
 		get_template_part('template-parts/galinheiro');
 	}
+} elseif (is_page('about')) {
+	if (!$is_elementor_theme_exist || !elementor_theme_do_location('single')) {
+		get_template_part('template-parts/event');
+	}
 } elseif (is_singular()) {
 	if (!$is_elementor_theme_exist || !elementor_theme_do_location('single')) {
 		get_template_part('template-parts/single');

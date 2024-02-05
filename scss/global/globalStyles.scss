@@ -313,11 +313,11 @@
 }
 
 .material-symbols-light {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 300,
-  'GRAD' 0,
-  'opsz' 24
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 300,
+		'GRAD' 0,
+		'opsz' 24
 }
 
 //pointer events
@@ -370,6 +370,7 @@
 }
 
 @for $i from 1 through 20 {
+
 	//TODO: insert other positions
 	.p-top-#{$i} {
 		top: calc($i * 6px)
@@ -468,8 +469,13 @@
 	font-size: 15px;
 }
 
-//tilt
+@for $i from 1 through 30 {
+	.font-size-#{$i} {
+		font-size: calc($i * 2px)
+	}
+}
 
+//tilt
 .tilt-b-2 {
 	margin-bottom: -2px;
 }
@@ -556,4 +562,12 @@
 
 .transition-all-650 {
 	transition: all 650ms;
+}
+
+//overwrites
+
+.page-content {
+	a {
+		text-decoration: unset;
+	}
 }

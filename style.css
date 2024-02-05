@@ -29957,6 +29957,126 @@ progress {
   font-size: 15px;
 }
 
+.font-size-1 {
+  font-size: 2px;
+}
+
+.font-size-2 {
+  font-size: 4px;
+}
+
+.font-size-3 {
+  font-size: 6px;
+}
+
+.font-size-4 {
+  font-size: 8px;
+}
+
+.font-size-5 {
+  font-size: 10px;
+}
+
+.font-size-6 {
+  font-size: 12px;
+}
+
+.font-size-7 {
+  font-size: 14px;
+}
+
+.font-size-8 {
+  font-size: 16px;
+}
+
+.font-size-9 {
+  font-size: 18px;
+}
+
+.font-size-10 {
+  font-size: 20px;
+}
+
+.font-size-11 {
+  font-size: 22px;
+}
+
+.font-size-12 {
+  font-size: 24px;
+}
+
+.font-size-13 {
+  font-size: 26px;
+}
+
+.font-size-14 {
+  font-size: 28px;
+}
+
+.font-size-15 {
+  font-size: 30px;
+}
+
+.font-size-16 {
+  font-size: 32px;
+}
+
+.font-size-17 {
+  font-size: 34px;
+}
+
+.font-size-18 {
+  font-size: 36px;
+}
+
+.font-size-19 {
+  font-size: 38px;
+}
+
+.font-size-20 {
+  font-size: 40px;
+}
+
+.font-size-21 {
+  font-size: 42px;
+}
+
+.font-size-22 {
+  font-size: 44px;
+}
+
+.font-size-23 {
+  font-size: 46px;
+}
+
+.font-size-24 {
+  font-size: 48px;
+}
+
+.font-size-25 {
+  font-size: 50px;
+}
+
+.font-size-26 {
+  font-size: 52px;
+}
+
+.font-size-27 {
+  font-size: 54px;
+}
+
+.font-size-28 {
+  font-size: 56px;
+}
+
+.font-size-29 {
+  font-size: 58px;
+}
+
+.font-size-30 {
+  font-size: 60px;
+}
+
 .tilt-b-2 {
   margin-bottom: -2px;
 }
@@ -30034,6 +30154,10 @@ progress {
 
 .transition-all-650 {
   transition: all 650ms;
+}
+
+.page-content a {
+  text-decoration: unset;
 }
 
 @font-face {

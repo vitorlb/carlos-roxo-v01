@@ -368,10 +368,17 @@ function grelha_discos()
 	$post_types = array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing');
 	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
 	$selected_work_types = isset($_GET['work_types']) ? array_map('sanitize_text_field', $_GET['work_types']) : array();
-	$args = array(
-		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types
-
-	);
+	$args = null;
+	if (is_home()) {
+		$args = array(
+			'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types,
+			'posts_per_page' => 12
+		);
+	} else {
+		$args = array(
+			'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types
+		);
+	}
 
 ?>
 	<div class="croxo-work-filters">
@@ -438,7 +445,7 @@ function filter_posts()
 {
 	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
 	$work_types_filter = isset($_GET['work_filter']) ? $_GET['work_filter'] : null;
- 
+	
 	$args = array(
 		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing')
 	);
@@ -811,80 +818,86 @@ add_action('save_post', 'save_institutional_work_metabox');
 
 //genral settings social links
 
-function custom_general_settings_fields($settings) {
-    $settings['custom_instagram'] = array(
-        'title'    => 'Instagram',
-        'type'     => 'url',
-        'id'       => 'custom_instagram',
-        'desc'     => 'Enter your Instagram link.',
-        'std'      => '',
-        'section'  => 'general',
-    );
+function custom_general_settings_fields($settings)
+{
+	$settings['custom_instagram'] = array(
+		'title'    => 'Instagram',
+		'type'     => 'url',
+		'id'       => 'custom_instagram',
+		'desc'     => 'Enter your Instagram link.',
+		'std'      => '',
+		'section'  => 'general',
+	);
 
-    $settings['custom_instagram_text'] = array(
-        'title'    => 'Instagram Display Text',
-        'type'     => 'text',
-        'id'       => 'custom_instagram_text',
-        'desc'     => 'Enter the display text for your Instagram link.',
-        'std'      => '',
-        'section'  => 'general',
-    );
+	$settings['custom_instagram_text'] = array(
+		'title'    => 'Instagram Display Text',
+		'type'     => 'text',
+		'id'       => 'custom_instagram_text',
+		'desc'     => 'Enter the display text for your Instagram link.',
+		'std'      => '',
+		'section'  => 'general',
+	);
 
-    $settings['custom_email'] = array(
-        'title'    => 'Email',
-        'type'     => 'mail',
-        'id'       => 'custom_email',
-        'desc'     => 'Enter your Email link.',
-        'std'      => '',
-        'section'  => 'general',
-    );
+	$settings['custom_email'] = array(
+		'title'    => 'Email',
+		'type'     => 'mail',
+		'id'       => 'custom_email',
+		'desc'     => 'Enter your Email link.',
+		'std'      => '',
+		'section'  => 'general',
+	);
 
-    $settings['custom_email_text'] = array(
-        'title'    => 'Email Display Text',
-        'type'     => 'text',
-        'id'       => 'custom_email_text',
-        'desc'     => 'Enter the display text for your Email link.',
-        'std'      => '',
-        'section'  => 'general',
-    );
+	$settings['custom_email_text'] = array(
+		'title'    => 'Email Display Text',
+		'type'     => 'text',
+		'id'       => 'custom_email_text',
+		'desc'     => 'Enter the display text for your Email link.',
+		'std'      => '',
+		'section'  => 'general',
+	);
 
-    return $settings;
+	return $settings;
 }
 
-function add_custom_general_settings() {
-    add_settings_section('general', 'Useful links', '__return_false', 'general');
-    
-    add_settings_field('custom_instagram', 'Instagram Link', 'custom_instagram_callback', 'general', 'general');
-    add_settings_field('custom_instagram_text', 'Instagram Display Text', 'custom_instagram_text_callback', 'general', 'general');
-    
-    add_settings_field('custom_email', 'Email Link', 'custom_email_callback', 'general', 'general');
-    add_settings_field('custom_email_text', 'Email Display Text', 'custom_email_text_callback', 'general', 'general');
+function add_custom_general_settings()
+{
+	add_settings_section('general', 'Useful links', '__return_false', 'general');
 
-    register_setting('general', 'custom_instagram');
-    register_setting('general', 'custom_instagram_text');
-    
-    register_setting('general', 'custom_email');
-    register_setting('general', 'custom_email_text');
+	add_settings_field('custom_instagram', 'Instagram Link', 'custom_instagram_callback', 'general', 'general');
+	add_settings_field('custom_instagram_text', 'Instagram Display Text', 'custom_instagram_text_callback', 'general', 'general');
+
+	add_settings_field('custom_email', 'Email Link', 'custom_email_callback', 'general', 'general');
+	add_settings_field('custom_email_text', 'Email Display Text', 'custom_email_text_callback', 'general', 'general');
+
+	register_setting('general', 'custom_instagram');
+	register_setting('general', 'custom_instagram_text');
+
+	register_setting('general', 'custom_email');
+	register_setting('general', 'custom_email_text');
 }
 
-function custom_instagram_callback() {
-    $value = get_option('custom_instagram');
-    echo '<input type="url" id="custom_instagram" name="custom_instagram" value="' . esc_url($value) . '" />';
+function custom_instagram_callback()
+{
+	$value = get_option('custom_instagram');
+	echo '<input type="url" id="custom_instagram" name="custom_instagram" value="' . esc_url($value) . '" />';
 }
 
-function custom_instagram_text_callback() {
-    $value = get_option('custom_instagram_text');
-    echo '<input type="text" id="custom_instagram_text" name="custom_instagram_text" value="' . esc_attr($value) . '" />';
+function custom_instagram_text_callback()
+{
+	$value = get_option('custom_instagram_text');
+	echo '<input type="text" id="custom_instagram_text" name="custom_instagram_text" value="' . esc_attr($value) . '" />';
 }
 
-function custom_email_callback() {
-    $value = get_option('custom_email');
-    echo '<input type="email" id="custom_email" name="custom_email" value="' . esc_attr($value) . '" />';
+function custom_email_callback()
+{
+	$value = get_option('custom_email');
+	echo '<input type="email" id="custom_email" name="custom_email" value="' . esc_attr($value) . '" />';
 }
 
-function custom_email_text_callback() {
-    $value = get_option('custom_email_text');
-    echo '<input type="text" id="custom_email_text" name="custom_email_text" value="' . esc_attr($value) . '" />';
+function custom_email_text_callback()
+{
+	$value = get_option('custom_email_text');
+	echo '<input type="text" id="custom_email_text" name="custom_email_text" value="' . esc_attr($value) . '" />';
 }
 
 add_filter('admin_init', 'add_custom_general_settings');

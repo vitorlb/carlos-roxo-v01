@@ -24,7 +24,6 @@ $email_link = get_option('custom_email');
 $email_display_text = get_option('custom_email_text');
 $instagram_link = get_option('custom_instagram');
 $instagram_display_text = get_option('custom_instagram_text');
-
 ?>
 <footer id="site-footer" class="site-footer dynamic-footer croxo-footer py-3 mt-5 border-top-theme-color croxo-font-text--deep <?php echo esc_attr($footer_class); ?>" role="contentinfo">
 	<div class="container px-0">
@@ -49,7 +48,6 @@ $instagram_display_text = get_option('custom_instagram_text');
 					</a>
 				<?php } ?>
 			</p>
-
 			<?php if ('' !== hello_elementor_get_setting('hello_footer_copyright_text') || $is_editor) : ?>
 				<div class="copyright d-flex <?php echo esc_attr(hello_show_or_hide('hello_footer_copyright_display')); ?>">
 					<p class="croxo-text-label pe-1"><?php echo wp_kses_post(hello_elementor_get_setting('hello_footer_copyright_text')); ?><span class="ps-1">|</span></p>
