@@ -16,16 +16,18 @@ if (!defined('ABSPATH')) {
 get_header();
 $is_elementor_theme_exist = function_exists('elementor_theme_do_location');
 ?>
-<?php
-if (is_singular($post_types = 'ceramics')) {
-	if (!$is_elementor_theme_exist || !elementor_theme_do_location('ceramics')) {
-		get_template_part('template-parts/ceramics');
-	}
-} elseif (is_singular($post_types = 'ilustrations')) {
+<?php 
+if (
+	(is_singular($post_types = 'clothing'))
+	|| (is_singular($post_types = 'ceramics'))
+	|| (is_singular($post_types = 'ilustrations'))
+	|| (is_singular($post_types = 'graphic_design')) 
+	|| (is_singular($post_types = 'animation'))
+	) {
 	if (!$is_elementor_theme_exist || !elementor_theme_do_location('ilustrations')) {
 		get_template_part('template-parts/ilustrations');
 	}
-} elseif (is_singular($post_types = 'post')) {
+}  elseif (is_singular($post_types = 'post')) {
 	if (!$is_elementor_theme_exist || !elementor_theme_do_location('ilustrations')) {
 		get_template_part('template-parts/event');
 	}
@@ -54,5 +56,4 @@ if (is_singular($post_types = 'ceramics')) {
 				get_template_part('template-parts/404');
 			}
 		}
-
 		get_footer();

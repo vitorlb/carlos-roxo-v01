@@ -43,17 +43,17 @@ add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
 function discos_custom_post_type()
 {
 	$labels = array(
-		'name' => 'Ilustrações',
-		'singular_name' => 'Ilustração',
-		'add_new' => 'Adicionar ilustração',
-		'all_items' => 'Todas as ilustrações',
-		'add_new_item' => 'Adicionar nova ilustração',
-		'edit_item' => 'Editar',
-		'new item' => 'Nova ilustração',
-		'view_item' => 'Ver ilustração',
-		'search_item' => 'Pesquisar ilustrações',
-		'not_found' => 'Não há :(',
-		'not_found_in_trash' => 'Não há no lixo x(',
+		'name' => 'Illustrations',
+		'singular_name' => 'Illustratio',
+		'add_new' => 'Add Illustration',
+		'all_items' => 'All Illustrations',
+		'add_new_item' => 'Add new Illustration',
+		'edit_item' => 'Edit',
+		'new item' => 'New Illustration',
+		'view_item' => 'See Illustration',
+		'search_item' => 'Search Illustration',
+		'not_found' => 'There is not :(',
+		'not_found_in_trash' => 'No Illustrations on trash x(',
 		'parent_item_colon' => 'Parent Item'
 	);
 
@@ -89,17 +89,17 @@ add_action('init', 'discos_custom_post_type');
 function animations_custom_post_type()
 {
 	$labels = array(
-		'name' => 'Animação',
-		'singular_name' => 'Animações',
-		'add_new' => 'Adicionar animação',
-		'all_items' => 'Todas as animações',
-		'add_new_item' => 'Adicionar nova animação',
-		'edit_item' => 'Editar',
-		'new item' => 'Nova animação',
-		'view_item' => 'Ver animação',
-		'search_item' => 'Pesquisar animações',
-		'not_found' => 'Não há :(',
-		'not_found_in_trash' => 'Não há no lixo x(',
+		'name' => 'Animations',
+		'singular_name' => 'Animation',
+		'add_new' => 'Add Animations',
+		'all_items' => 'All Animations',
+		'add_new_item' => 'Add new Animation',
+		'edit_item' => 'Edit',
+		'new item' => 'New Animation',
+		'view_item' => 'See Animation',
+		'search_item' => 'Search Animations',
+		'not_found' => 'There is not :(',
+		'not_found_in_trash' => 'No Animations on trash x(',
 		'parent_item_colon' => 'Parent Item'
 	);
 
@@ -129,23 +129,23 @@ function animations_custom_post_type()
 add_action('init', 'animations_custom_post_type');
 
 /*
-'ANIAMTIONS' CERAMICS TYPE
+'CERAMICS' CUSTOM POST TYPE
 */
 
 function ceramics_custom_post_type()
 {
 	$labels = array(
-		'name' => 'Cerâmica',
-		'singular_name' => 'Cerâmica',
-		'add_new' => 'Adicionar cerâmica',
-		'all_items' => 'Todas as cerâmicas',
-		'add_new_item' => 'Adicionar nova cerâmica',
-		'edit_item' => 'Editar',
-		'new item' => 'Nova cerâmica',
-		'view_item' => 'Ver cerâmica',
-		'search_item' => 'Pesquisar cerâmicas',
-		'not_found' => 'Não há :(',
-		'not_found_in_trash' => 'Não há no lixo x(',
+		'name' => 'Sculptures',
+		'singular_name' => 'Sculpture',
+		'add_new' => 'Add Sculptures',
+		'all_items' => 'All Sculptures',
+		'add_new_item' => 'Add new Sculpture',
+		'edit_item' => 'Edit',
+		'new item' => 'New Sculpture',
+		'view_item' => 'See Sculpture',
+		'search_item' => 'Search Sculptures',
+		'not_found' => 'There is not :(',
+		'not_found_in_trash' => 'No Sculptures on trash x(',
 		'parent_item_colon' => 'Parent Item'
 	);
 
@@ -183,15 +183,15 @@ function graphic_design_custom_post_type()
 	$labels = array(
 		'name' => 'Graphic Design',
 		'singular_name' => 'Graphic Design',
-		'add_new' => 'Adicionar projeto',
-		'all_items' => 'Todos os projetos',
-		'add_new_item' => 'Adicionar novp projeto',
-		'edit_item' => 'Editar',
-		'new item' => 'Novo projeto',
-		'view_item' => 'Ver projeto',
-		'search_item' => 'Pesquisar projeto',
-		'not_found' => 'Não há',
-		'not_found_in_trash' => 'Não há no lixo',
+		'add_new' => 'Add project',
+		'all_items' => 'All projects',
+		'add_new_item' => 'Add new project',
+		'edit_item' => 'Edit',
+		'new item' => 'New project',
+		'view_item' => 'See project',
+		'search_item' => 'Search project',
+		'not_found' => 'There is not :(',
+		'not_found_in_trash' => 'No Projects on trash x(',
 		'parent_item_colon' => 'Parent Item'
 	);
 
@@ -219,6 +219,52 @@ function graphic_design_custom_post_type()
 	register_post_type('graphic_design', $args);
 }
 add_action('init', 'graphic_design_custom_post_type');
+
+/*
+'CLOTHING' POST TYPE
+*/
+
+function clothing_custom_post_type()
+{
+	$labels = array(
+		'name' => 'Clothing',
+		'singular_name' => 'Piece',
+		'add_new' => 'Add Piece',
+		'all_items' => 'All Pieces',
+		'add_new_item' => 'Add new Piece',
+		'edit_item' => 'Edit',
+		'new item' => 'New Piece',
+		'view_item' => 'See Piece',
+		'search_item' => 'Search Piece',
+		'not_found' => 'There is not :(',
+		'not_found_in_trash' => 'No Pieces on trash x(',
+		'parent_item_colon' => 'Parent Item'
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'menu_icon' => 'dashicons-welcome-learn-more',
+		'has_archive' => false,
+		'publicly_queryable' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			'editor',
+			'thumbnail',
+			'excerpt',
+			'revision',
+		),
+		'taxonomies' => array('category', 'post_tag'),
+		'menu_position' => 6,
+		'exclude_from_search' => false,
+	);
+	register_post_type('clothing', $args);
+}
+add_action('init', 'clothing_custom_post_type');
 
 /*
 'ABOUT TEXT' POST TYPE
@@ -322,7 +368,6 @@ function grelha_discos()
 	$post_types = array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing');
 	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
 	$selected_work_types = isset($_GET['work_types']) ? array_map('sanitize_text_field', $_GET['work_types']) : array();
-	$work_types_filter = isset($_GET['work_filter']) ? isset($_GET['work_filter']) : null;
 	$args = array(
 		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types
 
@@ -395,10 +440,10 @@ function filter_posts()
 	$work_types_filter = isset($_GET['work_filter']) ? $_GET['work_filter'] : null;
  
 	$args = array(
-		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics')
+		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing')
 	);
 	$args_work_type_inst = array(
-		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics'),
+		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing'),
 		'meta_query' => array(
 			array(
 				'key' => '_institutional_work',
@@ -408,7 +453,7 @@ function filter_posts()
 		)
 	);
 	$args_work_type_author = array(
-		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics'),
+		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing'),
 		'meta_query' => array(
 			array(
 				'key' => '_institutional_work',
@@ -679,7 +724,7 @@ add_action('save_post', 'save_custom_date_metabox');
 // Add a custom metabox with a checkbox to your custom post type
 function show_contact_form_metabox()
 {
-	$post_types = array('ilustrations', 'animation', 'ceramics', 'graphic_design'); // Replace with your custom post type slugs
+	$post_types = array('ilustrations', 'animation', 'ceramics', 'graphic_design', 'clothing'); // Replace with your custom post type slugs
 
 	add_meta_box(
 		'show_contact_form_metabox',
@@ -702,7 +747,7 @@ function render_show_contact_form_metabox($post)
 ?>
 	<label>
 		<input type="checkbox" name="show_contact_form_checkbox" value="1" <?php checked($checkbox_value, '1'); ?>>
-		Mostrar formulário de contacto
+		Show contact form
 	</label>
 <?php
 }
@@ -729,7 +774,7 @@ INSTITUTIONAL WORK META BOX
 
 function add_institutional_work_metabox()
 {
-	$post_types = array('animation', 'ceramics', 'graphic_design', 'clothing', 'ilustrations'); // Add your custom post types here
+	$post_types = array('animation', 'ceramics', 'graphic_design', 'ilustrations', 'clothing'); // Add your custom post types here
 	foreach ($post_types as $post_type) {
 		add_meta_box(
 			'institutional_work_metabox',
@@ -764,3 +809,83 @@ function save_institutional_work_metabox($post_id)
 }
 add_action('save_post', 'save_institutional_work_metabox');
 
+//genral settings social links
+
+function custom_general_settings_fields($settings) {
+    $settings['custom_instagram'] = array(
+        'title'    => 'Instagram',
+        'type'     => 'url',
+        'id'       => 'custom_instagram',
+        'desc'     => 'Enter your Instagram link.',
+        'std'      => '',
+        'section'  => 'general',
+    );
+
+    $settings['custom_instagram_text'] = array(
+        'title'    => 'Instagram Display Text',
+        'type'     => 'text',
+        'id'       => 'custom_instagram_text',
+        'desc'     => 'Enter the display text for your Instagram link.',
+        'std'      => '',
+        'section'  => 'general',
+    );
+
+    $settings['custom_email'] = array(
+        'title'    => 'Email',
+        'type'     => 'mail',
+        'id'       => 'custom_email',
+        'desc'     => 'Enter your Email link.',
+        'std'      => '',
+        'section'  => 'general',
+    );
+
+    $settings['custom_email_text'] = array(
+        'title'    => 'Email Display Text',
+        'type'     => 'text',
+        'id'       => 'custom_email_text',
+        'desc'     => 'Enter the display text for your Email link.',
+        'std'      => '',
+        'section'  => 'general',
+    );
+
+    return $settings;
+}
+
+function add_custom_general_settings() {
+    add_settings_section('general', 'Useful links', '__return_false', 'general');
+    
+    add_settings_field('custom_instagram', 'Instagram Link', 'custom_instagram_callback', 'general', 'general');
+    add_settings_field('custom_instagram_text', 'Instagram Display Text', 'custom_instagram_text_callback', 'general', 'general');
+    
+    add_settings_field('custom_email', 'Email Link', 'custom_email_callback', 'general', 'general');
+    add_settings_field('custom_email_text', 'Email Display Text', 'custom_email_text_callback', 'general', 'general');
+
+    register_setting('general', 'custom_instagram');
+    register_setting('general', 'custom_instagram_text');
+    
+    register_setting('general', 'custom_email');
+    register_setting('general', 'custom_email_text');
+}
+
+function custom_instagram_callback() {
+    $value = get_option('custom_instagram');
+    echo '<input type="url" id="custom_instagram" name="custom_instagram" value="' . esc_url($value) . '" />';
+}
+
+function custom_instagram_text_callback() {
+    $value = get_option('custom_instagram_text');
+    echo '<input type="text" id="custom_instagram_text" name="custom_instagram_text" value="' . esc_attr($value) . '" />';
+}
+
+function custom_email_callback() {
+    $value = get_option('custom_email');
+    echo '<input type="email" id="custom_email" name="custom_email" value="' . esc_attr($value) . '" />';
+}
+
+function custom_email_text_callback() {
+    $value = get_option('custom_email_text');
+    echo '<input type="text" id="custom_email_text" name="custom_email_text" value="' . esc_attr($value) . '" />';
+}
+
+add_filter('admin_init', 'add_custom_general_settings');
+add_action('admin_menu', 'add_custom_general_settings');

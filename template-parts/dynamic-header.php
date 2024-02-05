@@ -99,7 +99,9 @@ $header_nav_menu = wp_nav_menu([
 		<?php if ($header_nav_menu) : ?>
 			<div class="site-navigation--scroll pt-1 pb-1">
 				<div class="container d-flex align-items-center">
-					<span class="croxo-iconsfavicon croxo-icons theme-color pe-4"></span>
+					<a href="<?php echo get_home_url(); ?>" class="reset-link">
+					<span class="croxo-iconsfavicon croxo-icons pe-4 theme-color listen-theme-color"></span>
+					</a>
 					<nav class="site-navigation croxo-font-text--deep <?php echo esc_attr(hello_show_or_hide('hello_header_menu_display')); ?>">
 						<?php
 						echo $header_nav_menu;

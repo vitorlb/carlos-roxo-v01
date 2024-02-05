@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: '#{$icomoon-font-family}';
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?uyl465');
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?uyl465#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?uyl465') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?uyl465') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?uyl465##{$icomoon-font-family}') format('svg');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?ikkjkv');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?ikkjkv#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?ikkjkv') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?ikkjkv') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?ikkjkv##{$icomoon-font-family}') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -29,27 +29,42 @@
 
 .croxo-iconsfavicon {
   &:before {
-    content: $croxo-iconsfavicon; 
+    content: unquote("\"#{ $croxo-iconsfavicon }\""); 
   }
 }
 .croxo-iconstitulo_site_1 {
   &:before {
-    content: $croxo-iconstitulo_site_1; 
+    content: unquote("\"#{ $croxo-iconstitulo_site_1 }\""); 
   }
 }
 .croxo-iconstitulo_site_2 {
   &:before {
-    content: $croxo-iconstitulo_site_2; 
+    content: unquote("\"#{ $croxo-iconstitulo_site_2 }\""); 
   }
 }
 .croxo-iconslava_logo-01 {
   &:before {
-    content: $croxo-iconslava_logo-01; 
+    content: unquote("\"#{ $croxo-iconslava_logo-01 }\""); 
   }
 }
 .croxo-iconslava_logo-01-mirror {
   &:before {
-    content: $croxo-iconslava_logo-01-mirror; 
+    content: unquote("\"#{ $croxo-iconslava_logo-01-mirror }\""); 
+  }
+}
+.croxo-iconsheart1 {
+  &:before {
+    content: unquote("\"#{ $croxo-iconsheart1 }\""); 
+  }
+}
+.croxo-iconsheart2 {
+  &:before {
+    content: unquote("\"#{ $croxo-iconsheart2 }\""); 
+  }
+}
+.croxo-iconsinstagram {
+  &:before {
+    content: unquote("\"#{ $croxo-iconsinstagram }\""); 
   }
 }
 
