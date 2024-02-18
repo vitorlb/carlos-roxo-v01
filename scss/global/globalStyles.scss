@@ -99,6 +99,14 @@
 	border: 2px solid var(--acid-color);
 }
 
+.border-theme-color--hover {
+	border: 2px solid #ffffff00;
+	transition: border 350ms;
+	&:hover {
+		border: 2px solid var(--acid-color);
+	}
+}
+
 .border-top-theme-color {
 	border-top: 2px solid var(--acid-color);
 }
@@ -382,6 +390,10 @@
 
 .ratio-square {
 	aspect-ratio: 1 / 1;
+}
+
+.ratio-panoramic {
+	aspect-ratio: 16 / 9;
 }
 
 //resets

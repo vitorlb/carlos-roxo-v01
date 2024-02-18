@@ -10,8 +10,14 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
-?>
-
+$postType = get_post_type();
+$animations = get_post_meta(get_the_ID(), '_animations', true); 
+// Ensure both arrays have the same length
+$count = count($animations); 
+if ($count > 0 && $postType == 'animation') {
+	get_template_part('template-parts/components/gallery-video');
+}
+?> 
 <div class="croxo-gallery d-flex flex-column flex-wrap row-gap-50 column-gap-50">
 	<?php
 	$images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
@@ -27,7 +33,7 @@ if (!defined('ABSPATH')) {
 	} elseif (has_post_thumbnail()) {
 		?>
 		<div class="croxo-gallery__gallery-item c-pointer flexone">
-		<?php the_post_thumbnail(); ?>
+			<?php the_post_thumbnail(); ?>
 		</div>
 	<?php
 	}
@@ -57,3 +63,8 @@ if (!defined('ABSPATH')) {
 		</div>
 	</div>
 </div>
+<?php
+	if ($count > 0 && $postType != 'animation') {
+		get_template_part('template-parts/components/gallery-video');
+	}
+?>

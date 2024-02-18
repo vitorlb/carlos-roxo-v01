@@ -3,8 +3,6 @@ console.log('greetings, this is aboutMenuItem')
 //croxoAboutMenuItem	
 document.addEventListener("DOMContentLoaded", (event) => {
   //document.getElementById("croxoAboutMenuItem")
-  console.log("DOM fully loaded and parsed");
-  console.log(document.getElementById("croxoAboutMenuItem"));
   document.querySelectorAll('.menu-item--about ')
     .forEach(aboutMenuItem => {
       !!aboutMenuItem && (

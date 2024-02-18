@@ -445,7 +445,7 @@ function filter_posts()
 {
 	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
 	$work_types_filter = isset($_GET['work_filter']) ? $_GET['work_filter'] : null;
-	
+
 	$args = array(
 		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing')
 	);
@@ -774,7 +774,6 @@ function save_show_contact_form_metabox($post_id)
 }
 add_action('save_post', 'save_show_contact_form_metabox');
 
-
 /*
 INSTITUTIONAL WORK META BOX
 */
@@ -815,6 +814,97 @@ function save_institutional_work_metabox($post_id)
 	}
 }
 add_action('save_post', 'save_institutional_work_metabox');
+
+//animations metabox
+
+// Save Metabox Data Function
+function save_animations_metabox_data($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    $animations = isset($_POST['animations']) ? array_map('sanitize_text_field', $_POST['animations']) : array();
+    $ratios = isset($_POST['animation_ratio']) ? array_map('sanitize_text_field', $_POST['animation_ratio']) : array();
+
+    update_post_meta($post_id, '_animations', $animations);
+    update_post_meta($post_id, '_animation_ratio', $ratios);
+}
+
+// Metabox Callback Function
+function animations_metabox_callback($post) {
+    $animations = get_post_meta($post->ID, '_animations', true);
+    $ratios = get_post_meta($post->ID, '_animation_ratio', true);
+    ?>
+    <label>Enter animation names:</label>
+    <div id="animations-container">
+        <?php
+        if ($animations && is_array($animations)) {
+            foreach ($animations as $index => $animation) {
+                ?>
+                <div>
+                    <input type="text" name="animations[]" value="<?php echo esc_attr($animation); ?>" style="width:70%;" />
+                    <label>
+                        <input type="radio" name="animation_ratio[<?php echo $index; ?>]" value="square" <?php checked($ratios[$index], 'square'); ?> />
+                        Square
+                    </label>
+                    <label>
+                        <input type="radio" name="animation_ratio[<?php echo $index; ?>]" value="panoramic" <?php checked($ratios[$index], 'panoramic'); ?> />
+                        Panoramic
+                    </label>
+                </div>
+                <?php
+            }
+        } else {
+            ?>
+            <div>
+                <input type="text" name="animations[]" style="width:70%;" />
+                <label>
+                    <input type="radio" name="animation_ratio[0]" value="square" checked />
+                    Square
+                </label>
+                <label>
+                    <input type="radio" name="animation_ratio[0]" value="panoramic" />
+                    Panoramic
+                </label>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+    <button type="button" id="add-animation">Add New Animation</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('add-animation').addEventListener('click', function () {
+                var container = document.getElementById('animations-container');
+                var newIndex = container.children.length; // Index for the new input
+                var newInput = document.createElement('div');
+                newInput.innerHTML = `
+                    <input type="text" name="animations[]" style="width:70%;" />
+                    <label>
+                        <input type="radio" name="animation_ratio[${newIndex}]" value="square" checked />
+                        Square
+                    </label>
+                    <label>
+                        <input type="radio" name="animation_ratio[${newIndex}]" value="panoramic" />
+                        Panoramic
+                    </label>`;
+                container.appendChild(newInput);
+            });
+        });
+    </script>
+    <?php
+}
+
+// Metabox Setup Function
+function animations_metabox_setup() {
+    $post_types = array('animation', 'illustrations', 'graphic_design', 'ceramics', 'clothing');
+
+    foreach ($post_types as $post_type) {
+        add_meta_box('animations_metabox', 'Animations', 'animations_metabox_callback', $post_type, 'normal', 'high');
+    }
+}
+add_action('add_meta_boxes', 'animations_metabox_setup');
+add_action('save_post', 'save_animations_metabox_data');
 
 //genral settings social links
 

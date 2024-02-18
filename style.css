@@ -29422,6 +29422,14 @@ progress {
   border: 2px solid var(--acid-color);
 }
 
+.border-theme-color--hover {
+  border: 2px solid rgba(255, 255, 255, 0);
+  transition: border 350ms;
+}
+.border-theme-color--hover:hover {
+  border: 2px solid var(--acid-color);
+}
+
 .border-top-theme-color {
   border-top: 2px solid var(--acid-color);
 }
@@ -29881,6 +29889,10 @@ progress {
 
 .ratio-square {
   aspect-ratio: 1/1;
+}
+
+.ratio-panoramic {
+  aspect-ratio: 16/9;
 }
 
 .reset-button {

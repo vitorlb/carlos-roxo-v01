@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 			while (randomize == acidColor);
 			acidColor = randomize;
 			root.style.setProperty('--acid-color', `${acidColor}`);
-			console.log('enter', acidColor);
 		});
 	});
 }); 
