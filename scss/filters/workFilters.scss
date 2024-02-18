@@ -1,30 +1,70 @@
 .croxo-work-filters {
     form {
         .post-type-filter {
-            column-gap: 12px;
 
-            label {
-                input {
-                    &:checked {
-                        &+span {
-                            border: 2px solid var(--acid-color);
+            .post-type-filter__wrapper {
+                column-gap: 12px;
+
+                &:first-child {
+                    label {
+                        &:first-child {
+                            align-self: flex-start;
+                            position: absolute !important;
+                            order: 1;
+                            right: 0;
+                            top: 0;
+
+                            @include media-breakpoint-up(md) {
+                                position: relative !important;
+                            }
+
+                            @include media-breakpoint-up(lg) {
+                                align-self: unset;
+                                order: unset;
+                            }
                         }
                     }
                 }
 
-                span {
-                    border: 2px solid transparent;
-                    transition: all 350ms;
-                }
+                label {
+                    flex-shrink: 0;
 
-                &.reset-btn {
-                    transition: all 850ms;
+                    @include media-breakpoint-up(lg) {
+                        flex-shrink: unset;
+                    }
 
-                    &:hover {
-                        transform: rotate(-360deg);
+
+                    &:not(:first-child) {
+                        order: 0;
+
+                        @include media-breakpoint-up(lg) {
+                            order: unset;
+                        }
+                    } 
+
+                    input {
+                        &:checked {
+                            &+span {
+                                border: 2px solid var(--acid-color);
+                            }
+                        }
+                    }
+
+                    span {
+                        border: 2px solid transparent;
+                        transition: all 350ms;
+                    }
+
+                    &.reset-btn {
+                        transform-origin: center center;
+                        transition: all 850ms; 
+                        &:hover {
+                            transform: rotate(-360deg);
+                        }
                     }
                 }
             }
+
         }
     }
 }

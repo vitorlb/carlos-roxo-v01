@@ -9,8 +9,7 @@ document.querySelectorAll('.disco_title__actions-container__post-link')
 		e.addEventListener("mouseleave", () => {
 			e.closest('.disco_title__text-container')?.classList.remove('seemore-hovering');
 		});
-	});
-//
+	}); 
 
 document.querySelectorAll('.croxo-galinheiro--main-wrapper')
 	.forEach(e => {
@@ -25,23 +24,21 @@ document.querySelectorAll('.croxo-galinheiro--main-wrapper .croxo-events-list-it
 		let mainWrapper = e.closest('.croxo-galinheiro--main-wrapper');
 		let imgContainer = mainWrapper.querySelector('.croxo-galinheiro--main-wrapper__img-container__wrapper');
 		let imgContainerImg = mainWrapper.querySelector('.croxo-galinheiro--main-wrapper__img-container img');
-		e.addEventListener('mouseenter', () => {
+		e.querySelector('.disco_title__paragraph a').addEventListener('mouseenter', () => {
 			if (mainWrapper) {
-				imgContainer.classList.remove('d-none');
+				if (imgContainer.classList.contains('d-none')) { imgContainerImg.src = e.getAttribute('thumb-path'); }
 				if (imgContainer && !!e.getAttribute('thumb-path')) {
-					imgContainer.classList.add('anim-popin');
-					imgContainer.classList.remove('anim-popout');
-					imgContainerImg.src = e.getAttribute('thumb-path');
-				} else {
-					imgContainer.classList.remove('anim-popin');
-					imgContainer.classList.add('anim-popout');
+					if (imgContainer.classList.contains('d-none')) {
+						imgContainer.classList.remove('d-none');
+					} else {
+						imgContainer.classList.add('anim-popout');
+					}
+					setTimeout(() => {
+						imgContainer.classList.remove('anim-popout');
+						if (!imgContainer.classList.contains('d-none')) { imgContainerImg.src = e.getAttribute('thumb-path'); }
+						imgContainer.classList.add('anim-popin');
+					}, 350);
 				}
-			}
-		})
-		e.addEventListener('mouseleave', () => {
-			if (mainWrapper) {
-				imgContainer.classList.remove('anim-popin');
-				imgContainer.classList.add('anim-popout');
 			}
 		})
 	});

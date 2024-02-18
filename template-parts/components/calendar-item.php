@@ -16,8 +16,8 @@ $month = date('m', strtotime($postDate));
 $day = date('j', strtotime($postDate));
 $year = date('Y', strtotime($postDate));
 ?>
-<div class="croxo-calendar-day d-flex flex-column border-theme-color ratio-square">
-  <div class="croxo-calendar-day__stripe background-theme-color d-flex px-2 justify-content-between flexone">
+<div class="croxo-calendar-day d-flex flex-column border-theme-color sm-ratio-square">
+  <div class="croxo-calendar-day__stripe background-theme-color d-flex px-5 px-sm-2 my-1 my-sm-0 justify-content-between flexone">
     <span class="material-symbols-outlined material-symbols-filled croxo-color-white d-flex align-items-center">
       fiber_manual_record
     </span>
@@ -25,7 +25,7 @@ $year = date('Y', strtotime($postDate));
       fiber_manual_record
     </span>
   </div>
-  <div class="croxo-calendar-day__text-container croxo-font-text--deep flexfive d-flex flex-column justify-content-center">
+  <div class="croxo-calendar-day__text-container croxo-font-text--deep flexfive d-flex flex-column justify-content-center py-3 py-md-0">
     <div class="croxo-calendar-day__text-container__numbers d-flex justify-content-center">
       <span><?php echo $day ?></span>
       <span>/</span>

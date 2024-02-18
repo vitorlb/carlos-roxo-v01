@@ -1,4 +1,5 @@
 console.log('greetings, this is aboutMenuItem')
+let root = document.documentElement;
 
 //croxoAboutMenuItem	
 document.addEventListener("DOMContentLoaded", (event) => {

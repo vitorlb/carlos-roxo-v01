@@ -379,34 +379,34 @@ function grelha_discos()
 			'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types
 		);
 	}
-
 ?>
 	<div class="croxo-work-filters">
 		<form id="post-type-filter-form" method="get" action="">
-			<div class="post-type-filter d-flex">
-				<label class="d-block position-relative c-pointer reset-btn px-0">
-					<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
-					<span class="material-symbols-outlined theme-color">restart_alt</span>
-				</label>
-				<?php
-				foreach ($post_types as $post_type) {
-				?>
-					<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
-						<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="<?php echo $post_type ?>" <?php checked(in_array($post_type, $selected_post_types)) ?>>
-						<span class="d-block py-1 px-2"><?php echo ucfirst(str_replace('_', ' ', $post_type)); ?></span>
+			<div class="post-type-filter d-flex flex-column flex-lg-row">
+				<div class="post-type-filter__wrapper d-flex flex-wrap position-relative pe-5 pe-md-0">
+					<label class="d-block position-relative c-pointer reset-btn px-0">
+						<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
+						<span class="material-symbols-outlined theme-color croxo-text-filter-reset">restart_alt</span>
 					</label>
-				<?php
-				}
-				?>
+					<?php foreach ($post_types as $post_type) { ?>
+						<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
+							<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="<?php echo $post_type ?>" <?php checked(in_array($post_type, $selected_post_types)) ?>>
+							<span class="d-block py-1 px-2 croxo-text-filter-item "><?php echo ucfirst(str_replace('_', ' ', $post_type)); ?></span>
+						</label>
+					<?php } ?>
+					<div class="post-type-filter__gap d-lg-none flexone"></div>
+				</div>
 				<div class="gap flexone"></div>
-				<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
-					<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="author" <?php checked(in_array("author", $selected_work_types)) ?>>
-					<span class="d-block py-1 px-2">Author</span>
-				</label>
-				<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
-					<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="institutional" <?php checked(in_array("institutional", $selected_work_types)) ?>>
-					<span class="d-block py-1 px-2">Institutional</span>
-				</label>
+				<div class="post-type-filter__wrapper d-flex flex-wrap">
+					<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
+						<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="author" <?php checked(in_array("author", $selected_work_types)) ?>>
+						<span class="d-block py-1 px-2 croxo-text-filter-item ">Author</span>
+					</label>
+					<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
+						<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="institutional" <?php checked(in_array("institutional", $selected_work_types)) ?>>
+						<span class="d-block py-1 px-2 croxo-text-filter-item ">Institutional</span>
+					</label>
+				</div>
 			</div>
 		</form>
 	</div>
@@ -430,7 +430,7 @@ function grelha_discos()
 				<div class="disco_title croxo-font-text d-flex flex-column">
 					<p class="disco_title__paragraph p-2 pb-3">
 						<a href="<?= $permalink ?>">
-							<span style="font-size: 1.3rem"><?php the_title() ?><br></span>
+							<span class="croxo-grid-headline"><?php the_title() ?><br></span>
 						</a>
 					</p>
 				</div>
@@ -494,7 +494,7 @@ function filter_posts()
 			<div class="disco_title croxo-font-text d-flex flex-column">
 				<p class="disco_title__paragraph p-2 pb-3">
 					<a href="<?= $permalink ?>">
-						<span style="font-size: 1.3rem"><?php the_title() ?><br></span>
+						<span class="croxo-grid-headline"><?php the_title() ?><br></span>
 					</a>
 				</p>
 			</div>
@@ -617,7 +617,13 @@ function enqueue_colors()
 	wp_enqueue_script('colors-js');
 }
 
-add_action('wp_enqueue_scripts', 'enqueue_colors');
+function enqueue_header_logo_size()
+{
+	wp_register_script('header-logo-size', get_stylesheet_directory_uri() . '/js/headerLogoSize.js', [], get_stylesheet_directory_uri() . '/js/headerLogoSize.js', true);
+	wp_enqueue_script('header-logo-size');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_header_logo_size');
 
 function enqueue_croxo_gallery()
 {
@@ -818,67 +824,69 @@ add_action('save_post', 'save_institutional_work_metabox');
 //animations metabox
 
 // Save Metabox Data Function
-function save_animations_metabox_data($post_id) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    if (!current_user_can('edit_post', $post_id)) return;
+function save_animations_metabox_data($post_id)
+{
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+	if (!current_user_can('edit_post', $post_id)) return;
 
-    $animations = isset($_POST['animations']) ? array_map('sanitize_text_field', $_POST['animations']) : array();
-    $ratios = isset($_POST['animation_ratio']) ? array_map('sanitize_text_field', $_POST['animation_ratio']) : array();
+	$animations = isset($_POST['animations']) ? array_map('sanitize_text_field', $_POST['animations']) : array();
+	$ratios = isset($_POST['animation_ratio']) ? array_map('sanitize_text_field', $_POST['animation_ratio']) : array();
 
-    update_post_meta($post_id, '_animations', $animations);
-    update_post_meta($post_id, '_animation_ratio', $ratios);
+	update_post_meta($post_id, '_animations', $animations);
+	update_post_meta($post_id, '_animation_ratio', $ratios);
 }
 
 // Metabox Callback Function
-function animations_metabox_callback($post) {
-    $animations = get_post_meta($post->ID, '_animations', true);
-    $ratios = get_post_meta($post->ID, '_animation_ratio', true);
-    ?>
-    <label>Enter animation names:</label>
-    <div id="animations-container">
-        <?php
-        if ($animations && is_array($animations)) {
-            foreach ($animations as $index => $animation) {
-                ?>
-                <div>
-                    <input type="text" name="animations[]" value="<?php echo esc_attr($animation); ?>" style="width:70%;" />
-                    <label>
-                        <input type="radio" name="animation_ratio[<?php echo $index; ?>]" value="square" <?php checked($ratios[$index], 'square'); ?> />
-                        Square
-                    </label>
-                    <label>
-                        <input type="radio" name="animation_ratio[<?php echo $index; ?>]" value="panoramic" <?php checked($ratios[$index], 'panoramic'); ?> />
-                        Panoramic
-                    </label>
-                </div>
-                <?php
-            }
-        } else {
-            ?>
-            <div>
-                <input type="text" name="animations[]" style="width:70%;" />
-                <label>
-                    <input type="radio" name="animation_ratio[0]" value="square" checked />
-                    Square
-                </label>
-                <label>
-                    <input type="radio" name="animation_ratio[0]" value="panoramic" />
-                    Panoramic
-                </label>
-            </div>
-            <?php
-        }
-        ?>
-    </div>
-    <button type="button" id="add-animation">Add New Animation</button>
+function animations_metabox_callback($post)
+{
+	$animations = get_post_meta($post->ID, '_animations', true);
+	$ratios = get_post_meta($post->ID, '_animation_ratio', true);
+?>
+	<label>Enter animation names:</label>
+	<div id="animations-container">
+		<?php
+		if ($animations && is_array($animations)) {
+			foreach ($animations as $index => $animation) {
+		?>
+				<div>
+					<input type="text" name="animations[]" value="<?php echo esc_attr($animation); ?>" style="width:70%;" />
+					<label>
+						<input type="radio" name="animation_ratio[<?php echo $index; ?>]" value="square" <?php checked($ratios[$index], 'square'); ?> />
+						Square
+					</label>
+					<label>
+						<input type="radio" name="animation_ratio[<?php echo $index; ?>]" value="panoramic" <?php checked($ratios[$index], 'panoramic'); ?> />
+						Panoramic
+					</label>
+				</div>
+			<?php
+			}
+		} else {
+			?>
+			<div>
+				<input type="text" name="animations[]" style="width:70%;" />
+				<label>
+					<input type="radio" name="animation_ratio[0]" value="square" checked />
+					Square
+				</label>
+				<label>
+					<input type="radio" name="animation_ratio[0]" value="panoramic" />
+					Panoramic
+				</label>
+			</div>
+		<?php
+		}
+		?>
+	</div>
+	<button type="button" id="add-animation">Add New Animation</button>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('add-animation').addEventListener('click', function () {
-                var container = document.getElementById('animations-container');
-                var newIndex = container.children.length; // Index for the new input
-                var newInput = document.createElement('div');
-                newInput.innerHTML = `
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.getElementById('add-animation').addEventListener('click', function() {
+				var container = document.getElementById('animations-container');
+				var newIndex = container.children.length; // Index for the new input
+				var newInput = document.createElement('div');
+				newInput.innerHTML = `
                     <input type="text" name="animations[]" style="width:70%;" />
                     <label>
                         <input type="radio" name="animation_ratio[${newIndex}]" value="square" checked />
@@ -888,20 +896,21 @@ function animations_metabox_callback($post) {
                         <input type="radio" name="animation_ratio[${newIndex}]" value="panoramic" />
                         Panoramic
                     </label>`;
-                container.appendChild(newInput);
-            });
-        });
-    </script>
-    <?php
+				container.appendChild(newInput);
+			});
+		});
+	</script>
+<?php
 }
 
 // Metabox Setup Function
-function animations_metabox_setup() {
-    $post_types = array('animation', 'illustrations', 'graphic_design', 'ceramics', 'clothing');
+function animations_metabox_setup()
+{
+	$post_types = array('animation', 'illustrations', 'graphic_design', 'ceramics', 'clothing');
 
-    foreach ($post_types as $post_type) {
-        add_meta_box('animations_metabox', 'Animations', 'animations_metabox_callback', $post_type, 'normal', 'high');
-    }
+	foreach ($post_types as $post_type) {
+		add_meta_box('animations_metabox', 'Animations', 'animations_metabox_callback', $post_type, 'normal', 'high');
+	}
 }
 add_action('add_meta_boxes', 'animations_metabox_setup');
 add_action('save_post', 'save_animations_metabox_data');

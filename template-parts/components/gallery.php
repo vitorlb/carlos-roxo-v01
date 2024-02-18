@@ -12,8 +12,11 @@ if (!defined('ABSPATH')) {
 
 $postType = get_post_type();
 $animations = get_post_meta(get_the_ID(), '_animations', true); 
-// Ensure both arrays have the same length
+$count = null;
+// Ensure both arrays have the same length 
+if(!!$animations) {
 $count = count($animations); 
+}
 if ($count > 0 && $postType == 'animation') {
 	get_template_part('template-parts/components/gallery-video');
 }

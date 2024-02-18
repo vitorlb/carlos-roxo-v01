@@ -2,18 +2,30 @@
   margin-top: 24px;
 
   .discos {
-    column-gap: 36px;
+    column-gap: 24px;
     display: flex;
     flex-wrap: wrap;
     padding: 0;
     row-gap: 36px;
 
+    @include media-breakpoint-up(md) {
+      column-gap: 36px;
+    }
+
     .disco {
       border: 2px solid transparent;
-      flex-basis: calc(25% - ((3 * 36px)/4));
+      flex-basis: calc(50% - ((24px)/2));
       flex-grow: 0;
       list-style-type: none;
       position: relative;
+
+      @include media-breakpoint-up(md) {
+        flex-basis: calc(33.333% - ((2 * 36px)/3));
+      }
+
+      @include media-breakpoint-up(xl) {
+        flex-basis: calc(25% - ((3 * 36px)/4));
+      }
 
       &:hover {
         border: 2px solid var(--acid-color);
@@ -178,9 +190,12 @@
   }
 
   .croxo-events-list-item__thumb-wrapper {
-    aspect-ratio: 1 / 1;
     display: flex;
     flex-basis: 20%;
+
+    @include media-breakpoint-up(md) {
+      aspect-ratio: 1 / 1;
+    }
 
     a {
       align-self: stretch;
@@ -199,7 +214,16 @@
   }
 
   .croxo-events-list-item__calendar-wrapper {
-    flex-basis: 12%;
+    @include media-breakpoint-up(sm) {
+      width: 22%;
+    }
+    @include media-breakpoint-up(md) {
+      width: 18%;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: 14%;
+    }
   }
 
   a {

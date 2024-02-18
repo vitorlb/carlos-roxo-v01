@@ -26,7 +26,7 @@ $header_nav_menu = wp_nav_menu([
 
 ?>
 <header id="site-header" class="site-header dynamic-header <?php echo esc_attr(hello_get_header_layout_class()); ?>" role="banner">
-	<div class="container px-0">
+	<div class="container px-sm-0">
 		<div class="site-branding show-<?php echo esc_attr(hello_elementor_get_setting('hello_header_logo_type')); ?>">
 			<?php if (has_custom_logo() && ('title' !== hello_elementor_get_setting('hello_header_logo_type') || $is_editor)) : ?>
 				<div class="site-logo <?php echo esc_attr(hello_show_or_hide('hello_header_logo_display')); ?>">

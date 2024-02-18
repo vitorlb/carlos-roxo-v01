@@ -102,6 +102,7 @@
 .border-theme-color--hover {
 	border: 2px solid #ffffff00;
 	transition: border 350ms;
+
 	&:hover {
 		border: 2px solid var(--acid-color);
 	}
@@ -392,6 +393,18 @@
 	aspect-ratio: 1 / 1;
 }
 
+.sm-ratio-square {
+    @include media-breakpoint-up(sm) {
+		aspect-ratio: 1 / 1;
+	}
+}
+
+.md-ratio-square {
+    @include media-breakpoint-up(md) {
+		aspect-ratio: 1 / 1;
+	}
+}
+
 .ratio-panoramic {
 	aspect-ratio: 16 / 9;
 }
@@ -479,6 +492,34 @@
 
 .croxo-icon-size-micro {
 	font-size: 15px;
+}
+
+.croxo-grid-headline {
+	font-size: $font-size-grid-headline-sm;
+
+	@include media-breakpoint-up(sm) {
+		font-size: $font-size-grid-headline-md;
+	}
+
+	@include media-breakpoint-up(xl) {
+		font-size: $font-size-grid-headline;
+	}
+}
+
+.croxo-text-filter-item {
+	font-size: $font-size-filter-item-sm;
+
+	@include media-breakpoint-up(md) {
+		font-size: $font-size-filter-item;
+	} 
+}
+
+.croxo-text-filter-reset {
+	font-size: $font-size-material-icons-sm;
+
+	@include media-breakpoint-up(md) {
+		font-size: $font-size-material-icons;
+	} 
 }
 
 @for $i from 1 through 30 {

@@ -31,6 +31,12 @@ if (
 	if (!$is_elementor_theme_exist || !elementor_theme_do_location('ilustrations')) {
 		get_template_part('template-parts/event');
 	}
+} elseif (is_page('work')) {
+	if (!$is_elementor_theme_exist || !elementor_theme_do_location('single')) { ?>
+		<div class="discos-grelha container px-sm-0">
+			<?php grelha_discos(); ?>
+		</div>
+	<?php }
 } elseif (is_page('galinheiro-criativo')) {
 	if (!$is_elementor_theme_exist || !elementor_theme_do_location('single')) {
 		get_template_part('template-parts/galinheiro');
@@ -45,9 +51,11 @@ if (
 	}
 } elseif (is_home()) {
 ?>
-	<div class="discos-grelha container px-0">
+	<div class="discos-grelha container px-sm-0">
 		<?php grelha_discos(); ?>
-	</div><?php  } elseif (is_archive()) {
+	</div>
+	
+	<?php get_template_part('template-parts/galinheiro'); } elseif (is_archive()) {
 			if (!$is_elementor_theme_exist || !elementor_theme_do_location('archive')) {
 				get_template_part('template-parts/archive');
 			}

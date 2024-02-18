@@ -1,14 +1,35 @@
 .site-header {
   .site-title {
-      a {
+    a {
       color: var(--acid-color);
-      font-family: 'Pilowlava'; 
-			font-size: 19px;
-      font-size: 165px;
+      font-family: 'Pilowlava';
+      font-size: 19px;
+      font-size: 69px;
       transition: all 350ms;
-        &:hover { 
-          text-decoration: none;
-        }
+
+      @include media-breakpoint-up(sm) {
+        font-size: 70px;
       }
+
+      @include media-breakpoint-up(md) {
+        font-size: 92px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        font-size: 122px;
+      }
+
+      @include media-breakpoint-up(xl) {
+        font-size: 145px;
+      }
+
+      @include media-breakpoint-up(xxl) {
+        font-size: 168px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
