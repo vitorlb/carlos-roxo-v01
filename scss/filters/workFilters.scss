@@ -1,6 +1,22 @@
 .croxo-work-filters {
     form {
         .post-type-filter {
+            background-color: white;
+            bottom: 0;
+            height: 35vh;
+            left: 0;
+            position: fixed;
+            bottom: 0;
+            width: 100vw;
+            z-index: 3;
+
+            @include media-breakpoint-up(sm) {
+                background-color: unset;
+                height: initial;
+                position: relative;
+                width: initial;
+                z-index: initial;
+            }
 
             .post-type-filter__wrapper {
                 column-gap: 12px;

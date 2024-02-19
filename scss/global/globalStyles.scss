@@ -99,6 +99,20 @@
 	border: 2px solid var(--acid-color);
 }
 
+.border-x-theme-color {
+	border-left: 2px solid var(--acid-color);
+	border-right: 2px solid var(--acid-color);
+}
+
+.border-y-theme-color {
+	border-bottom: 2px solid var(--acid-color);
+	border-top: 2px solid var(--acid-color);
+}
+
+.border-b-theme-color {
+	border-bottom: 2px solid var(--acid-color);
+}
+
 .border-theme-color--hover {
 	border: 2px solid #ffffff00;
 	transition: border 350ms;
@@ -319,6 +333,14 @@
 		'wght' 400,
 		'GRAD' 0,
 		'opsz' 24
+}
+
+.material-symbols-medium {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
 
 .material-symbols-light {
