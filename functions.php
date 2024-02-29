@@ -461,7 +461,6 @@ function grelha_discos()
 		<?php endwhile; ?>
 	</ul>
 <?php
-}
 
 /**** Filter posts Function ****/
 function filter_posts()
