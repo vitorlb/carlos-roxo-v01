@@ -26,7 +26,7 @@ $skip_link_url = apply_filters( 'hello_elementor_skip_link_url', '#content' );
 		<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-
+<div class="croxo-body-wrapper">
 <?php wp_body_open(); ?>
 
 <?php if ( $enable_skip_link ) { ?>

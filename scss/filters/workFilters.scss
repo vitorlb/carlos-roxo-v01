@@ -1,22 +1,30 @@
-.croxo-work-filters {
-    form {
-        .post-type-filter {
-            background-color: white;
-            bottom: 0;
-            height: 35vh;
-            left: 0;
-            position: fixed;
-            bottom: 0;
-            width: 100vw;
-            z-index: 3;
+.croxo-mobile-filters-modal {
+    .croxo-mobile-filters-modal__wrapper {
+        margin-bottom: var(--filters-height);
 
-            @include media-breakpoint-up(sm) {
-                background-color: unset;
-                height: initial;
-                position: relative;
-                width: initial;
-                z-index: initial;
-            }
+        &.is-active {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.croxo-work-filters {
+    position: relative;
+
+    form {
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        @include media-breakpoint-up(md) {
+            left: initial;
+            position: relative;
+            right: initial;
+            top: initial;
+        }
+
+        .post-type-filter {
 
             .post-type-filter__wrapper {
                 column-gap: 12px;
@@ -56,7 +64,7 @@
                         @include media-breakpoint-up(lg) {
                             order: unset;
                         }
-                    } 
+                    }
 
                     input {
                         &:checked {
@@ -73,7 +81,8 @@
 
                     &.reset-btn {
                         transform-origin: center center;
-                        transition: all 850ms; 
+                        transition: all 850ms;
+
                         &:hover {
                             transform: rotate(-360deg);
                         }

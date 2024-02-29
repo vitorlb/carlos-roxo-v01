@@ -385,18 +385,25 @@ function grelha_discos()
 			<button class="d-block croxo-work-filters__mobile-btns__filters-modal-btn reset-button d-flex align-items-center">
 				<span class="material-symbols-outlined material-symbols-medium theme-color croxo-text-filter-reset font-size-11">instant_mix</span>
 			</button>
-			<label class="d-block position-relative c-pointer reset-btn px-0 m-0 d-flex align-items-center">
-				<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
-				<span class="material-symbols-outlined theme-color croxo-text-filter-reset">restart_alt</span>
-			</label>
 		</div>
 		<form id="post-type-filter-form" method="get" action="">
 			<div class="post-type-filter d-flex flex-column flex-lg-row">
-				<div class="post-type-filter__close-btn d-flex d-sm-none justify-content-end py-1 border-y-theme-color">
-					<button class="reset-button d-flex align-items-center mx-2">
-						<span class="material-symbols-outlined theme-color font-size-10">
-							close
-						</span>
+				<div class="post-type-filter__top-bar d-flex d-sm-none justify-content-end py-2 border-y-theme-color">
+					<div class="post-type-filter__top-bar__text-wrapper d-flex align-items-center flexone">
+						<span class="croxo-font-text theme-color font-size-7 ps-2">Filters <span class="font-size-5"><strong>⌄</strong></span></span>
+					</div>
+					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--reset d-flex align-items-center">
+						<label class="d-block position-relative c-pointer reset-btn px-0 m-0 d-flex align-items-center">
+							<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
+							<span class="material-symbols-outlined theme-color croxo-text-filter-reset font-size-8">restart_alt</span>
+						</label>
+					</div>
+					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--close d-flex align-items-center">
+						<button class="reset-button d-flex align-items-center mx-2">
+							<span class="material-symbols-outlined theme-color font-size-9">
+								close
+							</span>
+					</div>
 					</button>
 				</div>
 				<div class="post-type-filter__wrapper d-flex flex-wrap position-relative pe-5 pe-md-0 pt-2 pt-sm-0">
@@ -413,7 +420,7 @@ function grelha_discos()
 					<div class="post-type-filter__gap d-lg-none flexone"></div>
 				</div>
 				<div class="d-none d-sm-block gap flexone"></div>
-				<div class="post-type-filter__wrapper post-type-filter__wrapper--authoral-work d-flex flex-wrap pt-2 mt-2 pt-sm-0 mt-sm-0">
+				<div class="post-type-filter__wrapper post-type-filter__wrapper--authoral-work d-flex flex-wrap pt-2 mt-2 mb-4 mb-sm-4 pt-sm-0 mt-sm-0">
 					<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
 						<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="author" <?php checked(in_array("author", $selected_work_types)) ?>>
 						<span class="d-block py-1 px-2 croxo-text-filter-item ">Author</span>
@@ -650,6 +657,14 @@ function enqueue_croxo_gallery()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_croxo_gallery');
+
+function enqueue_filters_mobile_modal()
+{
+	wp_register_script('enqueue-filters-mobile-modal', get_stylesheet_directory_uri() . '/js/filtersMobileModal.js', [], get_stylesheet_directory_uri() . '/js/filtersMobileModal.js', true);
+	wp_enqueue_script('enqueue-filters-mobile-modal');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_filters_mobile_modal');
 
 
 function enqueue_go_back_button()

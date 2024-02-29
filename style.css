@@ -29418,6 +29418,10 @@ progress {
   background-color: var(--acid-color);
 }
 
+.border-color-theme-color {
+  border-color: var(--acid-color);
+}
+
 .border-theme-color {
   border: 2px solid var(--acid-color);
 }
@@ -29434,6 +29438,16 @@ progress {
 
 .border-b-theme-color {
   border-bottom: 2px solid var(--acid-color);
+}
+
+.border-t-theme-color {
+  border-top: 2px solid var(--acid-color);
+}
+
+@media (min-width: 576px) {
+  .border-t-theme-color-sm-0 {
+    border-top: 2px solid var(--acid-color);
+  }
 }
 
 .border-theme-color--hover {
@@ -29781,6 +29795,10 @@ progress {
   font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
 }
 
+.transparent {
+  opacity: 0;
+}
+
 .p-events-none {
   pointer-events: none;
 }
@@ -29903,6 +29921,86 @@ progress {
 
 .p-top-20 {
   top: 120px;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+.z-index-3 {
+  z-index: 3;
+}
+
+.z-index-4 {
+  z-index: 4;
+}
+
+.z-index-5 {
+  z-index: 5;
+}
+
+.z-index-6 {
+  z-index: 6;
+}
+
+.z-index-7 {
+  z-index: 7;
+}
+
+.z-index-8 {
+  z-index: 8;
+}
+
+.z-index-9 {
+  z-index: 9;
+}
+
+.z-index-10 {
+  z-index: 10;
+}
+
+.z-index-11 {
+  z-index: 11;
+}
+
+.z-index-12 {
+  z-index: 12;
+}
+
+.z-index-13 {
+  z-index: 13;
+}
+
+.z-index-14 {
+  z-index: 14;
+}
+
+.z-index-15 {
+  z-index: 15;
+}
+
+.z-index-16 {
+  z-index: 16;
+}
+
+.z-index-17 {
+  z-index: 17;
+}
+
+.z-index-18 {
+  z-index: 18;
+}
+
+.z-index-19 {
+  z-index: 19;
+}
+
+.z-index-20 {
+  z-index: 20;
 }
 
 .ratio-square {
@@ -30655,23 +30753,28 @@ progress {
   font-size: 18px;
 }
 
-.croxo-work-filters form .post-type-filter {
-  background-color: white;
-  bottom: 0;
-  height: 35vh;
-  left: 0;
-  position: fixed;
-  bottom: 0;
-  width: 100vw;
-  z-index: 3;
+.croxo-mobile-filters-modal .croxo-mobile-filters-modal__wrapper {
+  margin-bottom: var(--filters-height);
 }
-@media (min-width: 576px) {
-  .croxo-work-filters form .post-type-filter {
-    background-color: unset;
-    height: initial;
+.croxo-mobile-filters-modal .croxo-mobile-filters-modal__wrapper.is-active {
+  margin-bottom: 0;
+}
+
+.croxo-work-filters {
+  position: relative;
+}
+.croxo-work-filters form {
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+@media (min-width: 768px) {
+  .croxo-work-filters form {
+    left: initial;
     position: relative;
-    width: initial;
-    z-index: initial;
+    right: initial;
+    top: initial;
   }
 }
 .croxo-work-filters form .post-type-filter .post-type-filter__wrapper {
@@ -30922,6 +31025,18 @@ progress {
   font-family: Terminal Grotesque;
   src: url("./fonts/terminal-grotesque.ttf") format("truetype"), url("./fonts/terminal-grotesque.otf") format("otf");
   font-weight: normal;
+}
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+}
+body .croxo-body-wrapper {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100vh;
+  width: 100vw;
 }
 
 /*# sourceMappingURL=style.css.map */

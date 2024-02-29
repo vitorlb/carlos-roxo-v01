@@ -13,7 +13,9 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 */
 
 /* Add your custom styles here */
- 
+
+
+
 @import "../node_modules/bootstrap/scss/bootstrap-grid";
 @import "../node_modules/bootstrap/scss/bootstrap-reboot";
 @import "../node_modules/bootstrap/scss/bootstrap-utilities";
@@ -34,46 +36,65 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 @import "../node_modules/bootstrap/scss/close";
 @import "../node_modules/bootstrap/scss/buttons";
 
-@import './global/variables.scss'; 
-@import './global/globalStyles.scss'; 
+@import './global/variables.scss';
+@import './global/globalStyles.scss';
 @import './croxoicons/style.scss';
 @import 'header';
-@import 'pages'; 
-@import 'lists'; 
-@import 'footer'; 
-@import './pages/galinheiro.scss'; 
-@import './components/croxoGallery.scss'; 
-@import './components/calendarItem.scss'; 
-@import './components/headerDescr.scss'; 
-@import './components/orderInfo.scss'; 
-@import './filters/workFilters.scss'; 
-@import './forms/contactForm.scss'; 
-@import './menus/topNav.scss'; 
+@import 'pages';
+@import 'lists';
+@import 'footer';
+@import './pages/galinheiro.scss';
+@import './components/croxoGallery.scss';
+@import './components/calendarItem.scss';
+@import './components/headerDescr.scss';
+@import './components/orderInfo.scss';
+@import './filters/workFilters.scss';
+@import './forms/contactForm.scss';
+@import './menus/topNav.scss';
 // @import './post_types/customPostType.scss'; 
 // @import './shop/storeFront.scss'; 
-
 
 @font-face {
     font-family: Lithops;
     src: url('./fonts/Lithops-Regular.ttf') format('truetype'),
-    url('./fonts/Lithops-Regular.otf') format('otf'),
-    url('./fonts/Lithops-Regular.woff') format('woff'),
-    url('./fonts/Lithops-Regular.woff2') format('woff2');
+        url('./fonts/Lithops-Regular.otf') format('otf'),
+        url('./fonts/Lithops-Regular.woff') format('woff'),
+        url('./fonts/Lithops-Regular.woff2') format('woff2');
     font-weight: normal;
-};
+}
+
+;
 
 @font-face {
     font-family: Pilowlava;
     src: url('./fonts/Pilowlava-Regular.ttf') format('truetype'),
-    url('./fonts/Pilowlava-Regular.otf') format('otf'),
-    url('./fonts/Pilowlava-Regular.woff') format('woff'),
-    url('./fonts/Pilowlava-Regular.woff2') format('woff2');
+        url('./fonts/Pilowlava-Regular.otf') format('otf'),
+        url('./fonts/Pilowlava-Regular.woff') format('woff'),
+        url('./fonts/Pilowlava-Regular.woff2') format('woff2');
     font-weight: normal;
-};
+}
+
+;
 
 @font-face {
     font-family: Terminal Grotesque;
     src: url('./fonts/terminal-grotesque.ttf') format('truetype'),
-    url('./fonts/terminal-grotesque.otf') format('otf');
+        url('./fonts/terminal-grotesque.otf') format('otf');
     font-weight: normal;
-}; 
+}
+
+;
+
+body {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100vw;
+
+    .croxo-body-wrapper {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 100vh;
+        width: 100vw;
+    }
+}
