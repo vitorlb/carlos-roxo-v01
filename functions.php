@@ -46,7 +46,6 @@ function add_about_menu_item($items, $args)
 		'orderby' => 'date',
 		'order' => 'DESC',
 	));
-	$yolo = 'yolo';
 	$post_title = esc_html($about_text_post[0]->post_title);
 	$post_content = esc_html($about_text_post[0]->post_content);
 	// Replace 'your-page-slug' with the actual slug of your page
@@ -54,16 +53,17 @@ function add_about_menu_item($items, $args)
 
 	// Get the page by its slug
 	$page = get_page_by_path($page_slug);
+	$is_about =  is_page('about') ? 'current-menu-item' : '';
 
 	// Check if the page is found
 	if ($page) {
 		// Get the page link
-		$page_link = get_permalink($page->ID); 
-	}  
+		$page_link = get_permalink($page->ID);
+	}
 	// Check if this is the target menu
 	if ($args->theme_location == 'menu-1') {
 		// Add your custom HTML menu item
-		$custom_item = '<li id="aboutMenuItem" class="about-menu-item"><a href="' . $page_link . '">' . $post_title . '</a><div class="d-none"><span>' . $post_content . '</span><a class="croxo-underline-hover--right d-flex align-items-center" href="' . $page_link . '"><span>more about carlos roxo</span><span class="material-symbols-outlined croxo-icon-size-micro ps-1 tilt-b-2">last_page</span></a></div></li>';
+		$custom_item = '<li id="aboutMenuItem" class="about-menu-item position-relative ' . $is_about . '"><a href="' . $page_link . '">' . $post_title . '</a><div class="d-none about-menu-item__about-content"><span class="about-menu-item__about-content__content">' . $post_content . '</span><a class="d-flex align-items-center mt-3 about-menu-item__about-content__cta" href="' . $page_link . '"><span>more about carlos roxo</span></a></div></li>';
 
 		// Append the custom item to the menu
 		$items .= $custom_item;
@@ -422,45 +422,47 @@ function grelha_discos()
 		);
 	}
 ?>
-	<div class="croxo-work-filters--main-nav d-none d-lg-flex justify-content-center">
-		<div class="post-type-filter__main-nav ">
-			<?php
-			echo $header_nav_menu;
-			?>
-		</div>
+	<div class="croxo-work-filters--main-nav d-none d-md-flex justify-content-center">
+		<nav class="site-navigation site-navigation--work-grid">
+			<div class="post-type-filter__main-nav ">
+				<?php
+				echo $header_nav_menu;
+				?>
+			</div>
+		</nav>
 	</div>
 	<div class="croxo-work-filters">
-		<div class="d-sm-none croxo-work-filters__mobile-btns d-flex align-items-center column-gap-2">
-			<button class="d-block croxo-work-filters__mobile-btns__filters-modal-btn reset-button d-flex align-items-center">
-				<span class="material-symbols-outlined material-symbols-medium theme-color croxo-text-filter-reset font-size-11">instant_mix</span>
+		<div class="d-md-none croxo-work-filters__mobile-btns d-flex align-items-center column-gap-2">
+			<button class="d-block reset-button--soft croxo-work-filters__mobile-btns__filters-modal-btn d-flex align-items-center   border-theme-black ">	
+				<span class="material-symbols-outlined material-symbols-medium croxo-text-filter-reset font-size-11 croxo-color-text tilt-l-6">instant_mix</span>
+				<span class="croxo-font-text croxo-menu-item croxo-color-text ms-2">filters</span>
 			</button>
 		</div>
 		<form id="post-type-filter-form" method="get" action="">
 			<div class="post-type-filter d-flex flex-column flex-lg-row">
-				<div class="post-type-filter__top-bar d-flex d-sm-none justify-content-end py-2 border-y-theme-color">
-					<div class="post-type-filter__top-bar__text-wrapper d-flex align-items-center flexone">
-						<span class="croxo-font-text theme-color font-size-7 ps-2">Filters <span class="font-size-5"><strong>⌄</strong></span></span>
-					</div>
-					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--reset d-flex align-items-center">
-						<label class="d-block position-relative c-pointer reset-btn px-0 m-0 d-flex align-items-center">
+				<div class="post-type-filter__top-bar d-flex d-md-none justify-content-between border-y-theme-black croxo-background-black">
+					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--reset d-flex align-items-center py-1 border-e-theme-black croxo-background-white">
+						<label class="d-block position-relative c-pointer reset-btn px-0 ms-2 me-4 mx-md-0 m-0 d-flex align-items-center">
 							<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
-							<span class="material-symbols-outlined theme-color croxo-text-filter-reset font-size-8">restart_alt</span>
+							<span class="material-symbols-outlined theme-color-black croxo-text-filter-reset font-size-8">restart_alt</span>
+							<span class="croxo-menu-item croxo-font-text">reset</span>
 						</label>
 					</div>
-					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--close d-flex align-items-center">
-						<button class="reset-button d-flex align-items-center mx-2">
-							<span class="material-symbols-outlined theme-color font-size-9">close</span>
+					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--close d-flex align-items-center py-1 border-s-theme-black croxo-background-white">
+						<button class="reset-button d-flex align-items-center ms-2 me-4">
+							<span class="material-symbols-outlined theme-color-black font-size-9">close</span>
+							<span class="croxo-menu-item croxo-font-text">close</span>
 						</button>
 					</div>
 				</div>
-				<div class="post-type-filter__wrapper d-flex flex-wrap flexone justify-content-center position-relative pe-5 pe-md-0 pt-2 pt-sm-0">
+				<div class="post-type-filter__wrapper d-flex flex-wrap flexone justify-content-center position-relative">
 					<?php foreach ($post_types as $post_type) { ?>
-						<label class="d-block position-relative border-theme-black croxo-font-text--deep theme-color-black c-pointer mb-0">
+						<label class="d-block position-relative border-theme-black croxo-font-text--deep theme-color-black c-pointer mb-0 flexone flexone-md-unset">
 							<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="<?php echo $post_type ?>" <?php checked(in_array($post_type, $selected_post_types)) ?>>
 							<span class="d-block py-1 px-2 croxo-text-filter-item croxo-menu-item theme-color--hover"><?php echo ucfirst(str_replace('_', ' ', $post_type)); ?></span>
 						</label>
 					<?php } ?>
-					<label class="d-none d-sm-block ratio-square h-100 position-relative c-pointer  border-theme-black reset-btn px-0 mb-0">
+					<label class="d-none d-md-block ratio-square h-100 position-relative c-pointer  border-theme-black reset-btn px-0 mb-0">
 						<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
 						<span class="material-symbols-outlined theme-color-black croxo-text-filter-reset d-flex theme-color--hover align-items-center justify-content-center p-0 m-0 h-100">restart_alt</span>
 					</label>

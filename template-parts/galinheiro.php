@@ -15,11 +15,8 @@ if (!defined('ABSPATH')) {
 <main class="croxo-galinheiro--main-wrapper d-flex flex-column container">
 	<div class="croxo-galinheiro--main-wrapper__header">
 		<?php if (!is_home()) {
-		?>
-			<div class="header__logo d-flex align-items-center justify-content-center mt-5 column-gap-10">
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/imgs/galinheiro_logo.jpg" alt="">
-			</div>
-			<div class="header__main-info d-flex align-items-center mb-5 mt-2 column-gap-10">
+		?> 
+			<div class="header__main-info d-flex align-items-center mb-5 mt-4 column-gap-10">
 				<div class="header__icon d-flex justify-content-end">
 					<span class="croxo-icons croxo-iconslava_logo-01-mirror croxo-text-giant-sm"></span>
 				</div>

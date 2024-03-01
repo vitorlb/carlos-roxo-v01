@@ -1,39 +1,124 @@
-.menu-topnav-container {
-    .menu {
-        display: flex;
-        margin: 0;
-        padding: 0;
+.site-navigation {
 
-        li {
-            list-style-type: none;
-            flex-shrink: 0;
+	&.site-navigation--work-grid {
+		justify-content: center;
 
-            &:first-child {
-                a {
-                    border-left-width: 2px;
-                }
-            }
+		.menu-topnav-container {
+			.menu {
+				li {
+					a {
+						border-bottom-width: 0px;
+					}
+				}
+			}
+		}
+	}
 
-            a {
-                border: 2px solid $croxo-color-black;
-                border-bottom-width: 0px;
-                border-left-width: 0px;
-                color: $croxo-color-black;
-                font-family: $croxo-font-text;
-                font-weight: 600;
-                font-size: 19px;
-                letter-spacing: .2px;
-                padding: 4px 8px;
-                text-decoration: none;
-                text-transform: uppercase;
-                transition: all 350ms;
+	.menu-topnav-container {
+		.menu {
+			display: flex;
+			margin: 0;
+			padding: 0;
 
-                &:hover {
-                    color: var(--acid-color);
-                }
-            }
-        }
-    }
+			li {
+				list-style-type: none;
+				flex-shrink: 0;
+
+				&:first-child {
+					a {
+						border-left-width: 2px;
+					}
+				}
+
+				&.current-menu-item {
+					background-color: var(--acid-color);
+
+					&:hover {
+						a {
+							color: white;
+						}
+					}
+
+					a {
+						color: white;
+					}
+				}
+
+				&.about-menu-item {
+					&:hover {
+						.about-menu-item__about-content {
+							display: block !important;
+						}
+					}
+
+					.about-menu-item__about-content {
+						background-color: var(--acid-color);
+						border: 2px solid $croxo-color-black;
+						color: white;
+						left: 18px;
+						padding: 30px;
+						padding-bottom: 21px !important;
+						padding-top: 24px !important;
+						position: absolute;
+						top: 38px;
+						width: 28vw;
+						z-index: 3;
+
+						* {
+							color: white;
+						}
+
+						.about-menu-item__about-content__content {
+							display: block;
+							font-family: $croxo-font-text;
+							font-size: 15px;
+							font-weight: 550;
+							line-height: 19px;
+						}
+
+						.about-menu-item__about-content__cta {
+							border-color: white;
+							border-bottom-width: 2px !important;
+							border-left-width: 2px !important;
+							justify-content: center;
+
+							&:hover {
+								background-color: white;
+
+								span {
+									color: var(--acid-color);
+								}
+							}
+
+							span {
+								font-size: 14px;
+								font-weight: 700;
+							}
+						}
+					}
+				}
+
+				a {
+					border: 2px solid $croxo-color-black;
+					border-left-width: 0px;
+					color: $croxo-color-black;
+					font-family: $croxo-font-text;
+					font-weight: 600;
+					font-size: 16px;
+					letter-spacing: .2px;
+					padding: 4px 8px;
+					text-decoration: none;
+					text-transform: uppercase;
+					transition: all 350ms;
+
+					&:hover {
+						color: var(--acid-color);
+					}
+				}
+			}
+		}
+	}
+
 }
 
 .site-navigation--scroll {
@@ -109,7 +194,7 @@
 
 		.menu-item--about__title {
 			align-self: stretch;
-			background-color: white; 
+			background-color: white;
 			font-family: $croxo-font-text;
 			font-weight: 600;
 			padding: 4px 8px;

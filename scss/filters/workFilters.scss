@@ -5,6 +5,35 @@
         &.is-active {
             margin-bottom: 0;
         }
+
+        .post-type-filter {
+            border-left: 2px solid $croxo-color-black;
+
+            .post-type-filter__top-bar {
+                border-right: 2px solid $croxo-color-black;
+            }
+
+            .post-type-filter__wrapper {
+                label {
+                    border-left-width: 0px;
+                    border-top-width: 0px;
+
+                    input {
+                        &:checked {
+                            &+span {
+                                background-color: var(--acid-color);
+                                color: white;
+                            }
+                        }
+                    }
+
+                    span {
+                        height: 100%;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
     }
 }
 

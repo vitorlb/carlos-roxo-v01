@@ -17,7 +17,7 @@ get_header();
 $is_elementor_theme_exist = function_exists('elementor_theme_do_location');
 ?>
 <div style="background-color: transparent;" class="croxo-mobile-filters-modal p-events-none--deep absolute-stretch d-flex flex-column justify-content-end z-index-3 transparent">
- <div class="croxo-mobile-filters-modal__wrapper p-events-all--deep"></div>
+ <div class="croxo-mobile-filters-modal__wrapper p-events-all--deep croxo-background-white"></div>
 </div>
 <?php 
 if (

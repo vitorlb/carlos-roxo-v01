@@ -17,7 +17,7 @@ while (have_posts()) :
 	$images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
 	$postTitle = trim(get_the_title());
 ?>
-	<main id="content" class="container">
+	<main id="content" class="container px-0">
 		<div class="croxo-custom-post-type croxo-custom-post-type--illustrations d-flex">
 			<div class="page-content flexone pt-4">
 				<?php get_template_part('template-parts/components/gallery'); ?>
