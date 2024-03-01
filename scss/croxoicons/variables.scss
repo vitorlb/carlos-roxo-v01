@@ -1,12 +1,13 @@
 $icomoon-font-family: "croxoicons" !default;
 $icomoon-font-path: "fonts" !default;
 
-$croxo-iconsfavicon: \e900;
-$croxo-iconstitulo_site_1: \e901;
-$croxo-iconstitulo_site_2: \e902;
-$croxo-iconslava_logo-01: \e903;
-$croxo-iconslava_logo-01-mirror: \e904;
-$croxo-iconsheart1: \e906;
-$croxo-iconsheart2: \e905;
-$croxo-iconsinstagram: \e907;
+$croxo-iconsfavicon: unquote('"\\e900"');
+$croxo-iconstitulo_site_1: unquote('"\\e901"');
+$croxo-iconstitulo_site_2: unquote('"\\e902"');
+$croxo-iconslava_logo-01: unquote('"\\e903"');
+$croxo-iconslava_logo-01-mirror: unquote('"\\e904"');
+$croxo-iconsheart1: unquote('"\\e906"');
+$croxo-iconsheart2: unquote('"\\e905"');
+$croxo-iconsinstagram: unquote('"\\e907"');
+$croxo-iconsgalinhierocriativo-title: unquote('"\\e908"');
 

@@ -10,7 +10,7 @@
 	}
 
 	.croxo-gallery__gallery-item {
-		border: 2px solid transparent;
+		border: 2px solid $croxo-color-black;
 		flex-basis: calc(0.333333333 * (100% - (24px*2)));
 		flex-grow: 0;
 		flex-shrink: 0;

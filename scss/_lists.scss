@@ -13,7 +13,7 @@
     }
 
     .disco {
-      border: 2px solid transparent;
+      border: 2px solid $croxo-color-black;
       flex-basis: calc(50% - ((24px)/2));
       flex-grow: 0;
       list-style-type: none;

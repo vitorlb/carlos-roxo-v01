@@ -1,104 +1,39 @@
-.site-navigation {
-	.menu-topnav-container {
-		width: 100%;
+.menu-topnav-container {
+    .menu {
+        display: flex;
+        margin: 0;
+        padding: 0;
 
-		.menu {
-			justify-content: space-between;
+        li {
+            list-style-type: none;
+            flex-shrink: 0;
 
-			.menu-item {
-				display: flex;
-				flex: 1;
-				justify-content: center;
+            &:first-child {
+                a {
+                    border-left-width: 2px;
+                }
+            }
 
-				&:first-child {
-					justify-content: flex-start;
-				}
+            a {
+                border: 2px solid $croxo-color-black;
+                border-bottom-width: 0px;
+                border-left-width: 0px;
+                color: $croxo-color-black;
+                font-family: $croxo-font-text;
+                font-weight: 600;
+                font-size: 19px;
+                letter-spacing: .2px;
+                padding: 4px 8px;
+                text-decoration: none;
+                text-transform: uppercase;
+                transition: all 350ms;
 
-				&:last-child {
-					justify-content: flex-end;
-				}
-
-				&.menu-item--about {
-					position: relative;
-
-					&.menu-item--about--disabled {
-						pointer-events: none;
-
-						* {
-							pointer-events: none;
-						}
-
-						.menu-item--about__wrapper {
-							.menu-item--about__title {
-								background-color: transparent;
-								opacity: 0.2;
-							}
-
-							.menu-item--about__text {
-								display: none;
-							}
-						}
-					}
-
-					.menu-item--about__wrapper {
-						overflow: hidden;
-
-						&:hover {
-							bottom: var(--aboutMenuTextHeightNeg);
-
-							.menu-item--about__text {
-								margin-top: 0;
-							}
-						}
-
-						.menu-item--about__title {
-							align-self: stretch;
-							background-color: white;
-							color: var(--acid-color);
-							padding: 8px 15px;
-							text-align: right;
-							z-index: 3;
-						}
-
-						.menu-item--about__text {
-							background-color: white;
-							border: 2px solid transparent;
-							border-top: 0px !important;
-							margin-top: var(--aboutMenuTextHeightNeg);
-							z-index: 2;
-
-							* {
-								text-align: right;
-							}
-
-							a {
-								color: black;
-								padding-bottom: 3px;
-								padding-left: 3px;
-								padding-right: 0;
-								margin-left: auto;
-								width: fit-content;
-							}
-
-							p {
-								margin: 0;
-							}
-
-							.material-symbols-outlined {
-								font-family: 'Material Symbols Outlined' !important;
-							}
-						}
-					}
-				}
-
-				a {
-					color: var(--acid-color);
-					text-decoration: none;
-				}
-
-			}
-		}
-	}
+                &:hover {
+                    color: var(--acid-color);
+                }
+            }
+        }
+    }
 }
 
 .site-navigation--scroll {
@@ -134,6 +69,81 @@
 		.menu-topnav-container {
 			.menu {
 				margin: 0;
+			}
+		}
+	}
+}
+
+.menu-item--about {
+	position: relative;
+
+	&.menu-item--about--disabled {
+		pointer-events: none;
+
+		* {
+			pointer-events: none;
+		}
+
+		.menu-item--about__wrapper {
+			.menu-item--about__title {
+				background-color: transparent;
+				opacity: 0.2;
+			}
+
+			.menu-item--about__text {
+				display: none;
+			}
+		}
+	}
+
+	.menu-item--about__wrapper {
+		overflow: hidden;
+
+		&:hover {
+			bottom: var(--aboutMenuTextHeightNeg);
+
+			.menu-item--about__text {
+				margin-top: 0;
+			}
+		}
+
+		.menu-item--about__title {
+			align-self: stretch;
+			background-color: white; 
+			font-family: $croxo-font-text;
+			font-weight: 600;
+			padding: 4px 8px;
+			text-align: right;
+			text-transform: uppercase;
+			z-index: 3;
+		}
+
+		.menu-item--about__text {
+			background-color: white;
+			border: 2px solid transparent;
+			border-top: 0px !important;
+			margin-top: var(--aboutMenuTextHeightNeg);
+			z-index: 2;
+
+			* {
+				text-align: right;
+			}
+
+			a {
+				color: black;
+				padding-bottom: 3px;
+				padding-left: 3px;
+				padding-right: 0;
+				margin-left: auto;
+				width: fit-content;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			.material-symbols-outlined {
+				font-family: 'Material Symbols Outlined' !important;
 			}
 		}
 	}

@@ -36,6 +36,44 @@ function hello_elementor_child_scripts_styles()
 }
 add_action('wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20);
 
+/* about menu item */
+
+function add_about_menu_item($items, $args)
+{
+	$about_text_post = get_posts(array(
+		'post_type' => 'about_text',
+		'numberposts' => 1,
+		'orderby' => 'date',
+		'order' => 'DESC',
+	));
+	$yolo = 'yolo';
+	$post_title = esc_html($about_text_post[0]->post_title);
+	$post_content = esc_html($about_text_post[0]->post_content);
+	// Replace 'your-page-slug' with the actual slug of your page
+	$page_slug = 'about';
+
+	// Get the page by its slug
+	$page = get_page_by_path($page_slug);
+
+	// Check if the page is found
+	if ($page) {
+		// Get the page link
+		$page_link = get_permalink($page->ID); 
+	}  
+	// Check if this is the target menu
+	if ($args->theme_location == 'menu-1') {
+		// Add your custom HTML menu item
+		$custom_item = '<li id="aboutMenuItem" class="about-menu-item"><a href="' . $page_link . '">' . $post_title . '</a><div class="d-none"><span>' . $post_content . '</span><a class="croxo-underline-hover--right d-flex align-items-center" href="' . $page_link . '"><span>more about carlos roxo</span><span class="material-symbols-outlined croxo-icon-size-micro ps-1 tilt-b-2">last_page</span></a></div></li>';
+
+		// Append the custom item to the menu
+		$items .= $custom_item;
+	}
+
+	return $items;
+}
+
+add_filter('wp_nav_menu_items', 'add_about_menu_item', 10, 2);
+
 /*
 'ilustrations' POST TYPE
 */
@@ -367,8 +405,12 @@ function grelha_discos()
 {
 	$post_types = array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing');
 	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
-	$selected_work_types = isset($_GET['work_types']) ? array_map('sanitize_text_field', $_GET['work_types']) : array();
 	$args = null;
+	$header_nav_menu = wp_nav_menu([
+		'theme_location' => 'menu-1',
+		'fallback_cb' => false,
+		'echo' => false,
+	]);
 	if (is_home()) {
 		$args = array(
 			'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types,
@@ -380,6 +422,13 @@ function grelha_discos()
 		);
 	}
 ?>
+	<div class="croxo-work-filters--main-nav d-none d-lg-flex justify-content-center">
+		<div class="post-type-filter__main-nav ">
+			<?php
+			echo $header_nav_menu;
+			?>
+		</div>
+	</div>
 	<div class="croxo-work-filters">
 		<div class="d-sm-none croxo-work-filters__mobile-btns d-flex align-items-center column-gap-2">
 			<button class="d-block croxo-work-filters__mobile-btns__filters-modal-btn reset-button d-flex align-items-center">
@@ -400,40 +449,26 @@ function grelha_discos()
 					</div>
 					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--close d-flex align-items-center">
 						<button class="reset-button d-flex align-items-center mx-2">
-							<span class="material-symbols-outlined theme-color font-size-9">
-								close
-							</span>
+							<span class="material-symbols-outlined theme-color font-size-9">close</span>
+						</button>
 					</div>
-					</button>
 				</div>
-				<div class="post-type-filter__wrapper d-flex flex-wrap position-relative pe-5 pe-md-0 pt-2 pt-sm-0">
-					<label class="d-none d-sm-block position-relative c-pointer reset-btn px-0">
-						<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
-						<span class="material-symbols-outlined theme-color croxo-text-filter-reset">restart_alt</span>
-					</label>
+				<div class="post-type-filter__wrapper d-flex flex-wrap flexone justify-content-center position-relative pe-5 pe-md-0 pt-2 pt-sm-0">
 					<?php foreach ($post_types as $post_type) { ?>
-						<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
+						<label class="d-block position-relative border-theme-black croxo-font-text--deep theme-color-black c-pointer mb-0">
 							<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="<?php echo $post_type ?>" <?php checked(in_array($post_type, $selected_post_types)) ?>>
-							<span class="d-block py-1 px-2 croxo-text-filter-item "><?php echo ucfirst(str_replace('_', ' ', $post_type)); ?></span>
+							<span class="d-block py-1 px-2 croxo-text-filter-item croxo-menu-item theme-color--hover"><?php echo ucfirst(str_replace('_', ' ', $post_type)); ?></span>
 						</label>
 					<?php } ?>
-					<div class="post-type-filter__gap d-lg-none flexone"></div>
-				</div>
-				<div class="d-none d-sm-block gap flexone"></div>
-				<div class="post-type-filter__wrapper post-type-filter__wrapper--authoral-work d-flex flex-wrap pt-2 mt-2 mb-4 mb-sm-4 pt-sm-0 mt-sm-0">
-					<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
-						<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="author" <?php checked(in_array("author", $selected_work_types)) ?>>
-						<span class="d-block py-1 px-2 croxo-text-filter-item ">Author</span>
-					</label>
-					<label class="d-block position-relative croxo-font-text--deep theme-color c-pointer">
-						<input class="opacity-0 absolute-stretch" type="checkbox" name="work_types[]" value="institutional" <?php checked(in_array("institutional", $selected_work_types)) ?>>
-						<span class="d-block py-1 px-2 croxo-text-filter-item ">Institutional</span>
+					<label class="d-none d-sm-block ratio-square h-100 position-relative c-pointer  border-theme-black reset-btn px-0 mb-0">
+						<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
+						<span class="material-symbols-outlined theme-color-black croxo-text-filter-reset d-flex theme-color--hover align-items-center justify-content-center p-0 m-0 h-100">restart_alt</span>
 					</label>
 				</div>
 			</div>
 		</form>
 	</div>
-	<ul class="discos mt-3">
+	<ul class="discos mt-5">
 		<?php
 		wp_reset_query();
 		$query = new WP_Query($args);
@@ -467,37 +502,11 @@ function grelha_discos()
 function filter_posts()
 {
 	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
-	$work_types_filter = isset($_GET['work_filter']) ? $_GET['work_filter'] : null;
 
 	$args = array(
 		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing')
 	);
-	$args_work_type_inst = array(
-		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing'),
-		'meta_query' => array(
-			array(
-				'key' => '_institutional_work',
-				'value' => 'on',  // Check for posts where the '_institutional_work' meta field is set to 'on'
-				'compare' => '='
-			)
-		)
-	);
-	$args_work_type_author = array(
-		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing'),
-		'meta_query' => array(
-			array(
-				'key' => '_institutional_work',
-				'compare' => 'NOT EXISTS', // Include posts where the meta key doesn't exist
-			),
-		),
-	);
-	if ($work_types_filter === 'author') {
-		$query = new WP_Query($args_work_type_author);
-	} elseif ($work_types_filter === 'institutional') {
-		$query = new WP_Query($args_work_type_inst);
-	} else {
-		$query = new WP_Query($args);
-	}
+	$query = new WP_Query($args);
 ?>
 	<?php
 	// Loop through the posts and display each one
