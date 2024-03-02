@@ -49,7 +49,7 @@ $instagram_display_text = get_option('custom_instagram_text');
 				<?php } ?>
 			</p>
 			<?php if ('' !== hello_elementor_get_setting('hello_footer_copyright_text') || $is_editor) : ?>
-				<div class="copyright d-flex <?php echo esc_attr(hello_show_or_hide('hello_footer_copyright_display')); ?>">
+				<div class="copyright d-flex justify-content-start justify-content-md-end <?php echo esc_attr(hello_show_or_hide('hello_footer_copyright_display')); ?>">
 					<p class="croxo-text-label pe-1"><?php echo wp_kses_post(hello_elementor_get_setting('hello_footer_copyright_text')); ?><span class="ps-1">|</span></p>
 					<p class="croxo-text-label d-flex column-gap-1 align-items-center"><span>Developed with</span><span class="croxo-icons theme-color croxo-iconsheart2 croxo-text-label-sm"></span><span>by <a href="" class="reset-link"><span class="croxo-underline-hover">Vitor Branco</span></a></span> </p>
 				</div>

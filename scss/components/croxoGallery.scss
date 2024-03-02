@@ -1,4 +1,23 @@
 .croxo-gallery {
+	overflow-x: scroll;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+	scroll-snap-stop: allways;
+
+	-webkit-overflow-scrolling: touch;
+
+	//hide scrollbar
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	@include media-breakpoint-up(md) {
+		height: unset;
+	}
+
 	&.croxo-gallery--img-focused {
 		.croxo-gallery__gallery-item {
 			pointer-events: none !important;
@@ -11,10 +30,16 @@
 
 	.croxo-gallery__gallery-item {
 		border: 2px solid $croxo-color-black;
-		flex-basis: calc(0.333333333 * (100% - (24px*2)));
-		flex-grow: 0;
+		height: 300px;
 		flex-shrink: 0;
+		scroll-snap-align: start;
 		transition: all 350ms;
+
+		@include media-breakpoint-up(md) {
+			flex-grow: 0;
+			flex-basis: calc(0.333333333 * (100% - (24px*2)));
+			height: initial;
+		}
 
 		&:hover {
 			border: 2px solid var(--acid-color);
@@ -24,9 +49,13 @@
 	}
 
 	.croxo-gallery__lightbox {
-		background-color: rgba($color: white, $alpha: .65);
+		background-color: rgba($color: white, $alpha: .85);
 		display: flex;
 		z-index: 5;
+
+		@include media-breakpoint-up(md) {
+			background-color: rgba($color: white, $alpha: .65);
+		}
 
 		.croxo-gallery__lightbox__close-btn__wrapper {
 			z-index: 5;
@@ -63,8 +92,13 @@
 
 		.croxo-gallery__lightbox__img-placeholder {
 			background: var(--croxo-gallery-focused);
-			height: 80vh;
-			width: auto;
+			height: auto;
+			width: 90vw;
+
+			@include media-breakpoint-up(md) {
+				height: 80vh;
+				width: auto;
+			}
 
 			img {
 				border: 2px solid var(--acid-color);

@@ -63,7 +63,7 @@ function add_about_menu_item($items, $args)
 	// Check if this is the target menu
 	if ($args->theme_location == 'menu-1') {
 		// Add your custom HTML menu item
-		$custom_item = '<li id="aboutMenuItem" class="about-menu-item position-relative ' . $is_about . '"><a href="' . $page_link . '">' . $post_title . '</a><div class="d-none about-menu-item__about-content"><span class="about-menu-item__about-content__content">' . $post_content . '</span><a class="d-flex align-items-center mt-3 about-menu-item__about-content__cta" href="' . $page_link . '"><span>more about carlos roxo</span></a></div></li>';
+		$custom_item = '<li id="aboutMenuItem" class="about-menu-item menu-item position-relative ' . $is_about . '"><a href="' . $page_link . '">' . $post_title . '</a><div class="d-none about-menu-item__about-content"><span class="about-menu-item__about-content__content">' . $post_content . '</span><a class="d-flex align-items-center mt-3 about-menu-item__about-content__cta" href="' . $page_link . '"><span>more about carlos roxo</span></a></div></li>';
 
 		// Append the custom item to the menu
 		$items .= $custom_item;
@@ -439,7 +439,7 @@ function grelha_discos()
 			</button>
 		</div>
 		<form id="post-type-filter-form" method="get" action="">
-			<div class="post-type-filter d-flex flex-column flex-lg-row">
+			<div class="post-type-filter d-flex flex-column flex-lg-row croxo-background-white">
 				<div class="post-type-filter__top-bar d-flex d-md-none justify-content-between border-y-theme-black croxo-background-black">
 					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--reset d-flex align-items-center py-1 border-e-theme-black croxo-background-white">
 						<label class="d-block position-relative c-pointer reset-btn px-0 ms-2 me-4 mx-md-0 m-0 d-flex align-items-center">

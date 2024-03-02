@@ -36,7 +36,7 @@ $header_nav_menu = wp_nav_menu([
 			if ($site_name && ('logo' !== hello_elementor_get_setting('hello_header_logo_type') || $is_editor)) : ?>
 				<h1 class="site-title d-flex <?php echo esc_attr(hello_show_or_hide('hello_header_logo_display')); ?>">
 					<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr__('Home', 'hello-elementor'); ?>" class="reset-link d-flex flexone theme-color--fill--deep listen-theme-color justify-content-center" rel="home">
-						<span class="croxo-icons <?php if (is_page('galinheiro-criativo')) { ?> croxo-iconsgalinhierocriativo-title <?php } else { ?> croxo-iconstitulo_site_2 <?php } ?> pt-4 pb-3"></span>
+						<span class="croxo-icons <?php if (is_page('galinheiro-criativo')) { ?> croxo-iconsgalinhierocriativo-title <?php } else { ?> croxo-iconstitulo_site_2 <?php } ?> pt-4 pb-3 transparent"></span>
 					</a>
 				</h1>
 			<?php endif;
@@ -75,12 +75,12 @@ $header_nav_menu = wp_nav_menu([
 				} ?>
 
 		<?php if ($header_nav_menu) : ?>
-			<div class="site-navigation--scroll pt-1 pb-1">
+			<div class="site-navigation--scroll">
 				<div class="container d-flex align-items-center">
 					<a href="<?php echo get_home_url(); ?>" class="reset-link">
 						<span class="croxo-iconsfavicon croxo-icons pe-4 theme-color listen-theme-color"></span>
 					</a>
-					<nav class="site-navigation croxo-font-text--deep <?php echo esc_attr(hello_show_or_hide('hello_header_menu_display')); ?>">
+					<nav class="site-navigation croxo-font-text--deep align-self-stretch <?php echo esc_attr(hello_show_or_hide('hello_header_menu_display')); ?>">
 						<?php
 						echo $header_nav_menu;
 						?>

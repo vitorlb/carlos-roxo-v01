@@ -60,7 +60,7 @@
 						padding-bottom: 21px !important;
 						padding-top: 24px !important;
 						position: absolute;
-						top: 38px;
+						top: 34px;
 						width: 28vw;
 						z-index: 3;
 
@@ -91,8 +91,10 @@
 							}
 
 							span {
+								display: block;
 								font-size: 14px;
 								font-weight: 700;
+								text-align: center;
 							}
 						}
 					}
@@ -123,7 +125,7 @@
 
 .site-navigation--scroll {
 	background-color: white;
-	border-bottom: 2px solid var(--acid-color);
+	border-bottom: 2px solid $croxo-color-black;
 	left: 0;
 	opacity: 0;
 	pointer-events: none;
@@ -147,13 +149,24 @@
 	}
 
 	.croxo-icons {
-		font-size: 48px;
+		font-size: 36px;
 	}
 
 	.site-navigation {
 		.menu-topnav-container {
+			height: 100%;
 			.menu {
+				height: 100%;
 				margin: 0;
+				.menu-item {
+					a {
+						align-items: center;
+						border-bottom-width: 0 !important; 
+						border-top-width: 0 !important;
+						display: flex;
+						padding-left: 24px;
+					}
+				}
 			}
 		}
 	}

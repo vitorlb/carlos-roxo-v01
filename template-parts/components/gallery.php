@@ -21,17 +21,20 @@ if ($count > 0 && $postType == 'animation') {
 	get_template_part('template-parts/components/gallery-video');
 }
 ?> 
-<div class="croxo-gallery d-flex flex-column flex-wrap row-gap-50 column-gap-50">
+<div class="croxo-gallery d-flex flex-row flex-md-column row-gap-50 column-gap-50">
 	<?php
 	$images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
 	if ($images) {
 		foreach ($images as $image) {
 			$attachment = wp_prepare_attachment_for_js($image);
 	?>
-			<div class="croxo-gallery__gallery-item c-pointer flexone">
+			<div class="croxo-gallery__gallery-item c-pointer">
 				<img class="croxo-gallery__gallery-item__img img-cover" src="<?php echo $attachment['url'] ?>" alt="">
 			</div>
 		<?php
+		}
+		if ($count > 0 && $postType != 'animation') {
+			get_template_part('template-parts/components/gallery-video');
 		}
 	} elseif (has_post_thumbnail()) {
 		?>
@@ -41,7 +44,7 @@ if ($count > 0 && $postType == 'animation') {
 	<?php
 	}
 	?>
-	<div class="croxo-gallery__lightbox fixed-stretch justify-content-center align-items-center d-none">
+	<div class="croxo-gallery__lightbox fixed-stretch flex-column-reverse flex-md-row justify-content-center align-items-center d-none">
 		<div class="croxo-gallery__lightbox__close-btn__wrapper container d-flex justify-content-end pt-5 absolute-stretch">
 			<button class="croxo-gallery__lightbox__close-btn__wrapper__btn reset-button align-self-start">
 				<span class="material-symbols-outlined theme-color">
@@ -49,13 +52,13 @@ if ($count > 0 && $postType == 'animation') {
 				</span>
 			</button>
 		</div>
-		<div class="croxo-gallery__lightbox__nav-btns__wrapper container d-flex align-items-center justify-content-between p-events-none absolute-stretch">
+		<div class="croxo-gallery__lightbox__nav-btns__wrapper container d-flex align-items-center justify-content-end justify-content-md-between p-events-none absolute-stretch-md pe-4 pe-md-0 mt-2 mt-md-0">
 			<div class="croxo-gallery__lightbox__nav-btns__wrapper__btn prev-btn reset-button p-events-all c-pointer">
 				<span class="material-symbols-outlined theme-color">
 					arrow_back
 				</span>
 			</div>
-			<div class="croxo-gallery__lightbox__nav-btns__wrapper__btn next-btn reset-button p-events-all c-pointer">
+			<div class="croxo-gallery__lightbox__nav-btns__wrapper__btn next-btn reset-button p-events-all c-pointer ps-3 ps-md-0">
 				<span class="material-symbols-outlined theme-color">
 					arrow_forward
 				</span>
@@ -65,9 +68,4 @@ if ($count > 0 && $postType == 'animation') {
 			<img class="croxo-gallery__lightbox__img-placeholder__img" src="" alt="">
 		</div>
 	</div>
-</div>
-<?php
-	if ($count > 0 && $postType != 'animation') {
-		get_template_part('template-parts/components/gallery-video');
-	}
-?>
+</div> 

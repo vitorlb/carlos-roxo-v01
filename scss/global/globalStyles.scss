@@ -193,7 +193,7 @@
 
 .border-theme-color--important {
 	border: 2px solid var(--acid-color) !important;
-}  
+}
 
 //cursor
 
@@ -461,6 +461,16 @@
 	top: 0;
 }
 
+.absolute-stretch-md {
+	@include media-breakpoint-up(md) {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
 .fixed-stretch {
 	bottom: 0;
 	left: 0;
@@ -595,7 +605,11 @@
 }
 
 .croxo-text-h1-xl {
-	font-size: $font-size-h1-xl;
+	font-size: $font-size-h1-xl-mob;
+
+	@include media-breakpoint-up(sm) {
+		font-size: $font-size-h1-xl;
+	}
 }
 
 .croxo-text-h1-xxl {

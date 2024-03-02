@@ -26,8 +26,8 @@ $postType = get_post_type();
 		</div>
 		<div class="ctp-header-wrapper__text-info-wrapper flexfour <?php if ($postType == 'post') { ?> pt-2 <?php }  ?>">
 		<?php }; ?>
-		<header class="page-header flexone">
-			<?php the_title('<h1 class="entry-title theme-color mt-0 croxo-font-text--deep croxo-text-h1-xl listen-theme-color">', '</h1>'); ?>
+		<header class="page-header flexone mt-3 mt-md-0">
+			<?php the_title('<h1 class="theme-color mt-0 croxo-font-text--deep croxo-text-h1-xl listen-theme-color">', '</h1>'); ?>
 			<?php if ($postType != 'post') {
 				get_template_part('template-parts/components/order-info');
 			} ?>

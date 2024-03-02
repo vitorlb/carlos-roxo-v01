@@ -24,7 +24,6 @@ for ($i = 0; $i < $count; $i++) {
 	$animationData[] = $animationObject;
 } ?>
 
-<div class="croxo-animations-gallery">
 	<?php foreach ($animationData as $index => $data) {
 		$embedCode = $data->name;
 
@@ -35,7 +34,7 @@ for ($i = 0; $i < $count; $i++) {
 		// Extracted YouTube video ID
 		$youtubeVideoId = isset($matches[1]) ? $matches[1] : '';
 		if ($data->ratio == 'Square') { ?>
-			<div class="w-100 ratio-square border-theme-color--hover d-flex croxo-animations-gallery__video-wrapper">
+			<div class="croxo-gallery__gallery-item ratio-square border-theme-color--hover d-flex croxo-animations-gallery__video-wrapper">
 				<?php if ($index == 0 && $postType == 'animation') { ?>
 					<iframe id="<?php echo 'croxo-player-' . $index; ?>" width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $youtubeVideoId; ?>?autoplay=1&playlist=<?php echo $youtubeVideoId; ?>&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 				<?php } else { ?>
@@ -52,5 +51,4 @@ for ($i = 0; $i < $count; $i++) {
 				<?php } ?>
 			</div>
 	<?php }
-	} ?>
-</div>
+	} 

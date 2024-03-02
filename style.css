@@ -29885,6 +29885,16 @@ progress {
   top: 0;
 }
 
+@media (min-width: 768px) {
+  .absolute-stretch-md {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
 .fixed-stretch {
   bottom: 0;
   left: 0;
@@ -30147,7 +30157,12 @@ progress {
 }
 
 .croxo-text-h1-xl {
-  font-size: 72px;
+  font-size: 54px;
+}
+@media (min-width: 576px) {
+  .croxo-text-h1-xl {
+    font-size: 72px;
+  }
 }
 
 .croxo-text-h1-xxl {
@@ -30415,6 +30430,10 @@ progress {
 
 .page-content a {
   text-decoration: unset;
+}
+
+.croxo-custom-post-type .page-content {
+  height: fit-content;
 }
 
 @font-face {
@@ -30736,8 +30755,22 @@ progress {
 .croxo-footer .footer-inner {
   max-width: unset;
 }
+.croxo-footer .footer-inner > p {
+  font-size: 14px;
+  font-weight: 550;
+}
 .croxo-footer .footer-inner .copyright {
   max-width: unset !important;
+}
+.croxo-footer .footer-inner .copyright p {
+  font-size: 11px;
+  font-weight: 550;
+  margin-top: 12px;
+}
+@media (min-width: 768px) {
+  .croxo-footer .footer-inner .copyright p {
+    margin-top: 0;
+  }
 }
 
 .croxo-galinheiro--main-wrapper .croxo-galinheiro--main-wrapper__header .header__logo img {
@@ -30745,6 +30778,23 @@ progress {
   width: auto;
 }
 
+.croxo-gallery {
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: allways;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.croxo-gallery::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .croxo-gallery {
+    height: unset;
+  }
+}
 .croxo-gallery.croxo-gallery--img-focused .croxo-gallery__gallery-item {
   pointer-events: none !important;
 }
@@ -30753,18 +30803,30 @@ progress {
 }
 .croxo-gallery .croxo-gallery__gallery-item {
   border: 2px solid #333333;
-  flex-basis: calc(0.333333333 * (100% - 48px));
-  flex-grow: 0;
+  height: 300px;
   flex-shrink: 0;
+  scroll-snap-align: start;
   transition: all 350ms;
+}
+@media (min-width: 768px) {
+  .croxo-gallery .croxo-gallery__gallery-item {
+    flex-grow: 0;
+    flex-basis: calc(0.333333333 * (100% - 48px));
+    height: initial;
+  }
 }
 .croxo-gallery .croxo-gallery__gallery-item:hover {
   border: 2px solid var(--acid-color);
 }
 .croxo-gallery .croxo-gallery__lightbox {
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(255, 255, 255, 0.85);
   display: flex;
   z-index: 5;
+}
+@media (min-width: 768px) {
+  .croxo-gallery .croxo-gallery__lightbox {
+    background-color: rgba(255, 255, 255, 0.65);
+  }
 }
 .croxo-gallery .croxo-gallery__lightbox .croxo-gallery__lightbox__close-btn__wrapper {
   z-index: 5;
@@ -30791,8 +30853,14 @@ progress {
 }
 .croxo-gallery .croxo-gallery__lightbox .croxo-gallery__lightbox__img-placeholder {
   background: var(--croxo-gallery-focused);
-  height: 80vh;
-  width: auto;
+  height: auto;
+  width: 90vw;
+}
+@media (min-width: 768px) {
+  .croxo-gallery .croxo-gallery__lightbox .croxo-gallery__lightbox__img-placeholder {
+    height: 80vh;
+    width: auto;
+  }
 }
 .croxo-gallery .croxo-gallery__lightbox .croxo-gallery__lightbox__img-placeholder img {
   border: 2px solid var(--acid-color);
@@ -31051,7 +31119,7 @@ progress {
   padding-bottom: 21px !important;
   padding-top: 24px !important;
   position: absolute;
-  top: 38px;
+  top: 34px;
   width: 28vw;
   z-index: 3;
 }
@@ -31078,8 +31146,10 @@ progress {
   color: var(--acid-color);
 }
 .site-navigation .menu-topnav-container .menu li.about-menu-item .about-menu-item__about-content .about-menu-item__about-content__cta span {
+  display: block;
   font-size: 14px;
   font-weight: 700;
+  text-align: center;
 }
 .site-navigation .menu-topnav-container .menu li a {
   border: 2px solid #333333;
@@ -31100,7 +31170,7 @@ progress {
 
 .site-navigation--scroll {
   background-color: white;
-  border-bottom: 2px solid var(--acid-color);
+  border-bottom: 2px solid #333333;
   left: 0;
   opacity: 0;
   pointer-events: none;
@@ -31121,10 +31191,21 @@ progress {
   pointer-events: all;
 }
 .site-navigation--scroll .croxo-icons {
-  font-size: 48px;
+  font-size: 36px;
+}
+.site-navigation--scroll .site-navigation .menu-topnav-container {
+  height: 100%;
 }
 .site-navigation--scroll .site-navigation .menu-topnav-container .menu {
+  height: 100%;
   margin: 0;
+}
+.site-navigation--scroll .site-navigation .menu-topnav-container .menu .menu-item a {
+  align-items: center;
+  border-bottom-width: 0 !important;
+  border-top-width: 0 !important;
+  display: flex;
+  padding-left: 24px;
 }
 
 .menu-item--about {

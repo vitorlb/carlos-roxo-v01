@@ -2,15 +2,18 @@ console.log('greetings, this is scrollNav')
 
 //croxoAboutMenuItem	
 document.addEventListener("DOMContentLoaded", (event) => {
-	let topNav = document.querySelector('.site-navigation');
+	const siteWrapper = document.querySelector('.croxo-body-wrapper'); 
 	const topNavScroll = document.querySelector('.site-navigation--scroll');
+	let topNav = document.querySelector('.site-navigation');
 	(!!topNav.getBoundingClientRect().height > 0)
 		&& (
 			topNav = topNav.getBoundingClientRect().bottom,
-			document.addEventListener("scroll", () => {
-				(window.scrollY > topNav)
+			siteWrapper.addEventListener("scroll", () => {
+				let currentScrollPosit = siteWrapper.querySelector('#site-header').getBoundingClientRect().top;
+				console.log(siteWrapper.querySelector('#site-header'), siteWrapper.querySelector('#site-header').getBoundingClientRect().bottom, topNav);
+				(currentScrollPosit < -topNav)
 					? (!topNavScroll.classList.contains('site-navigation--scroll--show')
-							&& topNavScroll.classList.add('site-navigation--scroll--show'))
+						&& topNavScroll.classList.add('site-navigation--scroll--show'))
 					: topNavScroll.classList.remove('site-navigation--scroll--show')
 			})
 		)
