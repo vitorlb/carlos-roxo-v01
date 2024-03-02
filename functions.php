@@ -422,7 +422,7 @@ function grelha_discos()
 		);
 	}
 ?>
-	<div class="croxo-work-filters--main-nav d-none d-md-flex justify-content-center">
+	<div class="croxo-work-filters--main-nav d-flex justify-content-center">
 		<nav class="site-navigation site-navigation--work-grid">
 			<div class="post-type-filter__main-nav ">
 				<?php
@@ -433,7 +433,7 @@ function grelha_discos()
 	</div>
 	<div class="croxo-work-filters">
 		<div class="d-md-none croxo-work-filters__mobile-btns d-flex align-items-center column-gap-2">
-			<button class="d-block reset-button--soft croxo-work-filters__mobile-btns__filters-modal-btn d-flex align-items-center   border-theme-black ">	
+			<button class="d-block reset-button--soft croxo-work-filters__mobile-btns__filters-modal-btn d-flex align-items-center border-theme-black tilt-t-1">	
 				<span class="material-symbols-outlined material-symbols-medium croxo-text-filter-reset font-size-11 croxo-color-text tilt-l-6">instant_mix</span>
 				<span class="croxo-font-text croxo-menu-item croxo-color-text ms-2">filters</span>
 			</button>
@@ -441,11 +441,11 @@ function grelha_discos()
 		<form id="post-type-filter-form" method="get" action="">
 			<div class="post-type-filter d-flex flex-column flex-lg-row croxo-background-white">
 				<div class="post-type-filter__top-bar d-flex d-md-none justify-content-between border-y-theme-black croxo-background-black">
-					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--reset d-flex align-items-center py-1 border-e-theme-black croxo-background-white">
+					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--reset d-flex align-items-center py-1 border-e-theme-black">
 						<label class="d-block position-relative c-pointer reset-btn px-0 ms-2 me-4 mx-md-0 m-0 d-flex align-items-center">
 							<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="all" <?php checked(in_array('all', $selected_post_types)); ?>>
-							<span class="material-symbols-outlined theme-color-black croxo-text-filter-reset font-size-8">restart_alt</span>
-							<span class="croxo-menu-item croxo-font-text">reset</span>
+							<span class="material-symbols-outlined croxo-color-white croxo-text-filter-reset font-size-8">restart_alt</span>
+							<span class="croxo-menu-item croxo-font-text croxo-color-white">reset</span>
 						</label>
 					</div>
 					<div class="post-type-filter__top-bar__btn-wrapper top-bar__btn-wrapper--close d-flex align-items-center py-1 border-s-theme-black croxo-background-white">

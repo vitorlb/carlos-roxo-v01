@@ -1,13 +1,17 @@
 .site-navigation {
 
 	&.site-navigation--work-grid {
-		justify-content: center;
+		@include media-breakpoint-up(md) {
+			justify-content: center;
+		}
 
 		.menu-topnav-container {
 			.menu {
 				li {
 					a {
-						border-bottom-width: 0px;
+						@include media-breakpoint-up(md) {
+							border-bottom-width: 0px;
+						}
 					}
 				}
 			}
@@ -55,14 +59,20 @@
 						background-color: var(--acid-color);
 						border: 2px solid $croxo-color-black;
 						color: white;
-						left: 18px;
 						padding: 30px;
 						padding-bottom: 21px !important;
 						padding-top: 24px !important;
 						position: absolute;
+						right: 24px;
 						top: 34px;
-						width: 28vw;
+						width: 64vw;
 						z-index: 3;
+
+						@include media-breakpoint-up(md) {
+							left: 18px;
+							right: unset;
+							width: 28vw;
+						}
 
 						* {
 							color: white;
@@ -108,10 +118,14 @@
 					font-weight: 600;
 					font-size: 16px;
 					letter-spacing: .2px;
-					padding: 4px 8px;
+					padding: 8px 16px;
 					text-decoration: none;
 					text-transform: uppercase;
 					transition: all 350ms;
+
+					@include media-breakpoint-up(md) {
+						padding: 4px 8px;
+					}
 
 					&:hover {
 						color: var(--acid-color);
@@ -155,13 +169,15 @@
 	.site-navigation {
 		.menu-topnav-container {
 			height: 100%;
+
 			.menu {
 				height: 100%;
 				margin: 0;
+
 				.menu-item {
 					a {
 						align-items: center;
-						border-bottom-width: 0 !important; 
+						border-bottom-width: 0 !important;
 						border-top-width: 0 !important;
 						display: flex;
 						padding-left: 24px;
