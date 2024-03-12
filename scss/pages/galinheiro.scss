@@ -7,4 +7,22 @@
             }
         }
     }
+
+    .croxo-galinheiro--main-wrapper__events-list__future__title-container {
+        .events-list-slide-to {
+            span {
+                font-size: 12px;
+
+                @include media-breakpoint-up(md) {
+                    font-size: 20px;
+                }
+    
+                .material-symbols-outlined {
+                    @include media-breakpoint-up(md) {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -600,6 +600,12 @@
 	font-size: $font-size-giant-sm;
 }
 
+.croxo-text-title { 
+	text-transform: uppercase;
+	font-weight: 650;
+	
+}
+
 .croxo-text-h1 {
 	font-size: $font-size-h1;
 }
@@ -662,7 +668,10 @@
 
 @for $i from 1 through 30 {
 	.font-size-#{$i} {
-		font-size: calc($i * 2px)
+		font-size: calc(($i * 2px)*0.7);
+		@include media-breakpoint-up(md) {
+			font-size: calc($i * 2px)
+		}
 	}
 }
 

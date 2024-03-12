@@ -28,7 +28,9 @@
       }
 
       &:hover {
-        border: 2px solid var(--acid-color);
+        @include media-breakpoint-up(md) {
+          border: 2px solid var(--acid-color);
+        }
       }
 
       &:nth-child(odd) {
@@ -94,9 +96,11 @@
         }
 
         >* {
-          opacity: 0;
-          transform: translate(0, 20px);
-          transition: all 500ms;
+          @include media-breakpoint-up(md) {
+            opacity: 0;
+            transform: translate(0, 20px);
+            transition: all 500ms;
+          }
         }
 
         a {
@@ -217,6 +221,7 @@
     @include media-breakpoint-up(sm) {
       width: 22%;
     }
+
     @include media-breakpoint-up(md) {
       width: 18%;
     }
