@@ -39,12 +39,6 @@ $header_nav_menu = wp_nav_menu([
 						<span class="croxo-icons <?php if (is_page('galinheiro-criativo')) { ?> croxo-iconsgalinhierocriativo-title <?php } else { ?> croxo-iconstitulo_site_2 <?php } ?> pt-4 pb-md-3 transparent"></span>
 					</a>
 				</h1>
-			<?php endif;
-
-			if ($tagline && (hello_elementor_get_setting('hello_header_tagline_display') || $is_editor)) : ?>
-				<p class="site-description <?php echo esc_attr(hello_show_or_hide('hello_header_tagline_display')); ?>">
-					<?php echo esc_html($tagline); ?>
-				</p>
 			<?php endif; ?>
 		</div>
 		<?php if (!is_home() && !is_page('work')) {
