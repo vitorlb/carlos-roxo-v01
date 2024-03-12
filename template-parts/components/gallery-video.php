@@ -24,15 +24,16 @@ for ($i = 0; $i < $count; $i++) {
 	$animationData[] = $animationObject;
 } ?>
 
-	<?php foreach ($animationData as $index => $data) {
-		$embedCode = $data->name;
+<?php foreach ($animationData as $index => $data) {
+	$embedCode = $data->name;
 
-		// Use a regular expression to extract the video ID from the embed code
-		$pattern = '/(?:embed\/|youtu\.be\/|v=)([a-zA-Z0-9_-]{11})/';
-		preg_match($pattern, $embedCode, $matches);
+	// Use a regular expression to extract the video ID from the embed code
+	$pattern = '/(?:embed\/|youtu\.be\/|v=)([a-zA-Z0-9_-]{11})/';
+	preg_match($pattern, $embedCode, $matches);
 
-		// Extracted YouTube video ID
-		$youtubeVideoId = isset($matches[1]) ? $matches[1] : '';
+	// Extracted YouTube video ID
+	$youtubeVideoId = isset($matches[1]) ? $matches[1] : '';
+	if (!!$youtubeVideoId) {
 		if ($data->ratio == 'Square') { ?>
 			<div class="croxo-gallery__gallery-item ratio-square border-theme-color--hover d-flex croxo-animations-gallery__video-wrapper">
 				<?php if ($index == 0 && $postType == 'animation') { ?>
@@ -50,5 +51,6 @@ for ($i = 0; $i < $count; $i++) {
 					<iframe id="<?php echo 'croxo-player-' . $index; ?>" width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $youtubeVideoId; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 				<?php } ?>
 			</div>
-	<?php }
-	} 
+<?php }
+	}
+}
