@@ -18,7 +18,7 @@ while (have_posts()) :
 	$postTitle = trim(get_the_title());
 ?>
 	<main id="content" class="container px-0">
-		<div class="croxo-custom-post-type croxo-custom-post-type--illustrations d-flex">
+		<div class="croxo-custom-post-type croxo-custom-post-type--illustrations d-flex flex-column flex-md-row">
 			<div class="page-content flextwo pt-md-4">
 				<?php get_template_part('template-parts/components/gallery'); ?>
 			</div>

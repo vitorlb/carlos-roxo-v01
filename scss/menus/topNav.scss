@@ -1,5 +1,15 @@
+.site-header.menu-dropdown-tablet:not(.menu-layout-dropdown) .site-navigation.site-navigation--main-nav {
+	display: flex !important;
+
+	@include media-breakpoint-up(lg) {
+		display: flex !important;
+	}
+}
+
 .site-navigation {
 	&.site-navigation--main-nav {
+		display: flex !important;
+
 		@include media-breakpoint-up(md) {
 			justify-content: center;
 		}

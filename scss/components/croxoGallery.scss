@@ -20,6 +20,7 @@
 
 	&.croxo-gallery--img-focused {
 		overflow-x: unset;
+
 		.croxo-gallery__gallery-item {
 			pointer-events: none !important;
 
@@ -46,6 +47,14 @@
 
 		&:hover {
 			border: 2px solid var(--acid-color);
+		}
+
+		.attachment-post-thumbnail {
+			@include media-breakpoint-down(lg) {
+				height: 100%;
+				object-fit: cover;
+				width: 100%;
+			}
 		}
 
 		.croxo-gallery__gallery-item__img {}

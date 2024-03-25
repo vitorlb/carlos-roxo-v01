@@ -31002,6 +31002,13 @@ progress {
 .croxo-gallery .croxo-gallery__gallery-item:hover {
   border: 2px solid var(--acid-color);
 }
+@media (max-width: 991.98px) {
+  .croxo-gallery .croxo-gallery__gallery-item .attachment-post-thumbnail {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+}
 .croxo-gallery .croxo-gallery__lightbox {
   background-color: rgba(255, 255, 255, 0.85);
   display: flex;
@@ -31302,6 +31309,18 @@ progress {
   display: none;
 }
 
+.site-header.menu-dropdown-tablet:not(.menu-layout-dropdown) .site-navigation.site-navigation--main-nav {
+  display: flex !important;
+}
+@media (min-width: 992px) {
+  .site-header.menu-dropdown-tablet:not(.menu-layout-dropdown) .site-navigation.site-navigation--main-nav {
+    display: flex !important;
+  }
+}
+
+.site-navigation.site-navigation--main-nav {
+  display: flex !important;
+}
 @media (min-width: 768px) {
   .site-navigation.site-navigation--main-nav {
     justify-content: center;

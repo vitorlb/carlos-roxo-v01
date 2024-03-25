@@ -39,7 +39,7 @@ $header_nav_menu = wp_nav_menu([
 		<?php if (!is_home() && !is_page('work')) {
 			if ($header_nav_menu) :
 		?>
-			<div class="croxo-work-filters--main-nav d-flex justify-content-center">
+			<div class="croxo-work-filters--main-nav d-flex justify-content-center mt-4 mt-md-0 mb-4 mb-md-0">
 				<nav class="site-navigation site-navigation--main-nav">
 					<div class="post-type-filter__main-nav ">
 						<?php

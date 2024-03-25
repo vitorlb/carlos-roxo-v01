@@ -21,7 +21,7 @@ if ($count > 0 && $postType == 'animation') {
 	get_template_part('template-parts/components/gallery-video');
 }
 ?> 
-<div class="croxo-gallery d-flex flex-row flex-md-column row-gap-50 column-gap-50">
+<div class="croxo-gallery d-flex flex-row flex-md-column row-gap-50 column-gap-50 w-100">
 	<?php
 	$images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
 	if ($images) {
