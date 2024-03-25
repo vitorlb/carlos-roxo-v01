@@ -1,4 +1,10 @@
 .site-navigation {
+	&.site-navigation--main-nav {
+		@include media-breakpoint-up(md) {
+			justify-content: center;
+		}
+	}
+
 	&.site-navigation--work-grid {
 		@include media-breakpoint-up(md) {
 			justify-content: center;

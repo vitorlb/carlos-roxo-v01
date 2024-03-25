@@ -24,7 +24,8 @@ if (!!document.querySelector('#croxoContactForm')) {
                 aboutMenuItem.forEach(e => {
                     e.classList.remove('menu-item--about--disabled');
                 });
-            })
+                contactForm.querySelector('.croxo-contact-form__form-wrapper')?.classList.remove('message-sent');
+                })
         );
     (!!contactForm && !!fetchedData)
         && (
@@ -50,11 +51,10 @@ if (!!document.querySelector('#croxoContactForm')) {
     });
     !!contactForm && (
         contactForm.querySelector('.wpcf7-form').addEventListener('wpcf7mailsent', (event) => {
-            console.log('---------------------> mail sent')
         }),
         contactForm.querySelector('.wpcf7-form').addEventListener('wpcf7submit', (event) => {
-            !contactForm.querySelector('.croxo-contact-form__form-wrapper').classList.contains('message-sent')
-                && contactForm.querySelector('.croxo-contact-form__form-wrapper').classList.add('message-sent');
+            !contactForm.querySelector('.croxo-contact-form__form-wrapper')?.classList.contains('message-sent')
+                && contactForm.querySelector('.croxo-contact-form__form-wrapper')?.classList.add('message-sent');
         })
     )
 }

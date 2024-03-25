@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 			topNav = topNav.getBoundingClientRect().bottom,
 			siteWrapper.addEventListener("scroll", () => {
 				let currentScrollPosit = siteWrapper.querySelector('#site-header').getBoundingClientRect().top;
-				console.log(siteWrapper.querySelector('#site-header'), siteWrapper.querySelector('#site-header').getBoundingClientRect().bottom, topNav);
 				(currentScrollPosit < -topNav)
 					? (!topNavScroll.classList.contains('site-navigation--scroll--show')
 						&& topNavScroll.classList.add('site-navigation--scroll--show'))

@@ -17,17 +17,17 @@ if (!hello_get_header_display()) {
 $logo_svg_path = get_stylesheet_directory() . '/imgs/titulo_site_1_plain.svg';
 $is_editor = isset($_GET['elementor-preview']);
 $site_name = get_bloginfo('name');
-$tagline   = get_bloginfo('description', 'display');	
+$tagline   = get_bloginfo('description', 'display');
 $header_nav_menu = wp_nav_menu([
 	'theme_location' => 'menu-1',
 	'fallback_cb' => false,
 	'echo' => false,
-]);  
+]);
 ?>
 <header id="site-header" class="site-header dynamic-header pb-0 pb-md-3 <?php echo esc_attr(hello_get_header_layout_class()); ?>" role="banner">
 	<div class="container px-sm-0">
 		<div class="site-branding show-<?php echo esc_attr(hello_elementor_get_setting('hello_header_logo_type')); ?>">
-			<?php  
+			<?php
 			if ($site_name) : ?>
 				<h1 class="site-title d-flex <?php echo esc_attr(hello_show_or_hide('hello_header_logo_display')); ?>">
 					<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr__('Home', 'hello-elementor'); ?>" class="reset-link d-flex flexone theme-color--fill--deep listen-theme-color justify-content-center" rel="home">
@@ -38,27 +38,19 @@ $header_nav_menu = wp_nav_menu([
 		</div>
 		<?php if (!is_home() && !is_page('work')) {
 			if ($header_nav_menu) :
-		?><nav class="site-navigation croxo-font-text--deep mt-4 justify-content-center <?php 
-				echo esc_attr(hello_show_or_hide('hello_header_menu_display'));
-			?>">
-					<?php
-					echo $header_nav_menu;
-					?> 
-				</nav>
-				<div class="site-navigation-toggle-holder <?php echo esc_attr(hello_show_or_hide('hello_header_menu_display')); ?>">
-					<div class="site-navigation-toggle" role="button" tabindex="0">
-						<i class="eicon-menu-bar" aria-hidden="true"></i>
-						<span class="screen-reader-text"><?php echo esc_html__('Menu', 'hello-elementor'); ?></span>
+		?>
+			<div class="croxo-work-filters--main-nav d-flex justify-content-center">
+				<nav class="site-navigation site-navigation--main-nav">
+					<div class="post-type-filter__main-nav ">
+						<?php
+						echo $header_nav_menu;
+						?>
 					</div>
-				</div>
-				<nav class="site-navigation-dropdown <?php echo esc_attr(hello_show_or_hide('hello_header_menu_display')); ?>">
-					<?php
-					// PHPCS - escaped by WordPress with "wp_nav_menu"
-					echo $header_nav_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					?>
-				</nav><?php
-					endif;
-				} ?>
+				</nav>
+			</div>
+		<?php
+			endif;
+		} ?>
 
 		<?php if ($header_nav_menu) : ?>
 			<div class="site-navigation--scroll">

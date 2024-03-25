@@ -1,4 +1,5 @@
-.croxo-contact-form__main-wrapper, .croxo-event-form__main-wrapper {
+.croxo-contact-form__main-wrapper,
+.croxo-event-form__main-wrapper {
     align-items: center;
     background-color: rgba(255, 255, 255, 0.8);
     bottom: 0;
@@ -29,19 +30,21 @@
         }
 
         &.message-sent {
-            &::after {
-                background-color: aliceblue;
-                bottom: 0;
-                content: ' ';
-                left: 0;
-                position: absolute;
-                right: 0;
-                top: 0;
-                z-index: 1;
+            >*:not(.croxo-contact-form__message-sent):not(.croxo-contact-form__close-btn) {
+                display: none;
             }
         }
 
+        &:not(.message-sent) {
+            .croxo-contact-form__message-sent {
+                display: none !important;
+            }
+        }
+        .croxo-contact-form__message-sent {
+            z-index: 0;
+        }
         .croxo-contact-form__close-btn {
+            z-index: 1;
             span {
                 &:hover {
                     transform: rotate(360deg);

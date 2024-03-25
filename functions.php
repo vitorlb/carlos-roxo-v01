@@ -1045,3 +1045,27 @@ function custom_email_text_callback()
 
 add_filter('admin_init', 'add_custom_general_settings');
 add_action('admin_menu', 'add_custom_general_settings');
+
+// on submit extra info
+
+// Add extra information to Contact Form 7 email
+function custom_modify_contact_form_email($cf7) {
+    // Get the submitted form data
+    $submission = WPCF7_Submission::get_instance();
+    if ($submission) {
+        $posted_data = $submission->get_posted_data();
+        
+        // Get the page ID from the URL
+        $page_id = url_to_postid($_SERVER['HTTP_REFERER']);
+        // Get the page title and URL
+        $page_title = get_the_title($page_id);
+        $page_link = get_permalink($page_id);
+        
+        // Modify email body
+        $mail = $cf7->prop('mail');
+        $mail['body'] .= "\n\nPage Title: $page_title\nPage Link: $page_link";
+        $cf7->set_properties(array('mail' => $mail));
+    }
+}
+add_action('wpcf7_before_send_mail', 'custom_modify_contact_form_email');
+
