@@ -2,7 +2,7 @@
 console.log('so colourfulll');
 let root = document.documentElement;
 let acidArray = [
-	'#fc85ff',
+	'#fa99ff',
 	'#d10000',
 	'#333333',
 	'#f9d500',
@@ -11,7 +11,7 @@ let acidArray = [
 	'#a784f9',
 	'#611de9'
 ];
-let acidColor = '#ff35ff';
+let acidColor = '#fa99ff';
 //TODO: avoid repeated colors using while 
 document.addEventListener("DOMContentLoaded", (event) => {
 	root.style.setProperty('--acid-color', `${acidColor}`);

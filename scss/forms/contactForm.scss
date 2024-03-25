@@ -28,6 +28,19 @@
             width: 40vw;
         }
 
+        &.message-sent {
+            &::after {
+                background-color: aliceblue;
+                bottom: 0;
+                content: ' ';
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: 1;
+            }
+        }
+
         .croxo-contact-form__close-btn {
             span {
                 &:hover {

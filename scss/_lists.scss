@@ -1,20 +1,22 @@
 .discos-grelha {
-  margin-top: 24px;
+  margin-top: 24px; 
 
   .discos {
-    column-gap: 24px;
+    
+    column-gap: 12px;
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    row-gap: 36px;
+    row-gap: 18px;
 
     @include media-breakpoint-up(md) {
       column-gap: 36px;
+      row-gap: 36px;
     }
 
     .disco {
       border: 2px solid $croxo-color-black;
-      flex-basis: calc(50% - ((24px)/2));
+      flex-basis: calc(50% - (12px/2));
       flex-grow: 0;
       list-style-type: none;
       position: relative;
@@ -51,8 +53,13 @@
       }
 
       .disco_thumb {
-        aspect-ratio: 1 / 1;
+        align-items: center;
         display: flex;
+        height: 100%;
+
+        @include media-breakpoint-up(md) {
+          aspect-ratio: 1 / 1;
+        }
 
         a {
           align-self: stretch;

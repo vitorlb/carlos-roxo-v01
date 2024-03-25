@@ -45,9 +45,18 @@ if (!!document.querySelector('#croxoContactForm')) {
                             contactForm.querySelector('.contact-types--phone').classList.add('contact-types--inactive'),
                             contactInputPhone.classList.add('d-none'),
                             contactInputMail.classList.remove('d-none'))
-                )
+                );
+        });
+    });
+    !!contactForm && (
+        contactForm.querySelector('.wpcf7-form').addEventListener('wpcf7mailsent', (event) => {
+            console.log('---------------------> mail sent')
+        }),
+        contactForm.querySelector('.wpcf7-form').addEventListener('wpcf7submit', (event) => {
+            !contactForm.querySelector('.croxo-contact-form__form-wrapper').classList.contains('message-sent')
+                && contactForm.querySelector('.croxo-contact-form__form-wrapper').classList.add('message-sent');
         })
-    })
+    )
 }
 
 //contactInput

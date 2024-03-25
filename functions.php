@@ -479,16 +479,16 @@ function grelha_discos()
 		?>
 			<li class="disco <?php echo implode(' ', get_post_class()); ?>">
 				<?php if (has_post_thumbnail()) { ?>
-					<div class="disco_thumb">
+					<div class="disco_thumb h-100">
 						<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
 					</div>
 				<?php } else { ?>
-					<div class="disco_thumb">
+					<div class="disco_thumb h-100">
 						<p><?php the_title(); ?></p>
 					</div>
 				<?php } ?>
 				<div class="disco_title croxo-font-text d-flex flex-column">
-					<p class="disco_title__paragraph p-2 pb-3">
+					<p class="disco_title__paragraph py-1 px-2 p-md-2 pb-md-3">
 						<a href="<?= $permalink ?>">
 							<span class="croxo-grid-headline"><?php the_title() ?><br></span>
 						</a>
@@ -517,16 +517,16 @@ function filter_posts()
 	?>
 		<li class="disco <?php echo implode(' ', get_post_class()); ?>">
 			<?php if (has_post_thumbnail()) { ?>
-				<div class="disco_thumb">
+				<div class="disco_thumb h-100">
 					<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
 				</div>
 			<?php } else { ?>
-				<div class="disco_thumb">
+				<div class="disco_thumb h-100">
 					<p><?php the_title(); ?></p>
 				</div>
 			<?php } ?>
 			<div class="disco_title croxo-font-text d-flex flex-column">
-				<p class="disco_title__paragraph p-2 pb-3">
+				<p class="disco_title__paragraph py-1 px-2 p-md-2 pb-md-3">
 					<a href="<?= $permalink ?>">
 						<span class="croxo-grid-headline"><?php the_title() ?><br></span>
 					</a>

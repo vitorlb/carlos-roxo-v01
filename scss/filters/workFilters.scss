@@ -16,7 +16,7 @@
             .post-type-filter__wrapper {
                 label {
                     border-left-width: 0px;
-                    border-top-width: 0px; 
+                    border-top-width: 0px;
 
                     input {
                         &:checked {
@@ -42,6 +42,14 @@
 
 .croxo-work-filters {
     position: relative;
+
+    .croxo-work-filters__mobile-btns {
+        button {
+            border-top: 0;
+            font-size: 12px;
+            padding: 4px 8px;
+        }
+    }
 
     form {
         left: 0;

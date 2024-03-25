@@ -19,6 +19,7 @@
 	}
 
 	&.croxo-gallery--img-focused {
+		overflow-x: unset;
 		.croxo-gallery__gallery-item {
 			pointer-events: none !important;
 
@@ -34,11 +35,13 @@
 		flex-shrink: 0;
 		scroll-snap-align: start;
 		transition: all 350ms;
+		width: 100%;
 
 		@include media-breakpoint-up(md) {
 			flex-grow: 0;
 			flex-basis: calc(0.333333333 * (100% - (24px*2)));
 			height: initial;
+			width: unset;
 		}
 
 		&:hover {
