@@ -27,27 +27,19 @@ $header_nav_menu = wp_nav_menu([
 <header id="site-header" class="site-header dynamic-header pb-0 pb-md-3 <?php echo esc_attr(hello_get_header_layout_class()); ?>" role="banner">
 	<div class="container px-sm-0">
 		<div class="site-branding show-<?php echo esc_attr(hello_elementor_get_setting('hello_header_logo_type')); ?>">
-			<?php if (has_custom_logo() && ('title' !== hello_elementor_get_setting('hello_header_logo_type') || $is_editor)) : ?>
-				<div class="site-logo <?php echo esc_attr(hello_show_or_hide('hello_header_logo_display')); ?>">
-					<?php the_custom_logo(); ?>
-				</div>
-			<?php endif;
-
-			if ($site_name && ('logo' !== hello_elementor_get_setting('hello_header_logo_type') || $is_editor)) : ?>
+			<?php  
+			if ($site_name) : ?>
 				<h1 class="site-title d-flex <?php echo esc_attr(hello_show_or_hide('hello_header_logo_display')); ?>">
 					<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr__('Home', 'hello-elementor'); ?>" class="reset-link d-flex flexone theme-color--fill--deep listen-theme-color justify-content-center" rel="home">
 						<span class="croxo-icons <?php if (is_page('galinheiro-criativo')) { ?> croxo-iconsgalinhierocriativo-title <?php } else { ?> croxo-iconstitulo_site_2 <?php } ?> pt-4 pb-md-3 transparent"></span>
 					</a>
 				</h1>
-			<?php endif; ?>
+			<?php endif;  ?>
 		</div>
 		<?php if (!is_home() && !is_page('work')) {
 			if ($header_nav_menu) :
-		?><nav class="site-navigation croxo-font-text--deep mt-4 
-			<?php
-				if (is_page('galinheiro-criativo')) { ?> justify-content-center  <?php } else { ?> justify-content-start  <?php } 
+		?><nav class="site-navigation croxo-font-text--deep mt-4 justify-content-center <?php 
 				echo esc_attr(hello_show_or_hide('hello_header_menu_display'));
-			
 			?>">
 					<?php
 					echo $header_nav_menu;
