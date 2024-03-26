@@ -73,16 +73,6 @@ $header_nav_menu = wp_nav_menu([
 						if ($custom_query->have_posts()) {
 							while ($custom_query->have_posts()) {
 								$custom_query->the_post();
-						?>
-								<li id="croxoAboutMenuItem" class="menu-item menu-item-object-page menu-item--about d-flex flex-column align-items-end position-relative">
-									<div class="menu-item--about__wrapper absolute-stretch transition-all-650 d-flex flex-column">
-										<span class="menu-item--about__title align-self-stretch"><?php the_title(); ?></span>
-										<div class="menu-item--about__text croxo-color-transparent croxo-background-transparent--deep--imporant p-events-none--deep transition-all-650 p-3 pt-4">
-											<?php the_content(); ?>
-										</div>
-									</div>
-								</li>
-						<?php
 							}
 							// Restore original post data
 							wp_reset_postdata();

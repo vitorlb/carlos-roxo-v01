@@ -6,8 +6,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		let filtersHost = document.querySelector('.croxo-mobile-filters-modal__wrapper');
 		let filtersButton = document.querySelector('.croxo-work-filters__mobile-btns button');
 		let closeButton = document.querySelector('.post-type-filter__top-bar__btn-wrapper.top-bar__btn-wrapper--close button');
-		//croxo-work-filters__mobile-btns
-		//debugger;
 		(filtersWrapper && filtersHost)
 			&& filtersHost.appendChild(filtersWrapper);
 		let filtersWrapperHeight = (!!filtersWrapper && filtersWrapper.getBoundingClientRect().height);

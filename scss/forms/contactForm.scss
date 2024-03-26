@@ -18,8 +18,12 @@
         border: 5px solid var(--acid-color);
         display: flex;
         flex-direction: column;
-        row-gap: 18px;
+        row-gap: 9px;
         width: 90vw;
+
+        @include media-breakpoint-up(lg) {
+            row-gap: 18px;
+        }
 
         @include media-breakpoint-up(lg) {
             width: 70vw;
@@ -40,11 +44,14 @@
                 display: none !important;
             }
         }
+
         .croxo-contact-form__message-sent {
             z-index: 0;
         }
+
         .croxo-contact-form__close-btn {
             z-index: 1;
+
             span {
                 &:hover {
                     transform: rotate(360deg);

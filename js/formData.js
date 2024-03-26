@@ -7,6 +7,8 @@ if (!!document.querySelector('#croxoContactForm')) {
     let contactTypeButtons = document.querySelectorAll('.croxo-contact-form__contact-types button');
     let contactInputMail = document.querySelector('.croxo-contact-form__contact-input-wrapper.email');
     let contactInputPhone = document.querySelector('.croxo-contact-form__contact-input-wrapper.phone');
+    const stickyHeader = contactForm.closest('.croxo-body-wrapper').querySelector('.site-navigation--scroll');
+    const footer = contactForm.closest('.croxo-body-wrapper').querySelector('footer');
     !!(typeof customFormData !== 'undefined')
         && (fetchedData = customFormData);
     !!contactFormCta
@@ -15,6 +17,9 @@ if (!!document.querySelector('#croxoContactForm')) {
             aboutMenuItem.forEach(e => {
                 !e.classList.contains('menu-item--about--disabled')
                     && e.classList.add('menu-item--about--disabled');
+            });
+            [stickyHeader, footer].forEach(e => {
+                !e.classList.contains('transparent--important') && e.classList.add('transparent--important');
             });
         }));
     !!contactForm
@@ -25,7 +30,10 @@ if (!!document.querySelector('#croxoContactForm')) {
                     e.classList.remove('menu-item--about--disabled');
                 });
                 contactForm.querySelector('.croxo-contact-form__form-wrapper')?.classList.remove('message-sent');
-                })
+                [stickyHeader, footer].forEach(e => {
+                    e.classList.remove('transparent--important');
+                });
+            })
         );
     (!!contactForm && !!fetchedData)
         && (

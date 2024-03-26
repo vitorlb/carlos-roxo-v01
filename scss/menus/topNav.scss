@@ -1,7 +1,7 @@
 .site-header.menu-dropdown-tablet:not(.menu-layout-dropdown) .site-navigation.site-navigation--main-nav {
 	display: flex !important;
 
-	@include media-breakpoint-up(lg) {
+	@include media-breakpoint-down(lg) {
 		display: flex !important;
 	}
 }
@@ -168,6 +168,14 @@
 
 }
 
+.site-header.menu-dropdown-tablet:not(.menu-layout-dropdown) .site-navigation--scroll .site-navigation {
+	display: flex !important;
+
+	@include media-breakpoint-down(lg) {
+		display: flex !important;
+	}
+}
+
 .site-navigation--scroll {
 	background-color: white;
 	border-bottom: 2px solid $croxo-color-black;
@@ -193,26 +201,39 @@
 		}
 	}
 
-	.croxo-icons {
-		font-size: 36px;
-	}
+	.container {
+		padding-right: 0;
 
-	.site-navigation {
-		.menu-topnav-container {
-			height: 100%;
+		@include media-breakpoint-up(md) {
+			padding-right: 12px;
+		}
 
-			.menu {
+		.croxo-icons {
+			font-size: 36px;
+		}
+
+		.site-navigation {
+			.menu-topnav-container {
 				height: 100%;
-				margin: 0;
 
-				.menu-item {
-					a {
-						align-items: center;
-						border-bottom-width: 0 !important;
-						border-top-width: 0 !important;
-						display: flex;
-						padding-left: 24px;
-						padding-right: 24px;
+				.menu {
+					height: 100%;
+					margin: 0;
+
+					.menu-item {
+						a {
+							align-items: center;
+							border-bottom-width: 0 !important;
+							border-top-width: 0 !important;
+							display: flex;
+							padding-left: 6px;
+							padding-right: 12px;
+
+							@include media-breakpoint-up(md) {
+								padding-left: 24px;
+								padding-right: 24px;
+							}
+						}
 					}
 				}
 			}

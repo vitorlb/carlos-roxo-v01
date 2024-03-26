@@ -426,6 +426,16 @@
 	opacity: 0;
 }
 
+.transparent--important {
+	opacity: 0 !important;
+	transition: none !important;
+
+	* {
+		opacity: 0 !important;
+		transition: none !important;
+	}
+}
+
 //pointer events
 .p-events-none {
 	pointer-events: none;
@@ -600,10 +610,10 @@
 	font-size: $font-size-giant-sm;
 }
 
-.croxo-text-title { 
+.croxo-text-title {
 	text-transform: uppercase;
 	font-weight: 650;
-	
+
 }
 
 .croxo-text-h1 {
@@ -669,6 +679,7 @@
 @for $i from 1 through 30 {
 	.font-size-#{$i} {
 		font-size: calc(($i * 2px)*0.7);
+
 		@include media-breakpoint-up(md) {
 			font-size: calc($i * 2px)
 		}
