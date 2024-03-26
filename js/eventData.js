@@ -7,8 +7,8 @@ if (!!document.querySelector('#croxoEventForm')) {
     let contactTypeButtons = document.querySelectorAll('.croxo-contact-form__contact-types button');
     let contactInputMail = document.querySelector('.croxo-contact-form__contact-input-wrapper.email');
     let contactInputPhone = document.querySelector('.croxo-contact-form__contact-input-wrapper.phone');
-    const stickyHeader = contactForm.closest('.croxo-body-wrapper').querySelector('.site-navigation--scroll');
-    const footer = contactForm.closest('.croxo-body-wrapper').querySelector('footer');
+    const stickyHeader = croxoEventForm.closest('.croxo-body-wrapper').querySelector('.site-navigation--scroll');
+    const footer = croxoEventForm.closest('.croxo-body-wrapper').querySelector('footer');
 
     contactFormCtas.forEach(contactFormCta => {
         contactFormCta.addEventListener('click', () => {

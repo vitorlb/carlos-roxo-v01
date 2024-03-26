@@ -12,9 +12,9 @@ if (!defined('ABSPATH')) {
 
 $postType = get_post_type();
 ?>
-<div class="ctp-header-wrapper sticky-top <?php if ($postType == 'post') { ?> d-flex <?php }  ?>">
+<div class="ctp-header-wrapper sticky-top <?php if ($postType == 'post') { ?> d-flex flex-column flex-md-row <?php }  ?>">
 	<?php if ($postType == 'post') { ?>
-		<div class="ctp-header-wrapper__calendar-wrapper flexone mt-3 pe-4">
+		<div class="ctp-header-wrapper__calendar-wrapper flexone mt-3 pe-md-4">
 			<?php get_template_part('template-parts/components/calendar-item') ?>
 			<a class="ctp-header-wrapper__calendar-wrapper__apply-link reset-link d-flex align-items-center justify-content-center pt-2 c-pointer">
 				<span class="ctp-header-wrapper__calendar-wrapper__apply-link__icon material-symbols-outlined theme-color tilt-b-2">hand_gesture</span>
