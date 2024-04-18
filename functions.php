@@ -577,7 +577,13 @@ function events_list($time)
 				}
 				wp_reset_postdata(); // Reset post data
 			} else {
-				echo 'No posts found in the past.';
+				?> <span class="croxo-font-text"> <?php 
+				if(!!$time) {
+					echo 'There are currently no upcoming events. New dates will be announced soon. Stay tuned! :)'; 
+				} else {
+					echo 'No posts found in the past.';
+				}
+				?></span> <?php
 			}
 			?>
 		</ul>

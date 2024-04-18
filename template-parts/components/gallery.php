@@ -11,20 +11,22 @@ if (!defined('ABSPATH')) {
 }
 
 $postType = get_post_type();
-$animations = get_post_meta(get_the_ID(), '_animations', true); 
+$animations = get_post_meta(get_the_ID(), '_animations', true);
 $count = null;
 // Ensure both arrays have the same length 
-if(!!$animations) {
-$count = count($animations); 
+if (!!$animations) {
+	$count = count($animations);
 }
-if ($count > 0 && $postType == 'animation') {
-	get_template_part('template-parts/components/gallery-video');
-}
-?> 
-<div class="croxo-gallery d-flex flex-row flex-md-column row-gap-50 column-gap-50 w-100">
+?>
+<?php
+$images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
+?>
+<div class="croxo-gallery d-flex flex-row flex-md-column row-gap-50 column-gap-50 w-100 <?php if (!$images && !$animations) {echo 'd-none';} ?>">
 	<?php
-	$images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
-	if ($images) {
+	if ($images || !!$animations) {
+		if ($count > 0 && $postType == 'animation') {
+			get_template_part('template-parts/components/gallery-video');
+		}
 		foreach ($images as $image) {
 			$attachment = wp_prepare_attachment_for_js($image);
 	?>
@@ -36,7 +38,7 @@ if ($count > 0 && $postType == 'animation') {
 		if ($count > 0 && $postType != 'animation') {
 			get_template_part('template-parts/components/gallery-video');
 		}
-	} elseif (has_post_thumbnail()) {
+	} elseif (has_post_thumbnail() && !$animations) {
 		?>
 		<div class="croxo-gallery__gallery-item c-pointer flexone">
 			<?php the_post_thumbnail(); ?>
@@ -68,4 +70,4 @@ if ($count > 0 && $postType == 'animation') {
 			<img class="croxo-gallery__lightbox__img-placeholder__img" src="" alt="">
 		</div>
 	</div>
-</div> 
+</div>

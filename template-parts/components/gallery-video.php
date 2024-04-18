@@ -35,9 +35,9 @@ for ($i = 0; $i < $count; $i++) {
 	$youtubeVideoId = isset($matches[1]) ? $matches[1] : '';
 	if (!!$youtubeVideoId) {
 		if ($data->ratio == 'Square') { ?>
-			<div class="croxo-gallery__gallery-item ratio-square border-theme-color--hover d-flex croxo-animations-gallery__video-wrapper">
+			<div class="w-100 croxo-gallery__gallery-item ratio-square border-theme-color--hover d-flex croxo-animations-gallery__video-wrapper">
 				<?php if ($index == 0 && $postType == 'animation') { ?>
-					<iframe id="<?php echo 'croxo-player-' . $index; ?>" width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $youtubeVideoId; ?>?autoplay=1&playlist=<?php echo $youtubeVideoId; ?>&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+					<iframe id="<?php echo 'croxo-player-' . $index; ?>" width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $youtubeVideoId; ?>?autoplay=1&loop=1&playlist=<?php echo $youtubeVideoId; ?>&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 				<?php } else { ?>
 					<iframe id="<?php echo 'croxo-player-' . $index; ?>" width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $youtubeVideoId; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 				<?php } ?>
@@ -46,7 +46,7 @@ for ($i = 0; $i < $count; $i++) {
 		if ($data->ratio == 'Panoramic') { ?>
 			<div class="w-100 ratio-panoramic border-theme-color--hover d-flex croxo-animations-gallery__video-wrapper">
 				<?php if ($index == 0 && $postType == 'animation') { ?>
-					<iframe id="<?php echo 'croxo-player-' . $index; ?>" width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $youtubeVideoId; ?>?autoplay=1&playlist=<?php echo $youtubeVideoId; ?>&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+					<iframe id="<?php echo 'croxo-player-' . $index; ?>" width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $youtubeVideoId; ?>?autoplay=1&loop=1&playlist=<?php echo $youtubeVideoId; ?>&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 				<?php } else { ?>
 					<iframe id="<?php echo 'croxo-player-' . $index; ?>" width="100%" height="100%" src="https://www.youtube.com/embed/<?php echo $youtubeVideoId; ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
 				<?php } ?>
