@@ -30740,8 +30740,24 @@ progress {
     border: 2px solid var(--acid-color);
   }
 }
+.discos-grelha .discos .disco:hover .disco_title > * {
+  opacity: 1;
+  transform: translate(0, 0px);
+}
+.discos-grelha .discos .disco:hover .disco_title .disco_title__text-container > * {
+  background-color: white;
+}
 .discos-grelha .discos .disco::marker {
   display: none;
+}
+.discos-grelha .discos .disco .disco_link::after {
+  bottom: 0;
+  content: " ";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
 }
 .discos-grelha .discos .disco .disco_thumb {
   align-items: center;

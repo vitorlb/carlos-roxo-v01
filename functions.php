@@ -82,7 +82,7 @@ function discos_custom_post_type()
 {
 	$labels = array(
 		'name' => 'Illustrations',
-		'singular_name' => 'Illustratio',
+		'singular_name' => 'Illustration',
 		'add_new' => 'Add Illustration',
 		'all_items' => 'All Illustrations',
 		'add_new_item' => 'Add new Illustration',
@@ -414,7 +414,9 @@ function grelha_discos()
 	if (is_home()) {
 		$args = array(
 			'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types,
-			'posts_per_page' => 12
+			'pagination'             => true,
+			'posts_per_page'         => 5,
+			'ignore_stickie_posts' => true,
 		);
 	} else {
 		$args = array(
@@ -459,7 +461,7 @@ function grelha_discos()
 					<?php foreach ($post_types as $post_type) { ?>
 						<label class="d-block position-relative border-theme-black croxo-font-text--deep theme-color-black c-pointer mb-0 flexone flexone-md-unset">
 							<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="<?php echo $post_type ?>" <?php checked(in_array($post_type, $selected_post_types)) ?>>
-							<span class="d-block py-1 px-2 croxo-text-filter-item croxo-menu-item theme-color--hover"><?php echo ucfirst(str_replace('_', ' ', $post_type)); ?></span>
+							<span class="d-block py-1 px-2 croxo-text-filter-item croxo-menu-item theme-color--hover"><?php if (ucfirst(str_replace('_', ' ', $post_type)) == 'Ceramics') { echo 'Sculptures'; } elseif (ucfirst(str_replace('_', ' ', $post_type)) == 'Ilustrations') {echo 'Illustrations'; } else { echo ucfirst(str_replace('_', ' ', $post_type));} ?></span>
 						</label>
 					<?php } ?>
 					<label class="d-none d-md-block ratio-square h-100 position-relative c-pointer  border-theme-black reset-btn px-0 mb-0">
@@ -477,7 +479,9 @@ function grelha_discos()
 		while ($query->have_posts()) : $query->the_post();
 			$permalink = get_permalink();
 		?>
-			<li class="disco <?php echo implode(' ', get_post_class()); ?>">
+			<li class="disco position-relative <?php echo implode(' ', get_post_class()); ?>">
+				<a class="disco_link" href="<?= $permalink ?>">
+				</a>
 				<?php if (has_post_thumbnail()) { ?>
 					<div class="disco_thumb h-100">
 						<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
@@ -489,9 +493,7 @@ function grelha_discos()
 				<?php } ?>
 				<div class="disco_title croxo-font-text d-flex flex-column">
 					<p class="disco_title__paragraph py-1 px-2 p-md-2 pb-md-3">
-						<a href="<?= $permalink ?>">
-							<span class="croxo-grid-headline"><?php the_title() ?><br></span>
-						</a>
+						<span class="croxo-grid-headline theme-color text-decoration-underline"><?php the_title() ?><br></span>
 					</p>
 				</div>
 			</li>
@@ -501,12 +503,17 @@ function grelha_discos()
 }
 
 /**** Filter posts Function ****/
+
+//limit grelha discos here
 function filter_posts()
 {
 	$selected_post_types = isset($_GET['post_types']) ? array_map('sanitize_text_field', $_GET['post_types']) : array();
 
 	$args = array(
-		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing')
+		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing'),
+		'pagination'             => true,
+		'posts_per_page'         => 25,
+		'ignore_stickie_posts' => true
 	);
 	$query = new WP_Query($args);
 ?>
@@ -516,6 +523,8 @@ function filter_posts()
 		$permalink = get_permalink();
 	?>
 		<li class="disco <?php echo implode(' ', get_post_class()); ?>">
+			<a class="disco_link" href="<?= $permalink ?>">
+			</a>
 			<?php if (has_post_thumbnail()) { ?>
 				<div class="disco_thumb h-100">
 					<a href="<?= $permalink ?>"><?php the_post_thumbnail(); ?></a>
@@ -527,9 +536,7 @@ function filter_posts()
 			<?php } ?>
 			<div class="disco_title croxo-font-text d-flex flex-column">
 				<p class="disco_title__paragraph py-1 px-2 p-md-2 pb-md-3">
-					<a href="<?= $permalink ?>">
-						<span class="croxo-grid-headline"><?php the_title() ?><br></span>
-					</a>
+					<span class="croxo-grid-headline theme-color text-decoration-underline"><?php the_title() ?><br></span>
 				</p>
 			</div>
 		</li>
@@ -956,7 +963,7 @@ function animations_metabox_callback($post)
 // Metabox Setup Function
 function animations_metabox_setup()
 {
-	$post_types = array('animation', 'illustrations', 'graphic_design', 'ceramics', 'clothing');
+	$post_types = array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing');
 
 	foreach ($post_types as $post_type) {
 		add_meta_box('animations_metabox', 'Animations', 'animations_metabox_callback', $post_type, 'normal', 'high');

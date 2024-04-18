@@ -1,8 +1,8 @@
 .discos-grelha {
-  margin-top: 24px; 
+  margin-top: 24px;
 
   .discos {
-    
+
     column-gap: 12px;
     display: flex;
     flex-wrap: wrap;
@@ -33,6 +33,19 @@
         @include media-breakpoint-up(md) {
           border: 2px solid var(--acid-color);
         }
+
+        .disco_title {
+          >* {
+            opacity: 1;
+            transform: translate(0, 0px);
+          }
+
+          .disco_title__text-container {
+            >* {
+              background-color: white;
+            }
+          }
+        }
       }
 
       &:nth-child(odd) {
@@ -50,6 +63,18 @@
 
       &::marker {
         display: none;
+      }
+
+      .disco_link {
+        &::after {
+          bottom: 0;
+          content: ' ';
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 2;
+        }
       }
 
       .disco_thumb {

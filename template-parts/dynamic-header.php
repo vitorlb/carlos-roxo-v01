@@ -14,6 +14,7 @@ if (!hello_get_header_display()) {
 	return;
 }
 
+$postType = get_post_type();
 $logo_svg_path = get_stylesheet_directory() . '/imgs/titulo_site_1_plain.svg';
 $is_editor = isset($_GET['elementor-preview']);
 $site_name = get_bloginfo('name');
@@ -31,7 +32,7 @@ $header_nav_menu = wp_nav_menu([
 			if ($site_name) : ?>
 				<h1 class="site-title d-flex <?php echo esc_attr(hello_show_or_hide('hello_header_logo_display')); ?>">
 					<a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr__('Home', 'hello-elementor'); ?>" class="reset-link d-flex flexone theme-color--fill--deep listen-theme-color justify-content-center" rel="home">
-						<span class="croxo-icons <?php if (is_page('galinheiro-criativo')) { ?> croxo-iconsgalinhierocriativo-title <?php } else { ?> croxo-iconstitulo_site_2 <?php } ?> pt-4 pb-md-3 transparent"></span>
+						<span class="croxo-icons <?php if (is_page('galinheiro-criativo') || $postType == 'post') { ?> croxo-iconsgalinhierocriativo-title <?php } else { ?> croxo-iconstitulo_site_2 <?php } ?> pt-4 pb-md-3 transparent"></span>
 					</a>
 				</h1>
 			<?php endif;  ?>

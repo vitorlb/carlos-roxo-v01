@@ -13,13 +13,24 @@ if (!defined('ABSPATH')) {
 $postType = get_post_type();
 ?>
 <div class="ctp-header-wrapper sticky-top <?php if ($postType == 'post') { ?> d-flex flex-column flex-md-row <?php }  ?>">
-	<?php if ($postType == 'post') { ?>
+	<?php if ($postType == 'post') {
+		$today_date = date('Y-m-d');
+		$post_id = get_the_ID();
+		$custom_date = get_post_meta($post_id, '_custom_date', true);
+		$time =  ($custom_date > $today_date) ? true : false;
+	?>
+
 		<div class="ctp-header-wrapper__calendar-wrapper flexone mt-3 pe-md-4">
-			<?php get_template_part('template-parts/components/calendar-item') ?>
-			<a class="ctp-header-wrapper__calendar-wrapper__apply-link reset-link d-flex align-items-center justify-content-center pt-2 c-pointer">
-				<span class="ctp-header-wrapper__calendar-wrapper__apply-link__icon material-symbols-outlined theme-color tilt-b-2">hand_gesture</span>
-				<span class="ctp-header-wrapper__calendar-wrapper__apply-link__span ps-1 theme-color">apply!</span>
-			</a>
+			<?php get_template_part('template-parts/components/calendar-item');
+			if (!!$time) {
+			?>
+				<a class="ctp-header-wrapper__calendar-wrapper__apply-link reset-link d-flex align-items-center justify-content-center pt-2 c-pointer">
+					<span class="ctp-header-wrapper__calendar-wrapper__apply-link__icon material-symbols-outlined theme-color tilt-b-2">hand_gesture</span>
+					<span class="ctp-header-wrapper__calendar-wrapper__apply-link__span ps-1 theme-color">apply!</span>
+				</a>
+			<?php
+			}
+			?>
 			<div id="croxoEventForm" class="croxo-event-form__main-wrapper d-none">
 				<?php echo do_shortcode('[contact-form-7 id="760bea4" title="Contact form 1"]'); ?>
 			</div>
