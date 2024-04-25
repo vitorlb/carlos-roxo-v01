@@ -220,6 +220,29 @@
 					height: 100%;
 					margin: 0;
 
+					li {
+						&.about-menu-item {
+							.about-menu-item__about-content {
+								left: unset;
+								right: 0;
+								top: 44px;
+
+								@include media-breakpoint-only(md) {
+									width: 45vw;
+								}
+
+								@include media-breakpoint-up(md) {
+									top: 40px;
+								}
+
+								.about-menu-item__about-content__cta {
+									border-bottom-width: 2px !important;
+									border-top-width: 2px !important;
+								}
+							}
+						}
+					}
+
 					.menu-item {
 						a {
 							align-items: center;

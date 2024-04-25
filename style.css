@@ -31550,6 +31550,25 @@ progress {
   height: 100%;
   margin: 0;
 }
+.site-navigation--scroll .container .site-navigation .menu-topnav-container .menu li.about-menu-item .about-menu-item__about-content {
+  left: unset;
+  right: 0;
+  top: 44px;
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .site-navigation--scroll .container .site-navigation .menu-topnav-container .menu li.about-menu-item .about-menu-item__about-content {
+    width: 45vw;
+  }
+}
+@media (min-width: 768px) {
+  .site-navigation--scroll .container .site-navigation .menu-topnav-container .menu li.about-menu-item .about-menu-item__about-content {
+    top: 40px;
+  }
+}
+.site-navigation--scroll .container .site-navigation .menu-topnav-container .menu li.about-menu-item .about-menu-item__about-content .about-menu-item__about-content__cta {
+  border-bottom-width: 2px !important;
+  border-top-width: 2px !important;
+}
 .site-navigation--scroll .container .site-navigation .menu-topnav-container .menu .menu-item a {
   align-items: center;
   border-bottom-width: 0 !important;
