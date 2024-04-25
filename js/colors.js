@@ -11,9 +11,11 @@ let acidArray = [
 	'#a784f9',
 	'#611de9'
 ];
-let acidColor = '#fa99ff';
 //TODO: avoid repeated colors using while 
 document.addEventListener("DOMContentLoaded", (event) => {
+	let acidColor = acidArray[Math.floor(Math.random() * acidArray.length)];
+	//debugger;
+	console.log('init. aaaazd', acidColor)
 	root.style.setProperty('--acid-color', `${acidColor}`);
 	document.querySelectorAll('.listen-theme-color').forEach(e => {
 		e.addEventListener('mouseenter', (event) => {

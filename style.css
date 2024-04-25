@@ -30823,7 +30823,6 @@ progress {
   padding-bottom: 8px;
 }
 .discos-grelha .discos .disco .disco_title .disco_title__text-container .disco_title__excerpt {
-  font-family: "Terminal Grotesque";
   font-size: 12px;
   height: 0%;
   overflow: hidden;
@@ -30917,7 +30916,6 @@ progress {
   padding-bottom: 8px;
 }
 .croxo-events-list-item .disco_title__text-container .disco_title__excerpt {
-  font-family: "Terminal Grotesque";
   font-size: 18px;
   padding-top: 0;
 }
@@ -30967,6 +30965,9 @@ progress {
 .croxo-galinheiro--main-wrapper .croxo-galinheiro--main-wrapper__header .header__logo img {
   height: 84px;
   width: auto;
+}
+.croxo-galinheiro--main-wrapper .croxo-galinheiro--main-wrapper__events-list__past > h1, .croxo-galinheiro--main-wrapper .croxo-galinheiro--main-wrapper__events-list__past > .h1 {
+  width: fit-content;
 }
 .croxo-galinheiro--main-wrapper .croxo-galinheiro--main-wrapper__events-list__future__title-container .events-list-slide-to span {
   font-size: 12px;
@@ -31104,6 +31105,23 @@ progress {
   line-height: 20px;
 }
 
+.croxo-custom-post-type__header .ctp-header-wrapper .page-content a {
+  color: #212529 !important;
+  text-decoration: underline;
+}
+@media (min-width: 576px) {
+  .croxo-custom-post-type__header .ctp-header-wrapper .page-content a {
+    text-decoration: none;
+  }
+}
+.croxo-custom-post-type__header .ctp-header-wrapper .page-content a:hover {
+  color: #212529 !important;
+}
+@media (min-width: 576px) {
+  .croxo-custom-post-type__header .ctp-header-wrapper .page-content a:hover {
+    text-decoration: underline;
+  }
+}
 .croxo-custom-post-type__header .ctp-header-wrapper .ctp-header-wrapper__calendar-wrapper__apply-link .ctp-header-wrapper__calendar-wrapper__apply-link__icon {
   font-size: 16px;
 }
@@ -31126,6 +31144,10 @@ progress {
   font-size: 18px;
 }
 
+.croxo-mobile-filters-modal {
+  height: var(--window-height);
+  top: unset !important;
+}
 .croxo-mobile-filters-modal .croxo-mobile-filters-modal__wrapper {
   margin-bottom: var(--filters-height);
 }

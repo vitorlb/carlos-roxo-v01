@@ -1,13 +1,34 @@
 .croxo-custom-post-type__header {
   .ctp-header-wrapper {
+    .page-content {
+      a {
+        color: #212529 !important;
+        text-decoration: underline;
+
+        @include media-breakpoint-up(sm) {
+          text-decoration: none;
+        }
+
+        &:hover {
+          color: #212529 !important;
+
+          @include media-breakpoint-up(sm) {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
     .ctp-header-wrapper__calendar-wrapper__apply-link {
       .ctp-header-wrapper__calendar-wrapper__apply-link__icon {
         font-size: 16px;
       }
+
       .ctp-header-wrapper__calendar-wrapper__apply-link__span {
         font-size: 16px;
       }
     }
+
     .ctp-header-wrapper__text-info-wrapper {
       header {
         h1 {

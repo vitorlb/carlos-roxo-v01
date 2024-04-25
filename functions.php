@@ -666,6 +666,14 @@ function enqueue_colors()
 
 add_action('wp_enqueue_scripts', 'enqueue_colors');
 
+function enqueue_window_height()
+{
+	wp_register_script('window-height-js', get_stylesheet_directory_uri() . '/js/windowHeight.js', [], get_stylesheet_directory_uri() . '/js/windowHeight.js', true);
+	wp_enqueue_script('window-height-js');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_window_height');
+
 function enqueue_header_logo_size()
 {
 	wp_register_script('header-logo-size', get_stylesheet_directory_uri() . '/js/headerLogoSize.js', [], get_stylesheet_directory_uri() . '/js/headerLogoSize.js', true);

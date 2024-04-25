@@ -1,4 +1,7 @@
 .croxo-mobile-filters-modal {
+    height: var(--window-height);
+    top: unset !important;
+
     .croxo-mobile-filters-modal__wrapper {
         margin-bottom: var(--filters-height);
 
