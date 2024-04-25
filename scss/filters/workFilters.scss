@@ -1,11 +1,13 @@
 .croxo-mobile-filters-modal {
     height: var(--window-height);
-    top: unset !important;
+    transition: height 220ms;
 
     .croxo-mobile-filters-modal__wrapper {
         margin-bottom: var(--filters-height);
+        opacity: 0;
 
         &.is-active {
+            opacity: 1;
             margin-bottom: 0;
         }
 

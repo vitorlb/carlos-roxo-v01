@@ -31146,12 +31146,14 @@ progress {
 
 .croxo-mobile-filters-modal {
   height: var(--window-height);
-  top: unset !important;
+  transition: height 220ms;
 }
 .croxo-mobile-filters-modal .croxo-mobile-filters-modal__wrapper {
   margin-bottom: var(--filters-height);
+  opacity: 0;
 }
 .croxo-mobile-filters-modal .croxo-mobile-filters-modal__wrapper.is-active {
+  opacity: 1;
   margin-bottom: 0;
 }
 .croxo-mobile-filters-modal .croxo-mobile-filters-modal__wrapper .post-type-filter {
