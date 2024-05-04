@@ -87,15 +87,15 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 ;
 
 body {
-    height: 100vh;
+    height: 100dvh;
     overflow-x: hidden;
     overflow-y: hidden;
-    width: 100vw;
+    width: 100dvw;
 
     .croxo-body-wrapper {
         overflow-x: hidden;
         overflow-y: scroll;
-        height: 100vh;
-        width: 100vw;
+        height: 100dvh;
+        width: 100dvw;
     }
 }

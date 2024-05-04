@@ -415,7 +415,7 @@ function grelha_discos()
 		$args = array(
 			'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : $post_types,
 			'pagination'             => true,
-			'posts_per_page'         => 5,
+			'posts_per_page'         => 15,
 			'ignore_stickie_posts' => true,
 		);
 	} else {
@@ -512,7 +512,7 @@ function filter_posts()
 	$args = array(
 		'post_type' => (!empty($selected_post_types) && !in_array('all', $selected_post_types)) ? $selected_post_types : array('animation', 'ilustrations', 'graphic_design', 'ceramics', 'clothing'),
 		'pagination'             => true,
-		'posts_per_page'         => 25,
+		'posts_per_page'         => 28,
 		'ignore_stickie_posts' => true
 	);
 	$query = new WP_Query($args);
@@ -559,7 +559,7 @@ function events_list($time)
 		'posts_per_page' => -1,
 		'meta_key'       => '_custom_date',
 		'orderby'        => 'meta_value',
-		'order'          => 'DESC', // Use 'DESC' for descending order
+		'order'          => !$time ? 'DESC' : 'ASC', // Use 'DESC' for descending order
 		'meta_query'     => array(
 			array(
 				'key'     => '_custom_date',

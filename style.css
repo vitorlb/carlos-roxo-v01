@@ -30171,11 +30171,13 @@ progress {
 }
 
 .croxo-text-h1-xl {
-  font-size: 54px;
+  font-size: 46px;
+  line-height: 48px;
 }
 @media (min-width: 576px) {
   .croxo-text-h1-xl {
-    font-size: 72px;
+    font-size: 60px;
+    line-height: 58px;
   }
 }
 
@@ -30193,6 +30195,13 @@ progress {
 
 .croxo-text-label-sm {
   font-size: 12px;
+}
+
+.croxo-plain-line-height {
+  line-height: 22px;
+}
+.croxo-plain-line-height * {
+  line-height: 22px;
 }
 
 .croxo-icon-size-micro {
@@ -31071,6 +31080,7 @@ progress {
 .croxo-gallery .croxo-gallery__lightbox .croxo-gallery__lightbox__img-placeholder {
   background: var(--croxo-gallery-focused);
   height: auto;
+  max-height: 80dvh;
   width: 90vw;
 }
 @media (min-width: 768px) {
@@ -31660,16 +31670,16 @@ progress {
   font-weight: normal;
 }
 body {
-  height: 100vh;
+  height: 100dvh;
   overflow-x: hidden;
   overflow-y: hidden;
-  width: 100vw;
+  width: 100dvw;
 }
 body .croxo-body-wrapper {
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -39,6 +39,11 @@ if (!!$email_link || !!$instagram_link) {
                 </span>
             </a>
         <?php } ?>
+        <a href="<?php echo get_site_url(); ?>/privacy-policy/" class="reset-link footer-inner__privacy-policy d-flex align-items-center column-gap-1">
+            <span class="croxo-underline-hover">
+                privacy policy
+            </span>
+        </a>
     </p>
 
 <?php

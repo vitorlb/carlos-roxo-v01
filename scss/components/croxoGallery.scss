@@ -105,6 +105,7 @@
 		.croxo-gallery__lightbox__img-placeholder {
 			background: var(--croxo-gallery-focused);
 			height: auto;
+			max-height: 80dvh;
 			width: 90vw;
 
 			@include media-breakpoint-up(md) {

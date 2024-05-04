@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", (domEvent) => {
 			});
 			const closeBtn = e.querySelector('.croxo-gallery__lightbox__close-btn__wrapper__btn');
 			const lightBox = e.querySelector('.croxo-gallery__lightbox');
-			[closeBtn, lightBox].forEach(el => {
+			[closeBtn].forEach(el => {
 				el.addEventListener('click', (event) => {
 					event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation();
 					currentIndex = null

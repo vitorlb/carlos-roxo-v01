@@ -622,9 +622,11 @@
 
 .croxo-text-h1-xl {
 	font-size: $font-size-h1-xl-mob;
+	line-height: 48px;
 
 	@include media-breakpoint-up(sm) {
 		font-size: $font-size-h1-xl;
+		line-height: 58px;
 	}
 }
 
@@ -642,6 +644,14 @@
 
 .croxo-text-label-sm {
 	font-size: $font-size-label-sm;
+}
+
+.croxo-plain-line-height {
+	line-height: 22px;
+
+	* {
+		line-height: 22px;
+	}
 }
 
 .croxo-icon-size-micro {

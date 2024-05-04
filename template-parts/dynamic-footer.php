@@ -28,7 +28,7 @@ $instagram_display_text = get_option('custom_instagram_text');
 <footer id="site-footer" class="site-footer dynamic-footer croxo-footer py-3 mt-5 border-top-theme-color croxo-font-text--deep <?php echo esc_attr($footer_class); ?>" role="contentinfo">
 	<div class="container px-0">
 		<div class="footer-inner">
-			<p class="d-flex reset-margin column-gap-3">
+			<p class="d-flex flex-column flex-sm-row reset-margin column-gap-3">
 				<?php if (!!$email_link) { ?>
 					<a href="mailto:<?php echo $email_link; ?>" class="reset-link footer-inner__instagram-link d-flex align-items-center croxo-text-label column-gap-1">
 						<span class="material-symbols-outlined material-symbols-light croxo-text-label theme-color">
@@ -47,6 +47,14 @@ $instagram_display_text = get_option('custom_instagram_text');
 						</span>
 					</a>
 				<?php } ?>
+				<a href="<?php echo get_site_url(); ?>/privacy-policy/" class="reset-link tilt-l-2 footer-inner__privacy-policy d-flex align-items-center column-gap-1">
+					<span class="material-symbols-outlined material-symbols-medium croxo-text-label theme-color">
+						shield_person
+					</span>
+					<span class="croxo-underline-hover">
+						privacy policy
+					</span>
+				</a>
 			</p>
 			<?php if ('' !== hello_elementor_get_setting('hello_footer_copyright_text') || $is_editor) : ?>
 				<div class="copyright d-flex justify-content-start justify-content-md-end <?php echo esc_attr(hello_show_or_hide('hello_footer_copyright_display')); ?>">
