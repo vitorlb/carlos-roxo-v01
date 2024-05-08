@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 }
 
 ?>
-<main class="croxo-galinheiro--main-wrapper d-flex flex-column container px-sm-0">
+<main class="croxo-galinheiro--main-wrapper <?php if (!!is_home()) { ?> croxo-galinheiro--main-wrapper--home <?php } ?>  d-flex flex-column container px-sm-0">
 	<div class="croxo-galinheiro--main-wrapper__header">
 		<?php if (!is_home()) {
 		?> 

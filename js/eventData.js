@@ -9,14 +9,14 @@ if (!!document.querySelector('#croxoEventForm')) {
     let contactInputPhone = document.querySelector('.croxo-contact-form__contact-input-wrapper.phone');
     const stickyHeader = croxoEventForm.closest('.croxo-body-wrapper').querySelector('.site-navigation--scroll');
     const footer = croxoEventForm.closest('.croxo-body-wrapper').querySelector('footer');
-console.log('init ------------------>', eventDetailCta)
     contactFormCtas.forEach(contactFormCta => {
         contactFormCta.addEventListener('click', () => {
-            let itemTitle = contactFormCta.closest('.croxo-events-list-item').querySelector('.disco_title__paragraph span').innerHTML;
-            let itemUrl = contactFormCta.closest('.croxo-events-list-item').querySelector('.disco_title__paragraph a').href;
-            !!itemTitle && croxoEventForm.querySelector('.invisible-input--page-title input').setAttribute('value', itemTitle);
-            !!itemUrl && croxoEventForm.querySelector('.invisible-input--page-link input').setAttribute('value', itemUrl);
-
+            if (!!contactFormCta.closest(".croxo-galinheiro--main-wrapper--home")) {
+                let appliedEvent = contactFormCta.closest(".disco_title__text-container")?.querySelector('.disco_title__paragraph span')?.innerHTML;
+                let eventLink = contactFormCta.closest(".disco_title__text-container")?.querySelector('.disco_title__actions-container__post-link')?.href;
+                !!appliedEvent && (document.cookie = `applied_event=${appliedEvent}`); 
+                !!eventLink && (document.cookie = `event_link=${eventLink}`); 
+            }
             croxoEventForm.classList.toggle('d-none');
             aboutMenuItem.forEach(e => {
                 !e.classList.contains('menu-item--about--disabled')
@@ -29,7 +29,6 @@ console.log('init ------------------>', eventDetailCta)
     });
 
     croxoEventForm.querySelector('.croxo-contact-form__close-btn span').addEventListener('click', () => {
-        croxoEventForm.classList.toggle('d-none');
         aboutMenuItem.forEach(e => {
             e.classList.remove('menu-item--about--disabled');
         });
@@ -58,13 +57,6 @@ console.log('init ------------------>', eventDetailCta)
 
     if (!!eventDetailCta) {
         eventDetailCta.addEventListener('click', () => {
-            let itemTitle = !!eventDetailCta.closest('.croxo-custom-post-type').querySelector('.ctp-header-wrapper__text-info-wrapper .entry-title')
-                                ? eventDetailCta.closest('.croxo-custom-post-type').querySelector('.ctp-header-wrapper__text-info-wrapper .entry-title').innerHTML 
-                                : eventDetailCta.closest('.croxo-custom-post-type').querySelector('.ctp-header-wrapper__text-info-wrapper .page-header h1').innerHTML;
-            let itemUrl = window.location.href;
-            !!itemTitle && croxoEventForm.querySelector('.invisible-input--page-title input').setAttribute('value', itemTitle);
-            !!itemUrl && croxoEventForm.querySelector('.invisible-input--page-link input').setAttribute('value', itemUrl);
-
             croxoEventForm.classList.toggle('d-none');
             aboutMenuItem.forEach(e => {
                 !e.classList.contains('menu-item--about--disabled')
@@ -73,7 +65,3 @@ console.log('init ------------------>', eventDetailCta)
         });
     }
 }
-
-//.croxo-custom-post-type .ctp-header-wrapper__calendar-wrapper .ctp-header-wrapper__calendar-wrapper__apply-link
-
-//contactInput

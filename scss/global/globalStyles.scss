@@ -30,6 +30,26 @@
 	background-color: $croxo-color-black;
 }
 
+//cookie consent
+
+#cookie-notice {
+
+	#cn-accept-cookie {
+		background-color: white !important;
+		border-radius: 0;
+		color: black !important;
+		margin-left: 18px;
+	}
+
+	.cookie-notice-container {
+		font-family: 'Syne' !important;
+
+		* {
+			font-family: 'Syne' !important;
+		}
+	}
+}
+
 //colors
 
 .croxo-color-text {
@@ -532,6 +552,17 @@
 
 .ratio-panoramic {
 	aspect-ratio: 16 / 9;
+}
+
+//recaptcha
+.grecaptcha-badge {
+	right: -130px !important;
+	transform: scale(.7);
+	transform-origin: right center;
+
+	&:hover {
+		right: 0 !important;
+	}
 }
 
 //resets

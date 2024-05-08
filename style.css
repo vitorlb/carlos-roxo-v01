@@ -29362,6 +29362,19 @@ progress {
   background-color: #333333;
 }
 
+#cookie-notice #cn-accept-cookie {
+  background-color: white !important;
+  border-radius: 0;
+  color: black !important;
+  margin-left: 18px;
+}
+#cookie-notice .cookie-notice-container {
+  font-family: "Syne" !important;
+}
+#cookie-notice .cookie-notice-container * {
+  font-family: "Syne" !important;
+}
+
 .croxo-color-text {
   color: #212529;
 }
@@ -30096,6 +30109,15 @@ progress {
 
 .ratio-panoramic {
   aspect-ratio: 16/9;
+}
+
+.grecaptcha-badge {
+  right: -130px !important;
+  transform: scale(0.7);
+  transform-origin: right center;
+}
+.grecaptcha-badge:hover {
+  right: 0 !important;
 }
 
 .reset-button {

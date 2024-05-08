@@ -435,7 +435,7 @@ function grelha_discos()
 	</div>
 	<div class="croxo-work-filters">
 		<div class="d-md-none croxo-work-filters__mobile-btns d-flex align-items-center column-gap-2">
-			<button class="d-block reset-button--soft croxo-work-filters__mobile-btns__filters-modal-btn d-flex align-items-center border-theme-black tilt-t-1">	
+			<button class="d-block reset-button--soft croxo-work-filters__mobile-btns__filters-modal-btn d-flex align-items-center border-theme-black tilt-t-1">
 				<span class="material-symbols-outlined material-symbols-medium croxo-text-filter-reset font-size-11 croxo-color-text tilt-l-6">instant_mix</span>
 				<span class="croxo-font-text croxo-menu-item croxo-color-text ms-2">filters</span>
 			</button>
@@ -461,7 +461,13 @@ function grelha_discos()
 					<?php foreach ($post_types as $post_type) { ?>
 						<label class="d-block position-relative border-theme-black croxo-font-text--deep theme-color-black c-pointer mb-0 flexone flexone-md-unset">
 							<input class="opacity-0 absolute-stretch" type="checkbox" name="post_types[]" value="<?php echo $post_type ?>" <?php checked(in_array($post_type, $selected_post_types)) ?>>
-							<span class="d-block py-1 px-2 croxo-text-filter-item croxo-menu-item theme-color--hover"><?php if (ucfirst(str_replace('_', ' ', $post_type)) == 'Ceramics') { echo 'Sculptures'; } elseif (ucfirst(str_replace('_', ' ', $post_type)) == 'Ilustrations') {echo 'Illustrations'; } else { echo ucfirst(str_replace('_', ' ', $post_type));} ?></span>
+							<span class="d-block py-1 px-2 croxo-text-filter-item croxo-menu-item theme-color--hover"><?php if (ucfirst(str_replace('_', ' ', $post_type)) == 'Ceramics') {
+																															echo 'Sculptures';
+																														} elseif (ucfirst(str_replace('_', ' ', $post_type)) == 'Ilustrations') {
+																															echo 'Illustrations';
+																														} else {
+																															echo ucfirst(str_replace('_', ' ', $post_type));
+																														} ?></span>
 						</label>
 					<?php } ?>
 					<label class="d-none d-md-block ratio-square h-100 position-relative c-pointer  border-theme-black reset-btn px-0 mb-0">
@@ -584,15 +590,15 @@ function events_list($time)
 				}
 				wp_reset_postdata(); // Reset post data
 			} else {
-				?> <span class="croxo-font-text"> <?php 
-				if(!!$time) {
-					echo 'There are currently no upcoming events. New dates will be announced soon. Stay tuned! :)'; 
-				} else {
-					echo 'No posts found in the past.';
-				}
-				?></span> <?php
-			}
-			?>
+			?> <span class="croxo-font-text"> <?php
+												if (!!$time) {
+													echo 'There are currently no upcoming events. New dates will be announced soon. Stay tuned! :)';
+												} else {
+													echo 'No posts found in the past.';
+												}
+												?></span> <?php
+														}
+															?>
 		</ul>
 	</div>
 <?php
@@ -1070,23 +1076,30 @@ add_action('admin_menu', 'add_custom_general_settings');
 // on submit extra info
 
 // Add extra information to Contact Form 7 email
-function custom_modify_contact_form_email($cf7) {
-    // Get the submitted form data
-    $submission = WPCF7_Submission::get_instance();
-    if ($submission) {
-        $posted_data = $submission->get_posted_data();
-        
-        // Get the page ID from the URL
-        $page_id = url_to_postid($_SERVER['HTTP_REFERER']);
-        // Get the page title and URL
-        $page_title = get_the_title($page_id);
-        $page_link = get_permalink($page_id);
-        
-        // Modify email body
-        $mail = $cf7->prop('mail');
-        $mail['body'] .= "\n\nPage Title: $page_title\nPage Link: $page_link";
-        $cf7->set_properties(array('mail' => $mail));
-    }
+function custom_modify_contact_form_email($cf7)
+{
+	// Get the submitted form data
+	$submission = WPCF7_Submission::get_instance();
+	if ($submission) {
+		$posted_data = $submission->get_posted_data();
+		$doc_cookies = '';
+		// Get the page ID from the URL
+		$page_id = url_to_postid($_SERVER['HTTP_REFERER']);
+		// Get the page title and URL
+		$page_title = get_the_title($page_id);
+		$page_link = get_permalink($page_id);
+
+		// Modify email body
+		$doc_cookies .= $_COOKIE['applied_event'];
+		$doc_cookies .= $_COOKIE['event_link'];
+		$mail = $cf7->prop('mail');
+		if ($doc_cookies == '') {
+			$mail['body'] .= "\n\nPage Title: $page_title\nPage Link: $page_link";
+		};
+		if ($doc_cookies != '') {
+			$mail['body'] .= "\n $doc_cookies";
+		};
+		$cf7->set_properties(array('mail' => $mail));
+	}
 }
 add_action('wpcf7_before_send_mail', 'custom_modify_contact_form_email');
-
