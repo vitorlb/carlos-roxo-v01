@@ -93,9 +93,10 @@ body {
     width: 100dvw;
 
     .croxo-body-wrapper {
+        height: 100dvh;
         overflow-x: hidden;
         overflow-y: scroll;
-        height: 100dvh;
+        scroll-behavior: smooth;
         width: 100dvw;
     }
 }

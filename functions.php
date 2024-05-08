@@ -577,7 +577,7 @@ function events_list($time)
 	);
 	?>
 	<div class="croxo--events-list--main-wrapper mt-lg-5">
-		<ul class="croxo--events-list__list d-flex flex-column">
+		<ul class="croxo--events-list__list d-flex row">
 			<?php
 			// Display posts from the past 
 			$query_past = new WP_Query($args);

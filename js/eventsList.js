@@ -18,27 +18,3 @@ document.querySelectorAll('.croxo-galinheiro--main-wrapper')
 			!!pastEvent && pastEvent.scrollIntoView();
 		});
 	});
-
-document.querySelectorAll('.croxo-galinheiro--main-wrapper .croxo-events-list-item')
-	.forEach(e => {
-		let mainWrapper = e.closest('.croxo-galinheiro--main-wrapper');
-		let imgContainer = mainWrapper.querySelector('.croxo-galinheiro--main-wrapper__img-container__wrapper');
-		let imgContainerImg = mainWrapper.querySelector('.croxo-galinheiro--main-wrapper__img-container img');
-		e.querySelector('.disco_title__paragraph a').addEventListener('mouseenter', () => {
-			if (mainWrapper) {
-				if (imgContainer.classList.contains('d-none')) { imgContainerImg.src = e.getAttribute('thumb-path'); }
-				if (imgContainer && !!e.getAttribute('thumb-path')) {
-					if (imgContainer.classList.contains('d-none')) {
-						imgContainer.classList.remove('d-none');
-					} else {
-						imgContainer.classList.add('anim-popout');
-					}
-					setTimeout(() => {
-						imgContainer.classList.remove('anim-popout');
-						if (!imgContainer.classList.contains('d-none')) { imgContainerImg.src = e.getAttribute('thumb-path'); }
-						imgContainer.classList.add('anim-popin');
-					}, 350);
-				}
-			}
-		})
-	});

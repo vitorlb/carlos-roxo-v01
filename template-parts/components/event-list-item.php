@@ -23,7 +23,7 @@ if (!!empty($images) || has_post_thumbnail()) {
 	$event_thumbnail = !empty($images) ? wp_prepare_attachment_for_js($images[0])['url'] : get_the_post_thumbnail_url();
 }
 ?> 
-<li class="croxo-events-list-item d-flex flex-column flex-sm-row"
+<li class="croxo-events-list-item d-flex flex-column col-12 col-sm-6 col-md-4 col-xxl-3"
 	<?php if(!!$event_thumbnail) { ?>
 		thumb-path="<?php echo $event_thumbnail; ?>"
 	<?php } ?>
@@ -31,7 +31,7 @@ if (!!empty($images) || has_post_thumbnail()) {
 	<div class="croxo-events-list-item__calendar-wrapper">
 		<?php get_template_part('template-parts/components/calendar-item') ?>
 	</div>
-	<div class="disco_title__text-container d-flex flexone flex-column tilt-t-lg-6 mt-3 mt-sm-0">
+	<div class="disco_title__text-container d-flex flexone flex-column mt-3">
 		<h2 class="disco_title__paragraph croxo-font-text px-2">
 			<a class="reset-link" href="<?= $permalink ?>">
 				<span><?php the_title() ?><br></span>

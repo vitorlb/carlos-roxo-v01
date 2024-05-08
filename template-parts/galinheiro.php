@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 }
 
 ?>
-<main class="croxo-galinheiro--main-wrapper <?php if (!!is_home()) { ?> croxo-galinheiro--main-wrapper--home <?php } ?>  d-flex flex-column container px-sm-0">
+<main class="croxo-galinheiro--main-wrapper <?php if (!!is_home() || is_page('galinheiro-criativo')) { ?> croxo-galinheiro--main-wrapper--home <?php } ?>  d-flex flex-column container px-sm-0">
 	<div class="croxo-galinheiro--main-wrapper__header">
 		<?php if (!is_home()) {
 		?> 
@@ -49,7 +49,7 @@ if (!defined('ABSPATH')) {
 		</div>
 	</div>
 	<div class="croxo-galinheiro--main-wrapper__list--wrapper d-flex">
-		<div class="croxo-galinheiro--main-wrapper__list--wrapper__list-container flexthree">
+		<div class="croxo-galinheiro--main-wrapper__list--wrapper__list-container flexone">
 			<div id="croxoEventsFuture" class="croxo-galinheiro--main-wrapper__events-list__future">
 				<?php events_list(true) ?>
 			</div>
@@ -59,11 +59,6 @@ if (!defined('ABSPATH')) {
 					<?php events_list(false) ?>
 				</div>
 			<?php } ?>
-		</div>
-		<div class="croxo-galinheiro--main-wrapper__img-container d-none d-lg-block pt-4 flexone">
-			<div class="croxo-galinheiro--main-wrapper__img-container__wrapper d-none anim-popin anim-350 anim-forwards sticky-top border-theme-color">
-				<img src="" alt="">
-			</div>
 		</div>
 	</div>
 	<div id="croxoEventForm" class="croxo-event-form__main-wrapper d-none">

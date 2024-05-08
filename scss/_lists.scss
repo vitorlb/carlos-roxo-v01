@@ -208,10 +208,8 @@
   margin-top: 24px;
 
   .croxo--events-list__list {
-    column-gap: 36px;
     padding: 0;
     row-gap: 36px;
-
   }
 }
 
@@ -245,20 +243,6 @@
         filter: grayscale(100%);
         -webkit-filter: grayscale(100%);
       }
-    }
-  }
-
-  .croxo-events-list-item__calendar-wrapper {
-    @include media-breakpoint-up(sm) {
-      width: 22%;
-    }
-
-    @include media-breakpoint-up(md) {
-      width: 18%;
-    }
-
-    @include media-breakpoint-up(xl) {
-      width: 14%;
     }
   }
 

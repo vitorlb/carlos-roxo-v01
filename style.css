@@ -30884,7 +30884,6 @@ progress {
   margin-top: 24px;
 }
 .croxo--events-list--main-wrapper .croxo--events-list__list {
-  column-gap: 36px;
   padding: 0;
   row-gap: 36px;
 }
@@ -30917,21 +30916,6 @@ progress {
   width: 100%;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
-}
-@media (min-width: 576px) {
-  .croxo-events-list-item .croxo-events-list-item__calendar-wrapper {
-    width: 22%;
-  }
-}
-@media (min-width: 768px) {
-  .croxo-events-list-item .croxo-events-list-item__calendar-wrapper {
-    width: 18%;
-  }
-}
-@media (min-width: 1200px) {
-  .croxo-events-list-item .croxo-events-list-item__calendar-wrapper {
-    width: 14%;
-  }
 }
 .croxo-events-list-item a {
   color: var(--acid-color);
@@ -31698,9 +31682,10 @@ body {
   width: 100dvw;
 }
 body .croxo-body-wrapper {
+  height: 100dvh;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: 100dvh;
+  scroll-behavior: smooth;
   width: 100dvw;
 }
 

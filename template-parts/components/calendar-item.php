@@ -17,7 +17,7 @@ $day = date('j', strtotime($postDate));
 $year = date('Y', strtotime($postDate));
 ?>
 <div class="croxo-calendar-day d-flex flex-column border-theme-color">
-  <div class="croxo-calendar-day__stripe background-theme-color d-flex px-5 px-sm-2 py-1 my-sm-0 justify-content-between flexone">
+  <div class="croxo-calendar-day__stripe background-theme-color d-flex px-5 py-1 justify-content-between flexone">
     <span class="material-symbols-outlined material-symbols-filled croxo-color-white d-flex align-items-center">
       fiber_manual_record
     </span>
