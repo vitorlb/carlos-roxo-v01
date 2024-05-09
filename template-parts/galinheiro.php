@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 <main class="croxo-galinheiro--main-wrapper <?php if (!!is_home() || is_page('galinheiro-criativo')) { ?> croxo-galinheiro--main-wrapper--home <?php } ?>  d-flex flex-column container px-sm-0">
 	<div class="croxo-galinheiro--main-wrapper__header">
 		<?php if (!is_home()) {
-		?> 
+		?>
 			<div class="header__main-info d-flex flex-column-reverse flex-md-row align-items-center mb-5 mt-md-4 column-gap-10">
 				<div class="header__icon d-flex justify-content-end pt-2 pt-md-0">
 					<span class="croxo-icons croxo-iconslava_logo-01-mirror croxo-text-giant-sm"></span>
@@ -28,6 +28,7 @@ if (!defined('ABSPATH')) {
 				</div>
 			</div>
 		<?php
+			get_template_part('template-parts/components/gallery-galinheiro');
 		} ?>
 		<div class="
 						croxo-galinheiro--main-wrapper__events-list__future__title-container
@@ -35,9 +36,7 @@ if (!defined('ABSPATH')) {
 						flex-column
 						flex-md-row 
 						justify-content-start
-						justify-content-md-between
-
-						<?php if (is_home()) { ?> mt-5 <?php } ?>
+						justify-content-md-between mt-5
 						">
 			<h1 class="theme-color-black croxo-font-text croxo-text-title px-4 py-1 border-theme-black font-size-17 text-center text-md-left">Upcoming events!</h1>
 			<?php if (!is_home()) { ?>

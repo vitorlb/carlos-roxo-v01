@@ -31024,6 +31024,19 @@ progress {
 .croxo-gallery.croxo-gallery--img-focused .croxo-gallery__gallery-item * {
   pointer-events: none !important;
 }
+@media (min-width: 768px) {
+  .croxo-gallery.croxo-gallery--galinheiro {
+    scroll-snap-type: unset;
+  }
+}
+@media (min-width: 768px) {
+  .croxo-gallery.croxo-gallery--galinheiro .croxo-gallery__gallery-item {
+    flex-grow: 0;
+    flex-basis: content;
+    height: 300px;
+    width: 100%;
+  }
+}
 .croxo-gallery .croxo-gallery__gallery-item {
   border: 2px solid #333333;
   height: 300px;
@@ -31049,6 +31062,32 @@ progress {
     object-fit: cover;
     width: 100%;
   }
+}
+@media (max-width: 767.98px) {
+  .croxo-gallery .croxo-gallery__gallery-item.croxo-animations-gallery__video-wrapper {
+    position: relative;
+  }
+}
+@media (max-width: 767.98px) {
+  .croxo-gallery .croxo-gallery__gallery-item.croxo-animations-gallery__video-wrapper::after {
+    bottom: 0;
+    content: " ";
+    left: 0;
+    height: 80%;
+    position: absolute;
+    margin: auto 0;
+    right: 0;
+    top: 0;
+    z-index: 3;
+  }
+}
+.croxo-gallery .croxo-gallery__gallery-item .croxo-gallery__gallery-item__img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 .croxo-gallery .croxo-gallery__lightbox {
   background-color: rgba(255, 255, 255, 0.85);

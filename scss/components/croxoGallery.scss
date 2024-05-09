@@ -30,6 +30,21 @@
 		}
 	}
 
+	&.croxo-gallery--galinheiro {
+		@include media-breakpoint-up(md) {
+			scroll-snap-type: unset;
+		}
+
+		.croxo-gallery__gallery-item {
+			@include media-breakpoint-up(md) {
+				flex-grow: 0;
+				flex-basis: content;
+				height: 300px;
+				width: 100%;
+			}
+		}
+	}
+
 	.croxo-gallery__gallery-item {
 		border: 2px solid $croxo-color-black;
 		height: 300px;
@@ -57,7 +72,34 @@
 			}
 		}
 
-		.croxo-gallery__gallery-item__img {}
+		&.croxo-animations-gallery__video-wrapper {
+			@include media-breakpoint-down(md) {
+				position: relative;
+			}
+
+			&::after {
+				@include media-breakpoint-down(md) {
+					bottom: 0;
+					content: ' ';
+					left: 0;
+					height: 80%;
+					position: absolute;
+					margin: auto 0;
+					right: 0;
+					top: 0;
+					z-index: 3;
+				}
+			}
+		}
+
+		.croxo-gallery__gallery-item__img {
+			user-drag: none;
+			user-select: none;
+			-moz-user-select: none;
+			-webkit-user-drag: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
 	}
 
 	.croxo-gallery__lightbox {

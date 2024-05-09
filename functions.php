@@ -696,6 +696,14 @@ function enqueue_croxo_gallery()
 
 add_action('wp_enqueue_scripts', 'enqueue_croxo_gallery');
 
+function enqueue_croxo_gallery_galinheiro()
+{
+	wp_register_script('croxo-gallery-galinheiro-js', get_stylesheet_directory_uri() . '/js/croxoGalleryGalinheiro.js', [], get_stylesheet_directory_uri() . '/js/croxoGalleryGalinheiro.js', true);
+	wp_enqueue_script('croxo-gallery-galinheiro-js');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_croxo_gallery_galinheiro');
+
 function enqueue_filters_mobile_modal()
 {
 	wp_register_script('enqueue-filters-mobile-modal', get_stylesheet_directory_uri() . '/js/filtersMobileModal.js', [], get_stylesheet_directory_uri() . '/js/filtersMobileModal.js', true);
