@@ -38,7 +38,8 @@ if (!!document.querySelector('#croxoEventForm')) {
     });
 
     contactTypeButtons.forEach(e => {
-        e.addEventListener('click', () => {
+        e.addEventListener('click', (event) => {
+            event.preventDefault();
             e.classList.contains('contact-types--inactive')
                 && (
                     e.classList.remove('contact-types--inactive'),

@@ -41,7 +41,8 @@ if (!!document.querySelector('#croxoContactForm')) {
             (!!fetchedData) && (contactForm.querySelector('.invisible-input--page-link input').setAttribute('value', customFormData.permalink))
         );
     contactTypeButtons.forEach(e => {
-        e.addEventListener('click', () => {
+        e.addEventListener('click', (event) => {
+            event.preventDefault();
             e.classList.contains('contact-types--inactive')
                 && (
                     e.classList.remove('contact-types--inactive'),
@@ -110,7 +111,8 @@ if (!!document.querySelector('#croxoEventForm')) {
             (!!fetchedData) && (contactForm.querySelector('.invisible-input--page-link input').setAttribute('value', customFormData.permalink))
         );
     contactTypeButtons.forEach(e => {
-        e.addEventListener('click', () => {
+        e.addEventListener('click', (event) => {
+            event.preventDefault();
             e.classList.contains('contact-types--inactive')
                 && (
                     e.classList.remove('contact-types--inactive'),
