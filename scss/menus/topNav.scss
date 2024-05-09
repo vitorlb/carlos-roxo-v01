@@ -94,13 +94,13 @@
 						position: absolute;
 						right: 24px;
 						top: 34px;
-						width: 64vw;
+						width: 64dvw;
 						z-index: 3;
 
 						@include media-breakpoint-up(md) {
 							left: 18px;
 							right: unset;
-							width: 28vw;
+							width: 28dvw;
 						}
 
 						* {
@@ -228,7 +228,7 @@
 								top: 44px;
 
 								@include media-breakpoint-only(md) {
-									width: 45vw;
+									width: 45dvw;
 								}
 
 								@include media-breakpoint-up(md) {

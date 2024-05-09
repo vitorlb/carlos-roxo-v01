@@ -106,18 +106,22 @@
 			background: var(--croxo-gallery-focused);
 			height: auto;
 			max-height: 80dvh;
-			width: 90vw;
+			width: 90dvw;
 
 			@include media-breakpoint-up(md) {
-				height: 80vh;
+				height: 80dvh;
 				width: auto;
 			}
 
 			img {
 				border: 2px solid var(--acid-color);
 				height: 100%;
-				object-fit: contain;
+				object-fit: cover;
 				width: 100%;
+
+				@include media-breakpoint-up(md) {
+					object-fit: contain;
+				}
 			}
 		}
 	}

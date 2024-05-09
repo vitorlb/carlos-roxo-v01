@@ -31087,19 +31087,24 @@ progress {
   background: var(--croxo-gallery-focused);
   height: auto;
   max-height: 80dvh;
-  width: 90vw;
+  width: 90dvw;
 }
 @media (min-width: 768px) {
   .croxo-gallery .croxo-gallery__lightbox .croxo-gallery__lightbox__img-placeholder {
-    height: 80vh;
+    height: 80dvh;
     width: auto;
   }
 }
 .croxo-gallery .croxo-gallery__lightbox .croxo-gallery__lightbox__img-placeholder img {
   border: 2px solid var(--acid-color);
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
+}
+@media (min-width: 768px) {
+  .croxo-gallery .croxo-gallery__lightbox .croxo-gallery__lightbox__img-placeholder img {
+    object-fit: contain;
+  }
 }
 
 .croxo-calendar-day {
@@ -31274,13 +31279,13 @@ progress {
   background-color: rgba(255, 255, 255, 0.8);
   bottom: 0;
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   justify-content: center;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
-  width: 100vw;
+  width: 100dvw;
   z-index: 3;
 }
 .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper,
@@ -31290,7 +31295,7 @@ progress {
   display: flex;
   flex-direction: column;
   row-gap: 9px;
-  width: 90vw;
+  width: 90dvw;
 }
 @media (min-width: 992px) {
   .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper,
@@ -31301,13 +31306,13 @@ progress {
 @media (min-width: 992px) {
   .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper,
   .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper {
-    width: 70vw;
+    width: 70dvw;
   }
 }
 @media (min-width: 1200px) {
   .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper,
   .croxo-event-form__main-wrapper .croxo-contact-form__form-wrapper {
-    width: 40vw;
+    width: 40dvw;
   }
 }
 .croxo-contact-form__main-wrapper .croxo-contact-form__form-wrapper.message-sent > *:not(.croxo-contact-form__message-sent):not(.croxo-contact-form__close-btn),
@@ -31455,14 +31460,14 @@ progress {
   position: absolute;
   right: 24px;
   top: 34px;
-  width: 64vw;
+  width: 64dvw;
   z-index: 3;
 }
 @media (min-width: 768px) {
   .site-navigation .menu-topnav-container .menu li.about-menu-item .about-menu-item__about-content {
     left: 18px;
     right: unset;
-    width: 28vw;
+    width: 28dvw;
   }
 }
 .site-navigation .menu-topnav-container .menu li.about-menu-item .about-menu-item__about-content * {
@@ -31573,7 +31578,7 @@ progress {
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .site-navigation--scroll .container .site-navigation .menu-topnav-container .menu li.about-menu-item .about-menu-item__about-content {
-    width: 45vw;
+    width: 45dvw;
   }
 }
 @media (min-width: 768px) {
