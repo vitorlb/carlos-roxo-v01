@@ -100,6 +100,23 @@
 			-webkit-user-select: none;
 			-ms-user-select: none;
 		}
+
+		.croxo-gallery__gallery-item__swipe-indicator {
+			bottom: 0;
+			left: 0;
+			position: absolute;
+			right: 0;
+
+			.swipe-indicator__wrapper {
+				background-color: #ffffff76;
+				border-radius: 20px;
+
+				span {
+					color: var(--acid-color);
+					font-size: 18px;
+				}
+			}
+		}
 	}
 
 	.croxo-gallery__lightbox {

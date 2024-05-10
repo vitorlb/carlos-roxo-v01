@@ -31089,6 +31089,20 @@ progress {
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+.croxo-gallery .croxo-gallery__gallery-item .croxo-gallery__gallery-item__swipe-indicator {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+.croxo-gallery .croxo-gallery__gallery-item .croxo-gallery__gallery-item__swipe-indicator .swipe-indicator__wrapper {
+  background-color: rgba(255, 255, 255, 0.462745098);
+  border-radius: 20px;
+}
+.croxo-gallery .croxo-gallery__gallery-item .croxo-gallery__gallery-item__swipe-indicator .swipe-indicator__wrapper span {
+  color: var(--acid-color);
+  font-size: 18px;
+}
 .croxo-gallery .croxo-gallery__lightbox {
   background-color: rgba(255, 255, 255, 0.85);
   display: flex;

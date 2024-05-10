@@ -21,7 +21,9 @@ if (!!$animations) {
 <?php
 $images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
 ?>
-<div class="croxo-gallery d-flex flex-row flex-md-column row-gap-50 column-gap-50 w-100 <?php if (!$images && !$animations) {echo 'd-none';} ?>">
+<div class="croxo-gallery d-flex flex-row flex-md-column row-gap-50 column-gap-50 w-100 <?php if (!$images && !$animations) {
+																							echo 'd-none';
+																						} ?>">
 	<?php
 	if ($images || !!$animations) {
 		if ($count > 0 && $postType == 'animation') {
@@ -30,8 +32,15 @@ $images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
 		foreach ($images as $image) {
 			$attachment = wp_prepare_attachment_for_js($image);
 	?>
-			<div class="croxo-gallery__gallery-item c-pointer">
+			<div class="croxo-gallery__gallery-item position-relative c-pointer">
 				<img class="croxo-gallery__gallery-item__img img-cover" src="<?php echo $attachment['url'] ?>" alt="">
+				<div class="croxo-gallery__gallery-item__swipe-indicator d-md-none d-flex justify-content-center pb-1 transition-all-550 p-events-none--deep">
+					<div class="swipe-indicator__wrapper d-flex justify-content-center align-items-center p-3">
+						<span class="material-symbols-outlined">
+							swipe
+						</span>
+					</div>
+				</div>
 			</div>
 		<?php
 		}
