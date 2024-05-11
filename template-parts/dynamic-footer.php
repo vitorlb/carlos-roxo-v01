@@ -46,13 +46,21 @@ $instagram_display_text = get_option('custom_instagram_text');
 							<?php echo $instagram_display_text; ?>
 						</span>
 					</a>
-				<?php } ?>
-				<a href="<?php echo get_site_url(); ?>/privacy-policy/" class="reset-link tilt-l-2 footer-inner__privacy-policy d-flex align-items-center column-gap-1">
+				<?php } ?> 
+				<a href="<?php echo get_site_url(); ?>/privacy-policy/#croxoPrivacyPolicy" class="reset-link tilt-l-2 footer-inner__privacy-policy d-flex align-items-center column-gap-1">
 					<span class="material-symbols-outlined material-symbols-medium croxo-text-label theme-color">
 						shield_person
 					</span>
 					<span class="croxo-underline-hover">
 						privacy policy
+					</span>
+				</a>
+				<span class="tilt-x-8 ">
+					|
+				</span>
+				<a href="<?php echo get_site_url(); ?>/privacy-policy/" class="reset-link tilt-l-2 footer-inner__privacy-policy d-flex align-items-center column-gap-1">
+					<span class="croxo-underline-hover">
+						terms and conditions
 					</span>
 				</a>
 			</p>
