@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) {
 						justify-content-start
 						justify-content-md-between mt-5
 						">
-			<h1 class="theme-color-black croxo-font-text croxo-text-title px-4 py-1 border-theme-black font-size-17 text-center text-md-left">Upcoming events!</h1>
+			<h1 class="theme-color-black croxo-background-white croxo-font-text croxo-text-title px-4 py-1 border-theme-black font-size-17 text-center text-md-left">Upcoming events!</h1>
 			<?php if (!is_home()) { ?>
 				<h5 class="croxo-galinheiro--main-wrapper__events-list__future__title-container__slide-to-past events-list-slide-to theme-color croxo-font-text align-items-center d-flex justify-content-end justify-content-MD-start c-pointer">
 					<span>Slide to past events</span>
@@ -54,7 +54,7 @@ if (!defined('ABSPATH')) {
 			</div>
 			<?php if (!is_home()) { ?>
 				<div id="croxoEventsPast" class="croxo-galinheiro--main-wrapper__events-list__past mt-5">
-					<h1 class="theme-color-black croxo-font-text croxo-text-title px-4 py-1 border-theme-black font-size-17 text-center text-md-left">Past events</h1>
+					<h1 class="theme-color-black croxo-background-white croxo-font-text croxo-text-title px-4 py-1 border-theme-black font-size-17 text-center text-md-left">Past events</h1>
 					<?php events_list(false) ?>
 				</div>
 			<?php } ?>
