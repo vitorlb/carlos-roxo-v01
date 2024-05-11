@@ -745,6 +745,14 @@ function enqueue_scrollNav()
 
 add_action('wp_enqueue_scripts', 'enqueue_scrollNav');
 
+function enqueue_scrollPastEvents()
+{
+	wp_register_script('scroll-past-events', get_stylesheet_directory_uri() . '/js/scrollPastEvents.js', [], get_stylesheet_directory_uri() . '/js/scrollPastEvents.js', true);
+	wp_enqueue_script('scroll-past-events');
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_scrollPastEvents');
+
 function enqueue_formData()
 {
 	wp_register_script('form-data', get_stylesheet_directory_uri() . '/js/formData.js', [], get_stylesheet_directory_uri() . '/js/formData.js', true);

@@ -97,6 +97,10 @@ body {
         overflow-x: hidden;
         overflow-y: scroll;
         scroll-behavior: smooth;
+        transition: background-color 650ms;
         width: 100dvw;
+        &.on-past-list {
+            background-color: rgb(235, 235, 235);
+        }
     }
 }
