@@ -30935,6 +30935,9 @@ progress {
 .croxo-events-list-item .disco_title__text-container > *:last-child {
   padding-bottom: 8px;
 }
+.croxo-events-list-item .disco_title__text-container .disco_title__paragraph {
+  font-size: 24px;
+}
 .croxo-events-list-item .disco_title__text-container .disco_title__excerpt {
   font-size: 18px;
   padding-top: 0;

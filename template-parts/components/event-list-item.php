@@ -32,17 +32,17 @@ if (!!empty($images) || has_post_thumbnail()) {
 		<?php get_template_part('template-parts/components/calendar-item') ?>
 	</div>
 	<div class="disco_title__text-container d-flex flexone flex-column mt-3">
-		<h2 class="disco_title__paragraph croxo-font-text px-2">
+		<h2 class="disco_title__paragraph croxo-font-text">
 			<a class="reset-link" href="<?= $permalink ?>">
 				<span><?php the_title() ?><br></span>
 			</a>
 		</h2>
 		<?php if (!empty($excerpt)) { ?>
-			<span class="disco_title__excerpt croxo-font-text px-2">
+			<span class="disco_title__excerpt croxo-font-text">
 				<?php echo $excerpt; ?>
 			</span>
 		<?php } ?>
-		<div class="disco_title__actions-container d-flex px-2 pt-2">
+		<div class="disco_title__actions-container d-flex pt-2">
 			<?php if (!!$time) {
 			?>
 				<a class="disco_title__actions-container__apply-link reset-link d-flex align-items-center c-pointer">
