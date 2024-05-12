@@ -20,6 +20,7 @@ if (!!$animations) {
 ?>
 <?php
 $images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
+$imgs_count = count($images);
 ?>
 <div class="croxo-gallery d-flex flex-row flex-md-column row-gap-50 column-gap-50 w-100 <?php if (!$images && !$animations) {
 																							echo 'd-none';
@@ -34,13 +35,19 @@ $images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
 	?>
 			<div class="croxo-gallery__gallery-item position-relative c-pointer">
 				<img class="croxo-gallery__gallery-item__img img-cover" src="<?php echo $attachment['url'] ?>" alt="">
-				<div class="croxo-gallery__gallery-item__swipe-indicator d-md-none d-flex justify-content-center pb-1 transition-all-550 p-events-none--deep">
-					<div class="swipe-indicator__wrapper d-flex justify-content-center align-items-center p-3">
-						<span class="material-symbols-outlined">
-							swipe
-						</span>
+				<?php
+				if ($imgs_count > 1) {
+				?>
+					<div class="croxo-gallery__gallery-item__swipe-indicator d-md-none d-flex justify-content-center pb-1 transition-all-550 p-events-none--deep">
+						<div class="swipe-indicator__wrapper d-flex justify-content-center align-items-center p-3">
+							<span class="material-symbols-outlined">
+								swipe
+							</span>
+						</div>
 					</div>
-				</div>
+				<?php
+				}
+				?>
 			</div>
 		<?php
 		}
@@ -63,18 +70,24 @@ $images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
 				</span>
 			</button>
 		</div>
-		<div class="croxo-gallery__lightbox__nav-btns__wrapper container d-flex align-items-center justify-content-end justify-content-md-between p-events-none absolute-stretch-md pe-4 pe-md-0 mt-2 mt-md-0">
-			<div class="croxo-gallery__lightbox__nav-btns__wrapper__btn prev-btn reset-button p-events-all c-pointer">
-				<span class="material-symbols-outlined theme-color">
-					arrow_back
-				</span>
+		<?php
+		if ($imgs_count > 1) {
+		?>
+			<div class="croxo-gallery__lightbox__nav-btns__wrapper container d-flex align-items-center justify-content-end justify-content-md-between p-events-none absolute-stretch-md pe-4 pe-md-0 mt-2 mt-md-0">
+				<div class="croxo-gallery__lightbox__nav-btns__wrapper__btn prev-btn reset-button p-events-all c-pointer">
+					<span class="material-symbols-outlined theme-color">
+						arrow_back
+					</span>
+				</div>
+				<div class="croxo-gallery__lightbox__nav-btns__wrapper__btn next-btn reset-button p-events-all c-pointer ps-3 ps-md-0">
+					<span class="material-symbols-outlined theme-color">
+						arrow_forward
+					</span>
+				</div>
 			</div>
-			<div class="croxo-gallery__lightbox__nav-btns__wrapper__btn next-btn reset-button p-events-all c-pointer ps-3 ps-md-0">
-				<span class="material-symbols-outlined theme-color">
-					arrow_forward
-				</span>
-			</div>
-		</div>
+		<?php
+		}
+		?>
 		<div class="croxo-gallery__lightbox__img-placeholder">
 			<img class="croxo-gallery__lightbox__img-placeholder__img" src="" alt="">
 		</div>
