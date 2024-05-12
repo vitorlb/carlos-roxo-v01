@@ -9,27 +9,29 @@
 if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
- 
+
 $custom_post_args = array(
-    'post_type' => 'galinheiro_text', // Your custom post type slug
-    'posts_per_page' => 1, // Limit to 1 post
+	'post_type' => 'galinheiro_text', // Your custom post type slug
+	'posts_per_page' => 1, // Limit to 1 post
 );
 
 $custom_query = new WP_Query($custom_post_args);
 
 if ($custom_query->have_posts()) {
-    while ($custom_query->have_posts()) {
-        $custom_query->the_post();
+	while ($custom_query->have_posts()) {
+		$custom_query->the_post();
 		$postType = get_post_type();
 		$animations = get_post_meta(get_the_ID(), '_animations', true);
 		$count = null;
 		// Ensure both arrays have the same length 
 		if (!!$animations) {
 			$count = count($animations);
-		} 
+		}
 		$images = get_post_meta(get_the_ID(), '_igmb_image_gallery_id', true);
-		?>
-		<div class="croxo-gallery croxo-gallery--galinheiro d-flex flex-row row-gap-50 column-gap-50 w-100 <?php if (!$images && !$animations) {echo 'd-none';} ?>">
+?>
+		<div class="croxo-gallery croxo-gallery--galinheiro d-flex flex-row row-gap-50 column-gap-50 w-100 <?php if (!$images && !$animations) {
+																												echo 'd-none';
+																											} ?>">
 			<?php
 			if ($images || !!$animations) {
 				if ($count > 0 && $postType == 'animation') {
@@ -38,8 +40,15 @@ if ($custom_query->have_posts()) {
 				foreach ($images as $image) {
 					$attachment = wp_prepare_attachment_for_js($image);
 			?>
-					<div class="croxo-gallery__gallery-item c-pointer">
+					<div class="croxo-gallery__gallery-item c-pointer position-relative">
 						<img draggable="false" (dragstart)="false;" class="croxo-gallery__gallery-item__img img-cover" src="<?php echo $attachment['url'] ?>" alt="">
+						<div class="croxo-gallery__gallery-item__swipe-indicator d-md-none d-flex justify-content-center pb-1 transition-all-550 p-events-none--deep">
+							<div class="swipe-indicator__wrapper d-flex justify-content-center align-items-center p-3">
+								<span class="material-symbols-outlined">
+									swipe
+								</span>
+							</div>
+						</div>
 					</div>
 				<?php
 				}
@@ -79,12 +88,11 @@ if ($custom_query->have_posts()) {
 				</div>
 			</div>
 		</div> <?php
-    }
-    // Restore original post data
-    wp_reset_postdata();
-} else {
-    echo 'No posts found.';
-}
+			}
+			// Restore original post data
+			wp_reset_postdata();
+		} else {
+			echo 'No posts found.';
+		}
 
 //////////////////
-

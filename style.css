@@ -31107,8 +31107,8 @@ progress {
   right: 0;
 }
 .croxo-gallery .croxo-gallery__gallery-item .croxo-gallery__gallery-item__swipe-indicator .swipe-indicator__wrapper {
-  background-color: rgba(255, 255, 255, 0.462745098);
-  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8509803922);
+  border-radius: 30px;
 }
 .croxo-gallery .croxo-gallery__gallery-item .croxo-gallery__gallery-item__swipe-indicator .swipe-indicator__wrapper span {
   color: var(--acid-color);

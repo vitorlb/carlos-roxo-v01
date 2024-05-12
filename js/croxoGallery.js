@@ -5,9 +5,17 @@ document.addEventListener("DOMContentLoaded", (domEvent) => {
 	!!document.querySelector('.croxo-gallery')
 		&& document.querySelectorAll('.croxo-gallery').forEach(e => {
 			let currentIndex = null;
-			const prevBtn = e.querySelector('.croxo-gallery__lightbox__nav-btns__wrapper__btn.prev-btn')
-			const nextBtn = e.querySelector('.croxo-gallery__lightbox__nav-btns__wrapper__btn.next-btn')
-			const galleryItems = Array.from(e.querySelectorAll('.croxo-gallery__gallery-item'))
+			const prevBtn = e.querySelector('.croxo-gallery__lightbox__nav-btns__wrapper__btn.prev-btn');
+			const nextBtn = e.querySelector('.croxo-gallery__lightbox__nav-btns__wrapper__btn.next-btn');
+			const galleryItems = Array.from(e.querySelectorAll('.croxo-gallery__gallery-item'));
+			e.addEventListener('scroll', () => {
+				console.log('screeel');
+				e.closest('.croxo-gallery').querySelectorAll('.croxo-gallery__gallery-item__swipe-indicator')
+					.forEach(el => {
+						(!el.classList.contains('transparent'))
+							&& el.classList.add('transparent');
+					})
+			});
 			e.querySelectorAll('.croxo-gallery__gallery-item').forEach((el, i) => {
 				el.addEventListener('click', (event) => {
 					!e.classList.contains('croxo-gallery--img-focused') && e.classList.add('croxo-gallery--img-focused');
@@ -21,8 +29,8 @@ document.addEventListener("DOMContentLoaded", (domEvent) => {
 					currentIndex == galleryItems.length - 1 && (
 						!nextBtn.classList.contains('opacity-50') && nextBtn.classList.add('opacity-50'),
 						!!prevBtn.classList.contains('opacity-50') && prevBtn.classList.remove('opacity-50')
-						); 
-					(currentIndex > 0 && currentIndex  < galleryItems.length - 1) && (
+					);
+					(currentIndex > 0 && currentIndex < galleryItems.length - 1) && (
 						!!prevBtn.classList.contains('opacity-50') && prevBtn.classList.remove('opacity-50'),
 						!!nextBtn.classList.contains('opacity-50') && nextBtn.classList.remove('opacity-50')
 					);
@@ -35,7 +43,7 @@ document.addEventListener("DOMContentLoaded", (domEvent) => {
 					event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation();
 					currentIndex = null
 					e.querySelector(':scope .croxo-gallery__lightbox')?.classList.add('d-none');
-					e.classList.remove('croxo-gallery--img-focused'); 
+					e.classList.remove('croxo-gallery--img-focused');
 				});
 			});
 			prevBtn.addEventListener('click', (event) => {
@@ -48,8 +56,8 @@ document.addEventListener("DOMContentLoaded", (domEvent) => {
 				currentIndex == 0
 					? !prevBtn.classList.contains('opacity-50') && prevBtn.classList.add('opacity-50')
 					: !!prevBtn.classList.contains('opacity-50') && prevBtn.classList.remove('opacity-50');
-					currentIndex < galleryItems.length - 1 && !!nextBtn.classList.contains('opacity-50') && nextBtn.classList.remove('opacity-50');
-				});
+				currentIndex < galleryItems.length - 1 && !!nextBtn.classList.contains('opacity-50') && nextBtn.classList.remove('opacity-50');
+			});
 			nextBtn.addEventListener('click', (event) => {
 				event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation();
 				currentIndex < galleryItems.length - 1 && (
@@ -60,7 +68,7 @@ document.addEventListener("DOMContentLoaded", (domEvent) => {
 				currentIndex == galleryItems.length - 1
 					? !nextBtn.classList.contains('opacity-50') && nextBtn.classList.add('opacity-50')
 					: !!nextBtn.classList.contains('opacity-50') && nextBtn.classList.remove('opacity-50');
-					currentIndex > 0 && !!prevBtn.classList.contains('opacity-50') && prevBtn.classList.remove('opacity-50');
+				currentIndex > 0 && !!prevBtn.classList.contains('opacity-50') && prevBtn.classList.remove('opacity-50');
 			});
 		});
 });
