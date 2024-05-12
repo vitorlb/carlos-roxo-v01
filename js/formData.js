@@ -62,7 +62,6 @@ if (!!document.querySelector('#croxoContactForm')) {
         contactForm.querySelector('.wpcf7-form').addEventListener('wpcf7mailsent', (event) => {
         }),
         contactForm.querySelector('.wpcf7-form').addEventListener('wpcf7submit', (event) => {
-            debugger;
             !contactForm.querySelector('.croxo-contact-form__form-wrapper')?.classList.contains('message-sent')
                 && contactForm.querySelector('.croxo-contact-form__form-wrapper')?.classList.add('message-sent');
         })
@@ -132,7 +131,6 @@ if (!!document.querySelector('#croxoEventForm')) {
         contactForm.querySelector('.wpcf7-form').addEventListener('wpcf7mailsent', (event) => {
         }),
         contactForm.querySelector('.wpcf7-form').addEventListener('wpcf7submit', (event) => {
-          //  debugger;
             !contactForm.querySelector('.croxo-contact-form__form-wrapper')?.classList.contains('message-sent')
                 && contactForm.querySelector('.croxo-contact-form__form-wrapper')?.classList.add('message-sent');
         })

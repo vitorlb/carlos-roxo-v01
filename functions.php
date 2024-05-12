@@ -745,14 +745,6 @@ function enqueue_scrollNav()
 
 add_action('wp_enqueue_scripts', 'enqueue_scrollNav');
 
-function enqueue_scrollPastEvents()
-{
-	wp_register_script('scroll-past-events', get_stylesheet_directory_uri() . '/js/scrollPastEvents.js', [], get_stylesheet_directory_uri() . '/js/scrollPastEvents.js', true);
-	wp_enqueue_script('scroll-past-events');
-}
-
-add_action('wp_enqueue_scripts', 'enqueue_scrollPastEvents');
-
 function enqueue_formData()
 {
 	wp_register_script('form-data', get_stylesheet_directory_uri() . '/js/formData.js', [], get_stylesheet_directory_uri() . '/js/formData.js', true);
@@ -1098,23 +1090,20 @@ function custom_modify_contact_form_email($cf7)
 	$submission = WPCF7_Submission::get_instance();
 	if ($submission) {
 		$posted_data = $submission->get_posted_data();
-		$doc_cookies = '';
 		// Get the page ID from the URL
 		$page_id = url_to_postid($_SERVER['HTTP_REFERER']);
 		// Get the page title and URL
 		$page_title = get_the_title($page_id);
 		$page_link = get_permalink($page_id);
 
+		error_log('Mail sent -----> ' . $posted_data['croxo-invi']);
+
 		// Modify email body
-		$doc_cookies .= $_COOKIE['applied_event'];
-		$doc_cookies .= $_COOKIE['event_link'];
 		$mail = $cf7->prop('mail');
-		if ($doc_cookies == '') {
+		if ($posted_data['croxo-invi'] == '') {
 			$mail['body'] .= "\n\nPage Title: $page_title\nPage Link: $page_link";
-		};
-		if ($doc_cookies != '') {
-			$mail['body'] .= "\n $doc_cookies";
-		};
+			error_log('empty field');
+		}
 		$cf7->set_properties(array('mail' => $mail));
 	}
 }
